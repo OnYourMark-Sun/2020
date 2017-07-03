@@ -1,0 +1,47 @@
+//
+//  PrefixHeader.pch
+//  2020
+//
+//  Created by yurong on 2017/6/28.
+//  Copyright © 2017年 yurong. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#define gamerRecord @"gamerRecord"
+#define dictGame  @"dictGameCenter"
+#define dictchallenger  @"dictChallengeCenter"
+
+
+#define UserDefaults(object,key) [[NSUserDefaults standardUserDefaults]setObject:object forKey:key]
+#define UserDefault(key) [[NSUserDefaults standardUserDefaults] objectForKey:key]
+#define IPHONEHIGHT(b) [UIScreen mainScreen].bounds.size.height*((b)/1334.0)
+#define IPHONEWIDTH(a) [UIScreen mainScreen].bounds.size.width*((a)/750.0)
+#define ScreenWidth CGRectGetWidth([UIScreen mainScreen].bounds)
+#define ScreenHeight CGRectGetHeight([UIScreen mainScreen].bounds)
+
+
+#define ColorRGB(r,g,b) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:1]
+#define qianse  [UIColor colorWithHexString:@"#5f5f5f"] //浅色 字体
+#define shense  [UIColor colorWithHexString:@"#323232"] //深色 字体
+#define lvse [UIColor colorWithHexString:@"00a560"]//绿色 字体
+#define qianhuise [UIColor colorWithHexString:@"999999"] //浅灰色 字体
+#define clearCo [UIColor clearColor]   //
+#define whiteCo [UIColor whiteColor]
+#define blackCo [UIColor blackColor]
+#define backgroundCo [UIColor colorWithHexString:@"f2f2f2"] //背景色
+#define YellowCo [UIColor colorWithHexString:@"ffbd3d"] //黄色
+#define cellDownLineCo [UIColor colorWithHexString:@"d8d8d8"]//cell 下边的线
+
+#import "UIColor+Hex.h"
+#import "UIView+PopAlert.h"
+#import "UIView+SDAutoLayout.h"
+#import "myLabel.h"
+#import "myButton.h"
+#import "ChinesePinyin.h"
+#import "MBProgressHUD+Extension.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
