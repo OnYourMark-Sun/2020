@@ -1,3 +1,5 @@
 # 2020
-类似与2048、4096的游戏-oc版
-字典用来存放数据-每次执行StarGame数组接收没有数字的字典，原来字典对应的删除-随机选中改变数组-插回原来数据-每次滑动 用选择排序分别相加相邻且相等的数据后，再用选择排序 进行排序（详情下文）-刷新cell-
+Numeric addition game, similar to 2048,4096
+1, the game can be customized level number;
+2, record the user name, the corresponding level of the top three show
+3, continue to modify and improve......
