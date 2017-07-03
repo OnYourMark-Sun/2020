@@ -26,6 +26,8 @@
     UITextField * mima;
     NSInteger suijinum;
     UIScrollView * scrollvie;
+    CGFloat keyboardHeight;
+    BOOL keyBoardShow;
     //需要记录的数值
      int numViewEmptytype;//空背景类型
     NSString * GameNum;//游戏数量
@@ -51,6 +53,21 @@
     }
     
 }
+-(void)viewDidDisappear:(BOOL)animated{
+    
+    [super viewDidDisappear:YES];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+    
+    keyBoardShow = NO;
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -65,7 +82,69 @@
     [self CreatDown];//用户名 密码 开始but
     
     
+    
+    //键盘😠通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+
+
 }
+
+
+-(void)keyboardWillShow:(NSNotification*)notification{
+    if (keyBoardShow) {
+        return;
+    }
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    
+    CGRect keyboardRect = [aValue CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
+    
+   keyboardHeight = keyboardRect.size.height-IPHONEHIGHT(200);
+    
+    CGRect frame = name.frame;
+    frame.origin.y -= keyboardHeight;
+    name.frame = frame;
+    
+    CGRect framee = mima.frame;
+    framee.origin.y -= keyboardHeight;
+    mima.frame = framee;
+    keyBoardShow = YES;
+    
+    
+}
+-(void)keyboardWillHide:(NSNotification*)notification{
+    
+    if (!keyBoardShow) {
+        return;
+    }
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    
+    CGRect keyboardRect = [aValue CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
+  
+    CGRect frame = name.frame;
+    frame.origin.y += keyboardHeight;
+    name.frame = frame;
+    
+    CGRect framee = mima.frame;
+    framee.origin.y += keyboardHeight;
+    mima.frame = framee;
+    
+    keyBoardShow = NO;
+    
+}
+
+
 -(void)creatData{
     suijinum = 4096*2;
 
@@ -130,6 +209,9 @@
     [self.view addSubview:shezhi];
     
     //选择挑战 数值
+    UILabel * la = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(40), ScreenWidth/3*2-IPHONEHIGHT(50), ScreenWidth-IPHONEWIDTH(80), IPHONEHIGHT(50)) backgroundColor:clearCo title:@"点击数字随机推荐的选项" font:IPHONEHIGHT(35) Alignment:NSTextAlignmentCenter textColor:[UIColor greenColor]];
+    [self.view addSubview:la];
+    
     
     for (int i=0; i<4; i++) {
         
@@ -289,7 +371,8 @@
     if (mima.text.length>0) {
         
         NSString * mimaa = dictChallengeCenter[name.text][mima];
-        if (mimaa) {
+       
+        if (mimaa.length>0) {
             //密码 有值
             if ([mima.text isEqualToString:mimaa]) {
             
@@ -299,7 +382,7 @@
                 
             }else{
                 [MBProgressHUD showText:@"密码错误，请检查用户名／密码" HUDAddedTo:self.view animated:YES afterDelay:1.5];
-                return;
+                
                 
             
             }
@@ -312,7 +395,7 @@
                 
                 [UIView pushAlertTwoActionViewWithMessage:[NSString stringWithFormat:@"是否创建新用户:%@",name.text] Target:self Title:@"提示" oneAlertTitle:@"好的" twoAlertTitle:@"不" oneActionfunc:^{
                     //创建用户啊
-                     NSDictionary * dictname = @{@"mima":mima.text,@"name":name.text,name.text:@{@"game":@{GameNum:@""}}};
+                     NSDictionary * dictname = @{@"mima":mima.text,@"name":name.text,@"game":@{GameNum:@""}};
                     
                     NSMutableDictionary * dictmu = [NSMutableDictionary dictionary];
                     [dictmu setDictionary:dictChallengeCenter];

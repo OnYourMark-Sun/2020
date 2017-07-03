@@ -35,9 +35,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:YES];
-    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-    }
+  
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,6 +44,7 @@
     _numViewEmpty = 3;
     _numViewEmptytype = (int)arc4random()%5;
     self.fd_interactivePopDisabled = YES;
+    
     [self Creatui]; //游戏控制区域布局
     [self CreatUp];//页面中上部分显示
     [self creaDATA]; //数据管理
@@ -311,14 +310,14 @@
     
     StarBut = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    StarBut.frame = CGRectMake(ScreenWidth/2-IPHONEWIDTH(60), IPHONEHIGHT(400), IPHONEWIDTH(200), IPHONEWIDTH(80));
+    StarBut.frame = CGRectMake(ScreenWidth/2-IPHONEWIDTH(80), IPHONEHIGHT(400), IPHONEWIDTH(200), IPHONEWIDTH(80));
     [StarBut addTarget:self action:@selector(button:) forControlEvents:UIControlEventTouchUpInside];
     [StarBut setTitle:@"开始" forState:UIControlStateNormal];
     [StarBut setTitle:@"🔚结束" forState:UIControlStateSelected];
     StarBut.selected = NO;
     StarBut.layer.cornerRadius = IPHONEWIDTH(10);
     StarBut.layer.masksToBounds = YES;
-    StarBut.backgroundColor = [UIColor magentaColor];
+    StarBut.backgroundColor = [UIColor orangeColor];
     StarBut.titleLabel.font = [UIFont boldSystemFontOfSize:IPHONEWIDTH(40)];
     [StarBut setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [StarBut setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
