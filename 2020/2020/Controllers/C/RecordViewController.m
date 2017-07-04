@@ -225,10 +225,11 @@
 -(void)CreatDown{
     
     name = [[UITextField alloc] initWithFrame:CGRectMake(IPHONEWIDTH(50), ScreenWidth+IPHONEHIGHT(160), ScreenWidth-IPHONEWIDTH(200+80), IPHONEHIGHT(110))];
-    name.placeholder = @"输入用户名(字母／数字)";
+    name.placeholder = @"输入用户名";
     name.borderStyle = UITextBorderStyleRoundedRect;
     name.textColor = [UIColor orangeColor];
-
+    name.font = [UIFont boldSystemFontOfSize:IPHONEWIDTH(45)];
+    name.alpha = 0.7;
     [self.view addSubview:name];
 
     //name button
