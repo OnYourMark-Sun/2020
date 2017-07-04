@@ -224,16 +224,16 @@
 
 -(void)CreatDown{
     
-    name = [[UITextField alloc] initWithFrame:CGRectMake(IPHONEWIDTH(50), ScreenWidth+IPHONEHIGHT(160), ScreenWidth-IPHONEWIDTH(200+80), IPHONEHIGHT(110))];
+    name = [[UITextField alloc] initWithFrame:CGRectMake(IPHONEWIDTH(50), ScreenWidth+IPHONEHIGHT(160), ScreenWidth-IPHONEWIDTH(200+80), IPHONEHIGHT(100))];
     name.placeholder = @"输入用户名";
     name.borderStyle = UITextBorderStyleRoundedRect;
     name.textColor = [UIColor orangeColor];
-    name.font = [UIFont boldSystemFontOfSize:IPHONEWIDTH(45)];
+    name.font = [UIFont boldSystemFontOfSize:IPHONEWIDTH(40)];
     name.alpha = 0.7;
     [self.view addSubview:name];
 
     //name button
-    nameTable = [myButton buttonWithType:UIButtonTypeSystem frame:CGRectMake(ScreenWidth-IPHONEWIDTH(220), ScreenWidth+IPHONEHIGHT(170), IPHONEWIDTH(200), IPHONEHIGHT(90)) tag:666 image:@"" andBlock:^(myButton *button) {
+    nameTable = [myButton buttonWithType:UIButtonTypeSystem frame:CGRectMake(ScreenWidth-IPHONEWIDTH(220), ScreenWidth+IPHONEHIGHT(170), IPHONEWIDTH(200), IPHONEHIGHT(80)) tag:666 image:@"" andBlock:^(myButton *button) {
         NSArray * challenger = [dictChallengeCenter allKeys];
         if (!challenger.count) {
             
@@ -364,6 +364,26 @@
         //存在用户
         if ([yonghu containsObject:name.text]) {
 
+            
+            NSDictionary * dictname = dictChallengeCenter[@"game"][GameNum];
+            if (!dictname) {
+                
+            }
+            NSMutableDictionary * dictmu = [NSMutableDictionary dictionary];
+            [dictmu setDictionary:dictChallengeCenter[@"game"]];
+            [dictmu setObject:@"" forKey:GameNum];
+            
+            if(!dictGameCenter[GameNum]){
+                NSMutableDictionary * gamecenter = [NSMutableDictionary dictionary];
+                [gamecenter setDictionary:dictGameCenter];
+                [gamecenter setObject:@{@"gamerRecord1":@{@"name":@"",@"record":@""}} forKey:GameNum];
+                
+                UserDefaults(gamecenter, dictGame);
+            }
+            
+            UserDefaults(dictmu, dictchallenger);
+            gameview.challengeName = name.text;
+            
                 //正确进入
                 [self.navigationController pushViewController:gameview animated:YES];
            
