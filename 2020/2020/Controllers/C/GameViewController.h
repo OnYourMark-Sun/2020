@@ -16,6 +16,5 @@
 
 @property(nonatomic,copy) NSString * challengeName;
 @property(nonatomic,copy) NSString * GameRecord1;
-@property(nonatomic,copy) NSString * GameRecord2;
-@property(nonatomic,copy) NSString * GameRecord3;
+
 @end

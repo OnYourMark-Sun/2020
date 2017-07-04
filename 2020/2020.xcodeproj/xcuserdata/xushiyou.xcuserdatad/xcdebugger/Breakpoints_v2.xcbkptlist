@@ -4,22 +4,6 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "2020/Controllers/C/RecordViewController.m"
-            timestampString = "520587399.017278"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
-            landmarkName = "-beginGame"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
@@ -36,89 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "2020/Controllers/C/RecordViewController.m"
-            timestampString = "520587399.017278"
+            timestampString = "520868488.610708"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
-            landmarkName = "-beginGame"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__33-[RecordViewController beginGame]_block_invoke"
-                  moduleName = "2020"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xushiyou/Desktop/LinShi/2020/2020/Controllers/C/RecordViewController.m"
-                  timestampString = "520587724.769025"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "266"
-                  endingLineNumber = "266"
-                  offsetFromSymbolStart = "105">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.231"
-                  moduleName = "2020"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xushiyou/Desktop/LinShi/2020/2020/Controllers/C/RecordViewController.m"
-                  timestampString = "520587724.770383"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "266"
-                  endingLineNumber = "266"
-                  offsetFromSymbolStart = "108">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.232"
-                  moduleName = "2020"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xushiyou/Desktop/LinShi/2020/2020/Controllers/C/RecordViewController.m"
-                  timestampString = "520587724.771643"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "266"
-                  endingLineNumber = "266"
-                  offsetFromSymbolStart = "59">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__33-[RecordViewController beginGame]_block_invoke.235"
-                  moduleName = "2020"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xushiyou/Desktop/LinShi/2020/2020/Controllers/C/RecordViewController.m"
-                  timestampString = "520587724.772896"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "267"
-                  endingLineNumber = "267"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "2020/Controllers/C/RecordViewController.m"
-            timestampString = "520587399.017278"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "336"
+            endingLineNumber = "336"
             landmarkName = "-beginGame"
             landmarkType = "7">
          </BreakpointContent>
@@ -130,12 +36,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "2020/Controllers/C/GameViewController.m"
-            timestampString = "520587647.255554"
+            timestampString = "520868917.430429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "-StarGame"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "-savegameRecord"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -145,13 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "2020/Controllers/C/RecordViewController.m"
-            timestampString = "520587723.562572"
+            filePath = "2020/Controllers/C/GameViewController.m"
+            timestampString = "520869232.192908"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
-            landmarkName = "-beginGame"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
+            landmarkName = "-timerChangeString:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

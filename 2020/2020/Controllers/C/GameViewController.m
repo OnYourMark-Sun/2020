@@ -81,7 +81,9 @@
         
         //游戏记录对比
         NSMutableDictionary * gamecenter = [NSMutableDictionary dictionary];
-        [gamecenter setDictionary:UserDefault(dictGame)[_GameNum]];
+        NSMutableDictionary * dictgame = [NSMutableDictionary dictionary];
+        [dictgame setDictionary:UserDefault(dictGame)];
+        [gamecenter setDictionary:dictgame[_GameNum]];
         
         
         NSDictionary * recordNew = @{@"name":_challengeName,@"record":[NSString stringWithFormat:@"%ld",timernumber]};
@@ -91,6 +93,8 @@
             
             if  (timernumber < [(gamecenter[@"gamerRecord1"][@"record"]) intValue]) {
                 addString = @"创造本等级历史第一！";
+                [gamecenter setValue:gamecenter[@"gamerRecord2"] forKey:@"gamerRecord3"];
+                [gamecenter setValue:gamecenter[@"gamerRecord1"] forKey:@"gamerRecord2"];
                 [gamecenter setObject:recordNew forKey:@"gamerRecord1"];
             }
             
@@ -98,6 +102,7 @@
                
                 if (timernumber < [(gamecenter[@"gamerRecord2"][@"record"]) intValue]) {
                     addString = @"创造本等级历史第二！";
+                    [gamecenter setValue:gamecenter[@"gamerRecord2"] forKey:@"gamerRecord3"];
                     [gamecenter setObject:recordNew forKey:@"gamerRecord2"];
                 }else if ([(gamecenter[@"gamerRecord3"][@"record"]) intValue]>0){
                     
@@ -130,22 +135,25 @@
             addString = @"创造本等级历史第一！";
             [gamecenter setObject:recordNew forKey:@"gamerRecord1"];
         }
+        [dictgame setValue:gamecenter forKey:_GameNum];
         
+        UserDefaults(dictgame, dictGame);
         
         
         //个人记录对比
         
         NSMutableDictionary * challengerRecord = [NSMutableDictionary dictionary];
+        NSMutableDictionary * dictgamer = [NSMutableDictionary dictionary];
+       
+        [dictgamer setDictionary:UserDefault(dictchallenger)];
         
-        [challengerRecord setDictionary:UserDefault(dictchallenger)[_challengeName][@"game"] ];
-        
-        if ([(challengerRecord[_GameNum]) intValue]>0) {
+        if ([(dictgamer[_challengeName][@"game"][_GameNum]) intValue]>0) {
            
-            if (timernumber < [(challengerRecord[_GameNum]) intValue]) {
+            if (timernumber < [(dictgamer[_challengeName][@"game"][_GameNum]) intValue]) {
                 if (!addString.length) {
                     addString = @"打破个人历史记录！";
                 }
-                [challengerRecord setObject:[NSString stringWithFormat:@"%ld",timernumber] forKey:_GameNum];
+                [dictgamer[_challengeName][@"game"] setObject:[NSString stringWithFormat:@"%ld",timernumber] forKey:_GameNum];
             }
             
         }else{
@@ -153,10 +161,13 @@
             if (!addString.length) {
                 addString = @"打破个人历史记录！";
             }
-            [challengerRecord setObject:[NSString stringWithFormat:@"%ld",timernumber] forKey:_GameNum];
+            [dictgamer[_challengeName][@"game"] setObject:[NSString stringWithFormat:@"%ld",timernumber] forKey:_GameNum];
             
             
         }
+        
+        
+        UserDefaults(dictgamer, dictchallenger);
     
     
 }
@@ -261,17 +272,17 @@
     }
    
     
-    UILabel  * game = [myLabel labelWithframe:CGRectMake(ScreenWidth/2-IPHONEWIDTH(130), IPHONEHIGHT(90), IPHONEWIDTH(260), IPHONEHIGHT(65)) backgroundColor:clearCo title:_GameNum font:IPHONEWIDTH(55) Alignment:NSTextAlignmentCenter textColor:[UIColor yellowColor]];
+    UILabel  * game = [myLabel labelWithframe:CGRectMake(ScreenWidth/2-IPHONEWIDTH(130), IPHONEHIGHT(70), IPHONEWIDTH(260), IPHONEHIGHT(90)) backgroundColor:clearCo title:_GameNum font:IPHONEWIDTH(90) Alignment:NSTextAlignmentCenter textColor:[UIColor yellowColor]];
     
     game.layer.cornerRadius = IPHONEWIDTH(10);
     game.layer.masksToBounds = YES;
     [imgview addSubview:game];
     
-    UILabel  * gameRecord = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(30), IPHONEHIGHT(190), IPHONEWIDTH(300), IPHONEHIGHT(65)) backgroundColor:clearCo title:@"" font:IPHONEWIDTH(40) Alignment:NSTextAlignmentLeft textColor:[UIColor redColor]];
-    if (!_GameRecord1) {
+    UILabel  * gameRecord = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(30), IPHONEHIGHT(90), IPHONEWIDTH(300), IPHONEHIGHT(65)) backgroundColor:clearCo title:@"" font:IPHONEWIDTH(40) Alignment:NSTextAlignmentLeft textColor:[UIColor redColor]];
+    if ([_GameRecord1 isEqualToString:@"00:00:00"]) {
         gameRecord.text = @"你将创造历史";
     }else{
-        gameRecord.text =  [NSString stringWithFormat:@"等级记录：%@",[self timerChangeString:_GameRecord1]];
+        gameRecord.text =  [NSString stringWithFormat:@"%@",_GameRecord1];
     }
     gameRecord.shadowColor = [UIColor grayColor];
     gameRecord.shadowOffset = CGSizeMake(1, 2);
@@ -302,11 +313,11 @@
 -(NSString*)timerChangeString:(NSString*)string{
     
     int time = [string intValue];
-    int miao = time%600;
+    int hao = time/100;
+    int miao = time/100%60;
     int fen = time/6000;
     
-    return [NSString stringWithFormat:@"%d:%d",fen,miao];
-    
+    return [NSString stringWithFormat:@"%02d:%02d:%02d",fen,miao,hao];
 }
 -(void)Creatui{
     
@@ -368,7 +379,7 @@
     
     
     //计时器
-    labelTimer = [myLabel labelWithframe:CGRectMake(ScreenWidth-IPHONEWIDTH(180), IPHONEHIGHT(60), IPHONEWIDTH(150), IPHONEHIGHT(60)) backgroundColor:[UIColor clearColor] title:@"00:00:00" font:IPHONEWIDTH(30) Alignment:NSTextAlignmentCenter textColor:[UIColor whiteColor]];
+    labelTimer = [myLabel labelWithframe:CGRectMake(ScreenWidth-IPHONEWIDTH(180), IPHONEHIGHT(90), IPHONEWIDTH(150), IPHONEHIGHT(60)) backgroundColor:[UIColor clearColor] title:@"00:00:00" font:IPHONEWIDTH(35) Alignment:NSTextAlignmentCenter textColor:[UIColor whiteColor]];
     [imgview addSubview:labelTimer];
 
     

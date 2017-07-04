@@ -160,7 +160,7 @@
     [self.view addSubview:imgViewTop];
     
     //3
-    name3 = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(74), IPHONEHIGHT(174), IPHONEWIDTH(70), IPHONEHIGHT(80)) backgroundColor:clearCo title:@"铜" font:IPHONEWIDTH(30) Alignment:NSTextAlignmentCenter textColor:blackCo];
+    name3 = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(74), IPHONEHIGHT(170), IPHONEWIDTH(70), IPHONEHIGHT(80)) backgroundColor:clearCo title:@"铜" font:IPHONEWIDTH(30) Alignment:NSTextAlignmentCenter textColor:blackCo];
     name3.numberOfLines = 2;
     [imgViewTop addSubview:name3];
     
@@ -169,7 +169,7 @@
     
     
     //1
-    name1 = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(312), IPHONEHIGHT(75), IPHONEWIDTH(90), IPHONEHIGHT(90)) backgroundColor:clearCo title:@"金" font:IPHONEWIDTH(35) Alignment:NSTextAlignmentCenter textColor:blackCo];
+    name1 = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(309), IPHONEHIGHT(75), IPHONEWIDTH(90), IPHONEHIGHT(90)) backgroundColor:clearCo title:@"金" font:IPHONEWIDTH(35) Alignment:NSTextAlignmentCenter textColor:blackCo];
     name1.numberOfLines = 2;
     
     [imgViewTop addSubview:name1];
@@ -227,7 +227,7 @@
     name = [[UITextField alloc] initWithFrame:CGRectMake(IPHONEWIDTH(50), ScreenWidth+IPHONEHIGHT(160), ScreenWidth-IPHONEWIDTH(200+80), IPHONEHIGHT(100))];
     name.placeholder = @"输入用户名";
     name.borderStyle = UITextBorderStyleRoundedRect;
-    name.textColor = [UIColor orangeColor];
+    name.textColor = [UIColor greenColor];
     name.font = [UIFont boldSystemFontOfSize:IPHONEWIDTH(40)];
     name.alpha = 0.7;
     [self.view addSubview:name];
@@ -318,10 +318,11 @@
 -(NSString*)timerChangeString:(NSString*)string{
     
     int time = [string intValue];
-    int miao = time%600;
+    int hao = time/100;
+    int miao = time/100%60;
     int fen = time/6000;
     
-    return [NSString stringWithFormat:@"%d:%d",fen,miao];
+    return [NSString stringWithFormat:@"%02d:%02d:%02d",fen,miao,hao];
     
 }
 //游戏开始与否判断
@@ -331,8 +332,8 @@
     gameview.GameNum = GameNum;
     
     gameview.GameRecord1 = record1.text;
-    gameview.GameRecord2 = record2.text;
-    gameview.GameRecord3 = record3.text;
+    
+    
     //游戏等级
     if (!GameNum.length) {
         
