@@ -34,6 +34,7 @@
     NSDictionary * dictGameCenter;//关卡的数据 ： key 关卡数值； value：dict（gamerRecord123:用时间最少的前三个时间 ；gameRecordname123）
     NSDictionary * dictChallengeCenter;//用户字典 key：用户名pinyin  value：dict（game:{gamename:@{gamenaem:time}};name:str;mima:mima）
     
+    int butNearFuture;
 }
 @end
 
@@ -46,24 +47,24 @@
     dictGameCenter = UserDefault(dictGame);
     
     dictChallengeCenter = UserDefault(dictchallenger);
-    
+    keyBoardShow = NO;
     if (scrollvie) {
         [scrollvie removeFromSuperview];
         
     }
-    
+    butNearFuture = 0;
 }
 -(void)viewDidDisappear:(BOOL)animated{
     
     [super viewDidDisappear:YES];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillShowNotification
-                                                  object:nil];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillHideNotification
-                                                  object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self
+//                                                    name:UIKeyboardWillShowNotification
+//                                                  object:nil];
+//    
+//    [[NSNotificationCenter defaultCenter] removeObserver:self
+//                                                    name:UIKeyboardWillHideNotification
+//                                                  object:nil];
     
     keyBoardShow = NO;
 
@@ -209,7 +210,7 @@
     [self.view addSubview:shezhi];
     
     //选择挑战 数值
-    UILabel * la = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(40), ScreenWidth/3*2-IPHONEHIGHT(50), ScreenWidth-IPHONEWIDTH(80), IPHONEHIGHT(50)) backgroundColor:clearCo title:@"点击数字随机推荐的选项" font:IPHONEHIGHT(35) Alignment:NSTextAlignmentCenter textColor:[UIColor greenColor]];
+    UILabel * la = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(40), ScreenWidth/3*2-IPHONEHIGHT(50), ScreenWidth-IPHONEWIDTH(80), IPHONEHIGHT(50)) backgroundColor:clearCo title:@"点击数字爽玩近期关卡" font:IPHONEHIGHT(35) Alignment:NSTextAlignmentCenter textColor:[UIColor greenColor]];
     [self.view addSubview:la];
     
     
@@ -358,7 +359,13 @@
     if(!name.text.length){
         
         [UIView pushAlertTwoActionViewWithMessage:@"还没有输入用户名，直接进入游戏，不保存游戏记录" Target:self Title:@"提示" oneAlertTitle:@"直接游戏" twoAlertTitle:@"返回" oneActionfunc:^{
-            
+            if(!dictGameCenter[GameNum]){
+                NSMutableDictionary * gamecenter = [NSMutableDictionary dictionary];
+                [gamecenter setDictionary:dictGameCenter];
+                [gamecenter setObject:@{@"gamerRecord1":@{@"name":@"",@"record":@""}} forKey:GameNum];
+                
+                UserDefaults(gamecenter, dictGame);
+            }
             [self.navigationController pushViewController:gameview animated:YES];
             
             
@@ -366,8 +373,9 @@
             return ;
         }];
         
-    }
+    }else{
     
+        //在有用户名输入的情况下判断密码
     if (mima.text.length>0) {
         
         NSString * mimaa = dictChallengeCenter[name.text][mima];
@@ -383,16 +391,14 @@
             }else{
                 [MBProgressHUD showText:@"密码错误，请检查用户名／密码" HUDAddedTo:self.view animated:YES afterDelay:1.5];
                 
-                
             
             }
             
             
         }else{
             
-            //没有相应的密码 看看该用户存在吗。不存在是否创建
-            if (!dictChallengeCenter[name.text]) {
-                
+            //没有相应的密码 不存在是否创建
+        
                 [UIView pushAlertTwoActionViewWithMessage:[NSString stringWithFormat:@"是否创建新用户:%@",name.text] Target:self Title:@"提示" oneAlertTitle:@"好的" twoAlertTitle:@"不" oneActionfunc:^{
                     //创建用户啊
                      NSDictionary * dictname = @{@"mima":mima.text,@"name":name.text,@"game":@{GameNum:@""}};
@@ -400,7 +406,14 @@
                     NSMutableDictionary * dictmu = [NSMutableDictionary dictionary];
                     [dictmu setDictionary:dictChallengeCenter];
                     [dictmu setObject:dictname forKey:name.text];
-                   
+                    if(!dictGameCenter[GameNum]){
+                        NSMutableDictionary * gamecenter = [NSMutableDictionary dictionary];
+                        [gamecenter setDictionary:dictGameCenter];
+                        [gamecenter setObject:@{@"gamerRecord1":@{@"name":@"",@"record":@""}} forKey:GameNum];
+                        
+                        UserDefaults(gamecenter, dictGame);
+                    }
+                  
                     UserDefaults(dictmu, dictchallenger);
                     gameview.challengeName = name.text;
                     [self.navigationController pushViewController:gameview animated:YES];
@@ -408,8 +421,7 @@
                 } twoActionfunc:^{
                     return ;
                 }];
-
-            }
+  
         
     }
         
@@ -418,7 +430,7 @@
         
     }
     
-    
+    }
     
 }
 
@@ -452,49 +464,21 @@
 }
 //点击 数字 给出推荐的 选项
 -(void)butAction:(UIButton*)but{
-    UIAlertController * tuijian = [UIAlertController alertControllerWithTitle:@"" message:@"关卡推荐" preferredStyle:UIAlertControllerStyleActionSheet];
    
     NSArray * arrayNumkey = [dictGameCenter allKeys];
-    for (int i=0; i<5; i++) {
+    if (arrayNumkey.count==0) {
+        [MBProgressHUD showText:@"还没有游戏记录，可随机选取" HUDAddedTo:self.view animated:YES afterDelay:1.5];
         
-        if (i+1<arrayNumkey.count) {
-            UIAlertAction * tui = [UIAlertAction actionWithTitle:arrayNumkey[i] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
-                [self SetGuanButWith:arrayNumkey[i]];
-                
-            }];
-            
-            [tuijian addAction:tui];
-            
-        }else{
-            
-            NSString * suiji = [self suijishuwithInt];
-            UIAlertAction * tui = [UIAlertAction actionWithTitle:suiji style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
-                [self SetGuanButWith:suiji ];
-            }];
-            
-            [tuijian addAction:tui];
-            
-        }
-        
+        return;
     }
+    [self SetGuanButWith:arrayNumkey[butNearFuture%arrayNumkey.count]];
     
-    UIAlertAction * quxiao = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
-        
-    }];
-    
-    [tuijian addAction:quxiao];
-    
-    [self presentViewController:tuijian animated:YES completion:nil];
+    butNearFuture++;
     
 }
 
 -(void)suiji{
-    
-    
-    
+   
    [self SetGuanButWith:[self suijishuwithInt]];
 
 
@@ -512,9 +496,12 @@
 }
 -(void)shezhi{
     
+    //弹出数字键盘
+    
     UIAlertController * shenum = [UIAlertController alertControllerWithTitle:@"关卡设置" message:@"请输入任意四位关卡数" preferredStyle:UIAlertControllerStyleAlert];
     [shenum addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         textField.placeholder =@"输入各位为偶数的数值";
+        textField.keyboardType = UIKeyboardTypeNumberPad;
     }];
     
     UIAlertAction * haode = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -526,7 +513,7 @@
         }else{
             //
            
-            
+            [self SetGuanButWith:shuzhi.text];
         }
         
         
