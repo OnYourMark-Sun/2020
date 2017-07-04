@@ -35,9 +35,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:YES];
-    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-    }
+  
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,6 +44,7 @@
     _numViewEmpty = 3;
     _numViewEmptytype = (int)arc4random()%5;
     self.fd_interactivePopDisabled = YES;
+    
     [self Creatui]; //游戏控制区域布局
     [self CreatUp];//页面中上部分显示
     [self creaDATA]; //数据管理
@@ -76,7 +75,7 @@
     
     NSString * addString;
     
-    if (_challengeName) {
+    if (_challengeName.length >0) {
         //是登陆进来的
         
         
@@ -87,20 +86,52 @@
         
         NSDictionary * recordNew = @{@"name":_challengeName,@"record":[NSString stringWithFormat:@"%ld",timernumber]};
         
-        if (timernumber < [(gamecenter[@"gamerRecord1"][@"record"]) intValue]) {
+        //1\ 原来记录是否大于0-》是否大于这个
+        if ( [(gamecenter[@"gamerRecord1"][@"record"]) intValue] > 0) {
+            
+            if  (timernumber < [(gamecenter[@"gamerRecord1"][@"record"]) intValue]) {
+                addString = @"创造本等级历史第一！";
+                [gamecenter setObject:recordNew forKey:@"gamerRecord1"];
+            }
+            
+            else if ([(gamecenter[@"gamerRecord2"][@"record"]) intValue] >0){
+               
+                if (timernumber < [(gamecenter[@"gamerRecord2"][@"record"]) intValue]) {
+                    addString = @"创造本等级历史第二！";
+                    [gamecenter setObject:recordNew forKey:@"gamerRecord2"];
+                }else if ([(gamecenter[@"gamerRecord3"][@"record"]) intValue]>0){
+                    
+                    if (timernumber < [(gamecenter[@"gamerRecord3"][@"record"]) intValue]) {
+                        addString = @"创造本等级历史第三！";
+                        [gamecenter setObject:recordNew forKey:@"gamerRecord3"];
+
+                    }
+                    
+                }else{
+                    
+                    addString = @"创造本等级历史第三！";
+                    [gamecenter setObject:recordNew forKey:@"gamerRecord3"];
+
+                }
+               
+                
+            }else{
+                
+                addString = @"创造本等级历史第二！";
+                [gamecenter setObject:recordNew forKey:@"gamerRecord2"];
+                
+                
+            }
+            
+            
+            
+        }else{
             
             addString = @"创造本等级历史第一！";
             [gamecenter setObject:recordNew forKey:@"gamerRecord1"];
-            
-        }else if (timernumber < [(gamecenter[@"gamerRecord2"][@"record"]) intValue]){
-            addString = @"创造本等级历史第二！";
-            [gamecenter setObject:recordNew forKey:@"gamerRecord2"];
-            
-        }else if (timernumber < [(gamecenter[@"gamerRecord3"][@"record"]) intValue]){
-            addString = @"创造本等级历史第三！";
-            [gamecenter setObject:recordNew forKey:@"gamerRecord3"];
-            
         }
+        
+        
         
         //个人记录对比
         
@@ -108,13 +139,24 @@
         
         [challengerRecord setDictionary:UserDefault(dictchallenger)[_challengeName][@"game"] ];
         
-        if (timernumber < [(challengerRecord[_GameNum]) intValue]) {
+        if ([(challengerRecord[_GameNum]) intValue]>0) {
+           
+            if (timernumber < [(challengerRecord[_GameNum]) intValue]) {
+                if (!addString.length) {
+                    addString = @"打破个人历史记录！";
+                }
+                [challengerRecord setObject:[NSString stringWithFormat:@"%ld",timernumber] forKey:_GameNum];
+            }
+            
+        }else{
+            
             if (!addString.length) {
                 addString = @"打破个人历史记录！";
             }
             [challengerRecord setObject:[NSString stringWithFormat:@"%ld",timernumber] forKey:_GameNum];
             
-    }
+            
+        }
     
     
 }
@@ -311,14 +353,14 @@
     
     StarBut = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    StarBut.frame = CGRectMake(ScreenWidth/2-IPHONEWIDTH(60), IPHONEHIGHT(400), IPHONEWIDTH(200), IPHONEWIDTH(80));
+    StarBut.frame = CGRectMake(ScreenWidth/2-IPHONEWIDTH(80), IPHONEHIGHT(400), IPHONEWIDTH(200), IPHONEWIDTH(80));
     [StarBut addTarget:self action:@selector(button:) forControlEvents:UIControlEventTouchUpInside];
     [StarBut setTitle:@"开始" forState:UIControlStateNormal];
     [StarBut setTitle:@"🔚结束" forState:UIControlStateSelected];
     StarBut.selected = NO;
     StarBut.layer.cornerRadius = IPHONEWIDTH(10);
     StarBut.layer.masksToBounds = YES;
-    StarBut.backgroundColor = [UIColor magentaColor];
+    StarBut.backgroundColor = [UIColor orangeColor];
     StarBut.titleLabel.font = [UIFont boldSystemFontOfSize:IPHONEWIDTH(40)];
     [StarBut setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [StarBut setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
