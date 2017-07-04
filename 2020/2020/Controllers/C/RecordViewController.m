@@ -23,8 +23,7 @@
     
     UITextField * name;
     UIButton * nameTable;
-    UITextField * mima;
-    NSInteger suijinum;
+    
     UIScrollView * scrollvie;
     CGFloat keyboardHeight;
     BOOL keyBoardShow;
@@ -32,7 +31,7 @@
      int numViewEmptytype;//空背景类型
     NSString * GameNum;//游戏数量
     NSDictionary * dictGameCenter;//关卡的数据 ： key 关卡数值； value：dict（gamerRecord123:用时间最少的前三个时间 ；gameRecordname123）
-    NSDictionary * dictChallengeCenter;//用户字典 key：用户名pinyin  value：dict（game:{gamename:@{gamenaem:time}};name:str;mima:mima）
+    NSDictionary * dictChallengeCenter;//用户字典 key：用户名pinyin  value：dict（game:{gamename:@{gamenaem:time}};name:str;）
     
     int butNearFuture;
 }
@@ -74,17 +73,14 @@
     
     //隐藏导航栏
     self.navigationController.navigationBar.hidden = YES;
-    
-    //self.view.backgroundColor = ColorRGB(236, 200, 135);
-//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"mofa.jpg"]];
-    
+ 
     [self creatData];
     [self CreatUp];
     [self CreatDown];//用户名 密码 开始but
     
     
     
-    //键盘😠通知
+    //键盘通知
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
@@ -98,7 +94,7 @@
 
 }
 
-
+//键盘升起
 -(void)keyboardWillShow:(NSNotification*)notification{
     if (keyBoardShow) {
         return;
@@ -109,19 +105,17 @@
     CGRect keyboardRect = [aValue CGRectValue];
     keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
     
-   keyboardHeight = keyboardRect.size.height-IPHONEHIGHT(200);
+   keyboardHeight = keyboardRect.size.height-IPHONEHIGHT(240);
     
     CGRect frame = name.frame;
+    frame.origin.x += IPHONEWIDTH(80);
     frame.origin.y -= keyboardHeight;
     name.frame = frame;
-    
-    CGRect framee = mima.frame;
-    framee.origin.y -= keyboardHeight;
-    mima.frame = framee;
     keyBoardShow = YES;
     
     
 }
+//键盘隐藏
 -(void)keyboardWillHide:(NSNotification*)notification{
     
     if (!keyBoardShow) {
@@ -134,12 +128,9 @@
     keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
   
     CGRect frame = name.frame;
+    frame.origin.x -= IPHONEWIDTH(80);
     frame.origin.y += keyboardHeight;
     name.frame = frame;
-    
-    CGRect framee = mima.frame;
-    framee.origin.y += keyboardHeight;
-    mima.frame = framee;
     
     keyBoardShow = NO;
     
@@ -147,7 +138,7 @@
 
 
 -(void)creatData{
-    suijinum = 4096*2;
+    
 
    
 }
@@ -233,22 +224,15 @@
 
 -(void)CreatDown{
     
-    name = [[UITextField alloc] initWithFrame:CGRectMake(IPHONEWIDTH(50), ScreenWidth+IPHONEHIGHT(130), ScreenWidth-IPHONEWIDTH(200+80), IPHONEHIGHT(90))];
+    name = [[UITextField alloc] initWithFrame:CGRectMake(IPHONEWIDTH(50), ScreenWidth+IPHONEHIGHT(160), ScreenWidth-IPHONEWIDTH(200+80), IPHONEHIGHT(110))];
     name.placeholder = @"输入用户名(字母／数字)";
     name.borderStyle = UITextBorderStyleRoundedRect;
     name.textColor = [UIColor orangeColor];
-    
-    mima = [[UITextField alloc] initWithFrame:CGRectMake(IPHONEWIDTH(50),ScreenWidth+IPHONEHIGHT(230), ScreenWidth-IPHONEWIDTH(100), IPHONEHIGHT(90))];
-    mima.placeholder = @"输入密码(字母／数字)";
-    mima.borderStyle = UITextBorderStyleRoundedRect;
-    mima.textColor = [UIColor orangeColor];
-    
+
     [self.view addSubview:name];
-    [self.view addSubview:mima];
-    
-    
+
     //name button
-    nameTable = [myButton buttonWithType:UIButtonTypeSystem frame:CGRectMake(ScreenWidth-IPHONEWIDTH(220), ScreenWidth+IPHONEHIGHT(140), IPHONEWIDTH(200), IPHONEHIGHT(80)) tag:666 image:@"" andBlock:^(myButton *button) {
+    nameTable = [myButton buttonWithType:UIButtonTypeSystem frame:CGRectMake(ScreenWidth-IPHONEWIDTH(220), ScreenWidth+IPHONEHIGHT(170), IPHONEWIDTH(200), IPHONEHIGHT(90)) tag:666 image:@"" andBlock:^(myButton *button) {
         NSArray * challenger = [dictChallengeCenter allKeys];
         if (!challenger.count) {
             
@@ -258,7 +242,7 @@
        
         
         
-        scrollvie = [[UIScrollView alloc] initWithFrame:CGRectMake(ScreenWidth-IPHONEWIDTH(220), ScreenWidth+IPHONEHIGHT(230), IPHONEWIDTH(200), challenger.count<3?challenger.count*IPHONEHIGHT(70):IPHONEHIGHT(70)*3)];
+        scrollvie = [[UIScrollView alloc] initWithFrame:CGRectMake(ScreenWidth-IPHONEWIDTH(220), ScreenWidth+IPHONEHIGHT(260), IPHONEWIDTH(200), challenger.count<3?challenger.count*IPHONEHIGHT(70):IPHONEHIGHT(70)*3)];
         scrollvie.contentSize =CGSizeMake(IPHONEWIDTH(80), challenger.count*IPHONEHIGHT(70));
         scrollvie.scrollEnabled = YES;
         scrollvie.backgroundColor = clearCo;
@@ -312,7 +296,7 @@
 }
 -(NSString *)suijishuwithInt{
     int num = (int)(arc4random()%9);
-    int zong = suijinum;
+    int zong = 4096*2;
     for (int i=0; i<num; i++) {
         zong = zong/2;
     }
@@ -374,34 +358,20 @@
         }];
         
     }else{
-    
-        //在有用户名输入的情况下判断密码
-    if (mima.text.length>0) {
-        
-        NSString * mimaa = dictChallengeCenter[name.text][mima];
-       
-        if (mimaa.length>0) {
-            //密码 有值
-            if ([mima.text isEqualToString:mimaa]) {
-            
-                //密码正确进入
+  
+        NSArray * yonghu = [dictChallengeCenter allKeys];
+        //存在用户
+        if ([yonghu containsObject:name.text]) {
+
+                //正确进入
                 [self.navigationController pushViewController:gameview animated:YES];
-                
-                
-            }else{
-                [MBProgressHUD showText:@"密码错误，请检查用户名／密码" HUDAddedTo:self.view animated:YES afterDelay:1.5];
-                
-            
-            }
-            
-            
+           
         }else{
-            
+
             //没有相应的密码 不存在是否创建
-        
                 [UIView pushAlertTwoActionViewWithMessage:[NSString stringWithFormat:@"是否创建新用户:%@",name.text] Target:self Title:@"提示" oneAlertTitle:@"好的" twoAlertTitle:@"不" oneActionfunc:^{
                     //创建用户啊
-                     NSDictionary * dictname = @{@"mima":mima.text,@"name":name.text,@"game":@{GameNum:@""}};
+                     NSDictionary * dictname = @{@"name":name.text,@"game":@{GameNum:@""}};
                     
                     NSMutableDictionary * dictmu = [NSMutableDictionary dictionary];
                     [dictmu setDictionary:dictChallengeCenter];
@@ -422,23 +392,15 @@
                     return ;
                 }];
   
-        
     }
         
-    }else{
-        [MBProgressHUD showText:@"请输入密码" HUDAddedTo:self.view animated:YES afterDelay:1.5];
-        
-    }
-    
-    }
+       }
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
-    
-    
+   
 }
 //设置关卡显示的数值
 -(void)SetGuanButWith:(NSString*)string{
