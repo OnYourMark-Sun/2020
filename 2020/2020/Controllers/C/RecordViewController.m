@@ -7,6 +7,7 @@
 //
 
 #import "RecordViewController.h"
+#import "UMessage.h"
 #import "GameViewController.h"
 @interface RecordViewController ()
 {
@@ -51,6 +52,7 @@
         [scrollvie removeFromSuperview];
         
     }
+    [self Gamerecordlabel];//刷新游戏排名
     butNearFuture = 0;
 }
 -(void)viewDidDisappear:(BOOL)animated{
@@ -78,8 +80,8 @@
     [self CreatUp];
     [self CreatDown];//用户名 密码 开始but
     
-    
-    
+    //插屏消息
+    [UMessage addCardMessageWithLabel:@"game"];
     //键盘通知
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -91,7 +93,7 @@
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
 
-
+    
 }
 
 //键盘升起

@@ -56,6 +56,8 @@
 		0561FE881F0508FA00FF0480 /* xuanzhuan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0561FE851F0508FA00FF0480 /* xuanzhuan.jpg */; };
 		0561FE891F0508FA00FF0480 /* zhima.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0561FE861F0508FA00FF0480 /* zhima.jpg */; };
 		0561FE8B1F050B5B00FF0480 /* bang.png in Resources */ = {isa = PBXBuildFile; fileRef = 0561FE8A1F050B5B00FF0480 /* bang.png */; };
+		05C07B941F0C776F005A5C66 /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C07B921F0C776F005A5C66 /* libUMessage_Sdk_1.5.0a.a */; };
+		05C07B971F0C7794005A5C66 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C07B961F0C7794005A5C66 /* UserNotifications.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +153,11 @@
 		0561FE851F0508FA00FF0480 /* xuanzhuan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xuanzhuan.jpg; sourceTree = "<group>"; };
 		0561FE861F0508FA00FF0480 /* zhima.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zhima.jpg; sourceTree = "<group>"; };
 		0561FE8A1F050B5B00FF0480 /* bang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bang.png; sourceTree = "<group>"; };
+		05C07B921F0C776F005A5C66 /* libUMessage_Sdk_1.5.0a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.5.0a.a; sourceTree = "<group>"; };
+		05C07B931F0C776F005A5C66 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
+		05C07B961F0C7794005A5C66 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		05C07B981F0C77BD005A5C66 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		05C07B9A1F0C77C7005A5C66 /* 2020.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 2020.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +165,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05C07B971F0C7794005A5C66 /* UserNotifications.framework in Frameworks */,
+				05C07B941F0C776F005A5C66 /* libUMessage_Sdk_1.5.0a.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +234,7 @@
 				0561FE241F03AD3400FF0480 /* 2020Tests */,
 				0561FE2F1F03AD3400FF0480 /* 2020UITests */,
 				0561FE091F03AD3300FF0480 /* Products */,
+				05C07B951F0C7794005A5C66 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -241,6 +251,7 @@
 		0561FE0A1F03AD3300FF0480 /* 2020 */ = {
 			isa = PBXGroup;
 			children = (
+				05C07B9A1F0C77C7005A5C66 /* 2020.entitlements */,
 				0561FE411F03AD8E00FF0480 /* Controllers */,
 				0561FE451F03AD8E00FF0480 /* Resouces */,
 				0561FE0E1F03AD3300FF0480 /* AppDelegate.h */,
@@ -329,6 +340,7 @@
 		0561FE451F03AD8E00FF0480 /* Resouces */ = {
 			isa = PBXGroup;
 			children = (
+				05C07B841F0C76C8005A5C66 /* YouMeng */,
 				0538DF631F09F0730098ED7F /* UINavigationController+FDFullscreenPopGesture.h */,
 				0538DF641F09F0730098ED7F /* UINavigationController+FDFullscreenPopGesture.m */,
 				053140231F06439800BF3D6C /* MBProgressHUD */,
@@ -377,6 +389,32 @@
 				0561FE711F04E6BB00FF0480 /* jing.jpg */,
 			);
 			path = Imagedata;
+			sourceTree = "<group>";
+		};
+		05C07B841F0C76C8005A5C66 /* YouMeng */ = {
+			isa = PBXGroup;
+			children = (
+				05C07B911F0C776F005A5C66 /* UMessage_Sdk_1.5.0a */,
+			);
+			path = YouMeng;
+			sourceTree = "<group>";
+		};
+		05C07B911F0C776F005A5C66 /* UMessage_Sdk_1.5.0a */ = {
+			isa = PBXGroup;
+			children = (
+				05C07B921F0C776F005A5C66 /* libUMessage_Sdk_1.5.0a.a */,
+				05C07B931F0C776F005A5C66 /* UMessage.h */,
+			);
+			path = UMessage_Sdk_1.5.0a;
+			sourceTree = "<group>";
+		};
+		05C07B951F0C7794005A5C66 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05C07B981F0C77BD005A5C66 /* libz.tbd */,
+				05C07B961F0C7794005A5C66 /* UserNotifications.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,6 +486,14 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 6SYF7XHQWP;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					0561FE201F03AD3400FF0480 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -709,11 +755,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = 2020/2020.entitlements;
 				DEVELOPMENT_TEAM = 6SYF7XHQWP;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/2020/PrefixHeader.pch";
 				INFOPLIST_FILE = 2020/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/2020/Resouces/YouMeng/UMessage_Sdk_All_1.5.0a/UMessage_Sdk_1.5.0a",
+					"$(PROJECT_DIR)/2020/Resouces/YouMeng/UMessage_Sdk_1.5.0a",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-020";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -723,11 +776,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = 2020/2020.entitlements;
 				DEVELOPMENT_TEAM = 6SYF7XHQWP;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/2020/PrefixHeader.pch";
 				INFOPLIST_FILE = 2020/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/2020/Resouces/YouMeng/UMessage_Sdk_All_1.5.0a/UMessage_Sdk_1.5.0a",
+					"$(PROJECT_DIR)/2020/Resouces/YouMeng/UMessage_Sdk_1.5.0a",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-020";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
