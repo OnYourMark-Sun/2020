@@ -57,6 +57,7 @@
 		0561FE8B1F050B5B00FF0480 /* bang.png in Resources */ = {isa = PBXBuildFile; fileRef = 0561FE8A1F050B5B00FF0480 /* bang.png */; };
 		05C07B941F0C776F005A5C66 /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C07B921F0C776F005A5C66 /* libUMessage_Sdk_1.5.0a.a */; };
 		05C07B971F0C7794005A5C66 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C07B961F0C7794005A5C66 /* UserNotifications.framework */; };
+		CDCB486C1F0E811700EF6DE9 /* 555.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDCB486B1F0E811700EF6DE9 /* 555.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,7 @@
 		05C07B961F0C7794005A5C66 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		05C07B981F0C77BD005A5C66 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		05C07B9A1F0C77C7005A5C66 /* 2020.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 2020.entitlements; sourceTree = "<group>"; };
+		CDCB486B1F0E811700EF6DE9 /* 555.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 555.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				053140321F065BB100BF3D6C /* shoubei.jpg */,
+				CDCB486B1F0E811700EF6DE9 /* 555.jpg */,
 				051E186F1F0E46D10017FFE4 /* jinguan.jpg */,
 				053140151F06162000BF3D6C /* shizhe.jpg */,
 				053140381F06648C00BF3D6C /* mofa.jpg */,
@@ -546,6 +549,7 @@
 				053140141F06145200BF3D6C /* 9.png in Resources */,
 				0531400C1F06145200BF3D6C /* 1.png in Resources */,
 				0561FE181F03AD3300FF0480 /* Assets.xcassets in Resources */,
+				CDCB486C1F0E811700EF6DE9 /* 555.jpg in Resources */,
 				0561FE871F0508FA00FF0480 /* liangdian.jpg in Resources */,
 				053140221F06268A00BF3D6C /* suiji.png in Resources */,
 				053140111F06145200BF3D6C /* 6.png in Resources */,

@@ -9,7 +9,7 @@
 #import "RecordViewController.h"
 #import "UMessage.h"
 #import "GameViewController.h"
-@interface RecordViewController ()
+@interface RecordViewController ()<UITextFieldDelegate>
 {
     //jilu
     UILabel * name3;
@@ -24,10 +24,9 @@
     
     UITextField * name;
     UIButton * nameTable;
-    
     UIScrollView * scrollvie;
-    CGFloat keyboardHeight;
     BOOL keyBoardShow;
+    CGFloat keyBoardheight;
     //需要记录的数值
      int numViewEmptytype;//空背景类型
     NSString * GameNum;//游戏数量
@@ -50,11 +49,8 @@
     [self Gamerecordlabel];//刷新游戏排名
     
     keyBoardShow = NO;
-    if (scrollvie) {
-        [scrollvie removeFromSuperview];
-        
-    }
-   
+    [scrollvie removeFromSuperview];
+    nameTable.selected = NO;
     butNearFuture = 0;
 }
 -(void)viewDidDisappear:(BOOL)animated{
@@ -112,12 +108,12 @@
     
     CGRect keyboardRect = [aValue CGRectValue];
     keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
-    
-   keyboardHeight = keyboardRect.size.height-IPHONEHIGHT(240);
+    keyBoardheight =keyboardRect.size.height-IPHONEHIGHT(240);
+   
     
     CGRect frame = name.frame;
     frame.origin.x += IPHONEWIDTH(80);
-    frame.origin.y -= keyboardHeight;
+    frame.origin.y -= keyBoardheight;
     name.frame = frame;
     keyBoardShow = YES;
     
@@ -137,7 +133,7 @@
   
     CGRect frame = name.frame;
     frame.origin.x -= IPHONEWIDTH(80);
-    frame.origin.y += keyboardHeight;
+    frame.origin.y += keyBoardheight;
     name.frame = frame;
     
     keyBoardShow = NO;
@@ -235,13 +231,17 @@
     name = [[UITextField alloc] initWithFrame:CGRectMake(IPHONEWIDTH(50), ScreenWidth+IPHONEHIGHT(160), ScreenWidth-IPHONEWIDTH(200+80), IPHONEHIGHT(100))];
     name.placeholder = @"输入用户名";
     name.borderStyle = UITextBorderStyleRoundedRect;
-    name.textColor = [UIColor greenColor];
+    name.textColor = [UIColor orangeColor];
     name.font = [UIFont boldSystemFontOfSize:IPHONEWIDTH(40)];
     name.alpha = 0.7;
+    name.delegate = self;
+    name.keyboardType = UIReturnKeyDone;
     [self.view addSubview:name];
 
     //name button
-    nameTable = [myButton buttonWithType:UIButtonTypeSystem frame:CGRectMake(ScreenWidth-IPHONEWIDTH(220), ScreenWidth+IPHONEHIGHT(170), IPHONEWIDTH(200), IPHONEHIGHT(80)) tag:666 image:@"" andBlock:^(myButton *button) {
+    nameTable = [myButton buttonWithType:UIButtonTypeCustom frame:CGRectMake(ScreenWidth-IPHONEWIDTH(220), ScreenWidth+IPHONEHIGHT(170), IPHONEWIDTH(200), IPHONEHIGHT(80)) tag:666 image:@"" andBlock:^(myButton *button) {
+        
+        if (nameTable.selected == NO) {
         NSArray * challenger = [dictChallengeCenter allKeys];
         if (!challenger.count) {
             
@@ -256,6 +256,7 @@
         scrollvie.scrollEnabled = YES;
         scrollvie.backgroundColor = clearCo;
         scrollvie.bounces  = YES;
+        nameTable.selected = YES;
         [self.view addSubview:scrollvie];
     
         for (int i=0; i<challenger.count; i++) {
@@ -263,7 +264,7 @@
             UIButton * butt = [myButton buttonWithType:UIButtonTypeSystem frame:CGRectMake(0,i*IPHONEHIGHT(70), IPHONEWIDTH(200), IPHONEHIGHT(60)) title:challenger[i] andBackground:ColorRGB(240, 143, 70) tag:i andBlock:^(myButton *button) {
                 
                 name.text =challenger[button.tag];
-                
+                nameTable.selected = NO;
                 [scrollvie removeFromSuperview];
                
             }];
@@ -274,10 +275,18 @@
             [scrollvie addSubview:butt];
             
         }
+            
+            
+        }else{
+            
+            nameTable.selected = NO;
+            [scrollvie removeFromSuperview];
+        }
         
     }];
     nameTable.backgroundColor = [UIColor orangeColor];
     [nameTable setTitle:@"历史玩家" forState:UIControlStateNormal];
+    nameTable.selected = NO;
     [nameTable setTitleColor:ColorRGB(71, 56, 105) forState:UIControlStateNormal];
     nameTable.titleLabel.font = [UIFont boldSystemFontOfSize:IPHONEWIDTH(35)];
      [self.view addSubview:nameTable];
@@ -369,7 +378,12 @@
         }];
         
     }else{
-  
+        if (name.text.length>4) {
+            
+            [UIView pushAlertViewWithMessage:@"名字长度超过4个字符了" Target:self Title:@"提示" AlertTitle:@"知道啦"];
+            return;
+        }
+        
         NSArray * yonghu = [dictChallengeCenter allKeys];
         //存在用户
         if ([yonghu containsObject:name.text]) {
@@ -471,11 +485,16 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     [self.view endEditing:YES];
-    
-    if (scrollvie) {
-        [scrollvie removeFromSuperview];
-        
-    }
+    [scrollvie removeFromSuperview];
+    nameTable.selected = NO;
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.view endEditing:YES];
+    [scrollvie removeFromSuperview];
+    nameTable.selected = NO;
+    NSLog(@"点击了搜索");
+    return YES;
 }
 -(void)shezhi{
     
@@ -490,18 +509,26 @@
     UIAlertAction * haode = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         UITextField * shuzhi = shenum.textFields.firstObject;
-        if (![self isNum:shuzhi.text] || [shuzhi.text isEqualToString:@"0"] || !shuzhi.text || ([shuzhi.text intValue]%2 || shuzhi.text.length>4)) {
+        if (![self isNum:shuzhi.text] || [shuzhi.text isEqualToString:@"0"] || !shuzhi.text || shuzhi.text.length>4) {
             
             [UIView pushAlertViewWithMessage:@"输入数值不符合要求，请重新输入" Target:self Title:@"提示" AlertTitle:@"好的"];
         }else{
-            //
-           
+            //判断是不是2的n次方   n为整数
+            float a,b;
+            
+            a= log2([shuzhi.text intValue]);
+            b= (int)a;
+            if (a != b) {
+                [UIView pushAlertViewWithMessage:@"输入数值不符合要求，请重新输入" Target:self Title:@"提示" AlertTitle:@"好的"];
+                
+                return ;
+            }
             [self SetGuanButWith:shuzhi.text];
         }
         
-        
-        
     }];
+    
+    
     UIAlertAction * quxiao = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }];
