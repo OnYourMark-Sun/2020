@@ -15,6 +15,8 @@
 @property(nonatomic,copy)NSString * GameNum;//游戏数量
 
 @property(nonatomic,copy) NSString * challengeName;
+@property(nonatomic,copy)NSString * challengeRecord;
 @property(nonatomic,copy) NSString * GameRecord1;
+@property(nonatomic,copy)NSString * record1Name;
 
 @end

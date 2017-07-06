@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051E18701F0E46D10017FFE4 /* jinguan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 051E186F1F0E46D10017FFE4 /* jinguan.jpg */; };
 		05313FFC1F05F4EA00BF3D6C /* EmptyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05313FFB1F05F4EA00BF3D6C /* EmptyCollectionViewCell.m */; };
 		05313FFF1F05F4F600BF3D6C /* NumberViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05313FFE1F05F4F600BF3D6C /* NumberViewCollectionViewCell.m */; };
 		0531400B1F06145200BF3D6C /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 053140011F06145200BF3D6C /* 0.png */; };
@@ -48,9 +49,7 @@
 		0561FE721F04E6BB00FF0480 /* jing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0561FE711F04E6BB00FF0480 /* jing.jpg */; };
 		0561FE751F04EE3300FF0480 /* myLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0561FE741F04EE3300FF0480 /* myLabel.m */; };
 		0561FE781F04EE3D00FF0480 /* myButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0561FE771F04EE3D00FF0480 /* myButton.m */; };
-		0561FE7A1F04F78F00FF0480 /* tubiao.png in Resources */ = {isa = PBXBuildFile; fileRef = 0561FE791F04F78F00FF0480 /* tubiao.png */; };
 		0561FE7D1F0506B100FF0480 /* ChinesePinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0561FE7C1F0506B100FF0480 /* ChinesePinyin.m */; };
-		0561FE801F0507C600FF0480 /* tizi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0561FE7E1F0507C600FF0480 /* tizi.jpg */; };
 		0561FE831F0507DC00FF0480 /* maquan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0561FE821F0507DC00FF0480 /* maquan.jpg */; };
 		0561FE871F0508FA00FF0480 /* liangdian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0561FE841F0508FA00FF0480 /* liangdian.jpg */; };
 		0561FE881F0508FA00FF0480 /* xuanzhuan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0561FE851F0508FA00FF0480 /* xuanzhuan.jpg */; };
@@ -78,6 +77,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		051E186F1F0E46D10017FFE4 /* jinguan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jinguan.jpg; sourceTree = "<group>"; };
 		05313FFA1F05F4EA00BF3D6C /* EmptyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyCollectionViewCell.h; sourceTree = "<group>"; };
 		05313FFB1F05F4EA00BF3D6C /* EmptyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyCollectionViewCell.m; sourceTree = "<group>"; };
 		05313FFD1F05F4F600BF3D6C /* NumberViewCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberViewCollectionViewCell.h; sourceTree = "<group>"; };
@@ -144,10 +144,8 @@
 		0561FE741F04EE3300FF0480 /* myLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myLabel.m; sourceTree = "<group>"; };
 		0561FE761F04EE3D00FF0480 /* myButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myButton.h; sourceTree = "<group>"; };
 		0561FE771F04EE3D00FF0480 /* myButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myButton.m; sourceTree = "<group>"; };
-		0561FE791F04F78F00FF0480 /* tubiao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tubiao.png; sourceTree = "<group>"; };
 		0561FE7B1F0506B100FF0480 /* ChinesePinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChinesePinyin.h; sourceTree = "<group>"; };
 		0561FE7C1F0506B100FF0480 /* ChinesePinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChinesePinyin.m; sourceTree = "<group>"; };
-		0561FE7E1F0507C600FF0480 /* tizi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tizi.jpg; sourceTree = "<group>"; };
 		0561FE821F0507DC00FF0480 /* maquan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maquan.jpg; sourceTree = "<group>"; };
 		0561FE841F0508FA00FF0480 /* liangdian.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = liangdian.jpg; sourceTree = "<group>"; };
 		0561FE851F0508FA00FF0480 /* xuanzhuan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xuanzhuan.jpg; sourceTree = "<group>"; };
@@ -376,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				053140321F065BB100BF3D6C /* shoubei.jpg */,
+				051E186F1F0E46D10017FFE4 /* jinguan.jpg */,
 				053140151F06162000BF3D6C /* shizhe.jpg */,
 				053140381F06648C00BF3D6C /* mofa.jpg */,
 				053140001F06145200BF3D6C /* number */,
@@ -383,9 +382,7 @@
 				0561FE851F0508FA00FF0480 /* xuanzhuan.jpg */,
 				0561FE861F0508FA00FF0480 /* zhima.jpg */,
 				0561FE821F0507DC00FF0480 /* maquan.jpg */,
-				0561FE7E1F0507C600FF0480 /* tizi.jpg */,
 				0561FE8A1F050B5B00FF0480 /* bang.png */,
-				0561FE791F04F78F00FF0480 /* tubiao.png */,
 				0561FE711F04E6BB00FF0480 /* jing.jpg */,
 			);
 			path = Imagedata;
@@ -545,17 +542,16 @@
 				053140101F06145200BF3D6C /* 5.png in Resources */,
 				053140211F06268A00BF3D6C /* shezhi.png in Resources */,
 				0531402F1F06443B00BF3D6C /* LICENSE in Resources */,
-				0561FE801F0507C600FF0480 /* tizi.jpg in Resources */,
 				0561FE881F0508FA00FF0480 /* xuanzhuan.jpg in Resources */,
 				053140141F06145200BF3D6C /* 9.png in Resources */,
 				0531400C1F06145200BF3D6C /* 1.png in Resources */,
 				0561FE181F03AD3300FF0480 /* Assets.xcassets in Resources */,
-				0561FE7A1F04F78F00FF0480 /* tubiao.png in Resources */,
 				0561FE871F0508FA00FF0480 /* liangdian.jpg in Resources */,
 				053140221F06268A00BF3D6C /* suiji.png in Resources */,
 				053140111F06145200BF3D6C /* 6.png in Resources */,
 				0561FE831F0507DC00FF0480 /* maquan.jpg in Resources */,
 				053140391F06648C00BF3D6C /* mofa.jpg in Resources */,
+				051E18701F0E46D10017FFE4 /* jinguan.jpg in Resources */,
 				0531400F1F06145200BF3D6C /* 4.png in Resources */,
 				0561FE161F03AD3300FF0480 /* Main.storyboard in Resources */,
 				0561FE891F0508FA00FF0480 /* zhima.jpg in Resources */,

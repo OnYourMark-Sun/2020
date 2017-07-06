@@ -15,11 +15,9 @@
     if (type == 0 || !type) {
         //平常灰色的
         view.backgroundColor = qianhuise;
-        
-        
+       
     }else if (type == 1){
-      
-        
+
         //千疮百孔
     int k = num;
     
@@ -39,7 +37,6 @@
         
         UIImageView * imgvi = [[UIImageView alloc] initWithFrame:view.frame];
         imgvi.image = [UIImage imageNamed:@"xuanzhuan.jpg"];
-        imgvi.contentMode = UIViewContentModeCenter;
         imgvi.layer.masksToBounds = YES;
         [view addSubview:imgvi];
         
@@ -57,16 +54,14 @@
         
         UIImageView * imgvi = [[UIImageView alloc] initWithFrame:view.frame];
         imgvi.image = [UIImage imageNamed:@"zhima.jpg"];
-
         [view addSubview:imgvi];
         
     }
     else if (type ==5){
-        //zhimaquan
+        
         
         UIImageView * imgvi = [[UIImageView alloc] initWithFrame:view.frame];
         imgvi.image = [UIImage imageNamed:@"liangdian.jpg"];
-        imgvi.contentMode = UIViewContentModeTop;
         imgvi.layer.masksToBounds = YES;
         [view addSubview:imgvi];
         

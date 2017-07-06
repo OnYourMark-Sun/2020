@@ -31,8 +31,8 @@
     //需要记录的数值
      int numViewEmptytype;//空背景类型
     NSString * GameNum;//游戏数量
-    NSDictionary * dictGameCenter;//关卡的数据 ： key 关卡数值； value：dict（gamerRecord123:用时间最少的前三个时间 ；gameRecordname123）
-    NSDictionary * dictChallengeCenter;//用户字典 key：用户名pinyin  value：dict（game:{gamename:@{gamenaem:time}};name:str;）
+    NSMutableDictionary * dictGameCenter;//关卡的数据 ： key 关卡数值； value：dict（gamerRecord123:用时间最少的前三个时间 ；gameRecordname123）
+    NSMutableDictionary * dictChallengeCenter;//用户字典 key：用户名pinyin  value：dict（game:{gamename:@{gamenaem:time}};name:str;）
     
     int butNearFuture;
 }
@@ -44,15 +44,17 @@
     
     [super viewWillAppear:YES];
     
-    dictGameCenter = UserDefault(dictGame);
+    [dictGameCenter setDictionary: UserDefault(dictGame)];
+    [dictChallengeCenter setDictionary: UserDefault(dictchallenger)];
+  
+    [self Gamerecordlabel];//刷新游戏排名
     
-    dictChallengeCenter = UserDefault(dictchallenger);
     keyBoardShow = NO;
     if (scrollvie) {
         [scrollvie removeFromSuperview];
         
     }
-    [self Gamerecordlabel];//刷新游戏排名
+   
     butNearFuture = 0;
 }
 -(void)viewDidDisappear:(BOOL)animated{
@@ -93,6 +95,10 @@
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
 
+    dictGameCenter = [NSMutableDictionary dictionary];
+    dictChallengeCenter =[NSMutableDictionary dictionary];
+    [dictGameCenter setDictionary: UserDefault(dictGame)];
+    [dictChallengeCenter setDictionary: UserDefault(dictchallenger)];
     
 }
 
@@ -146,12 +152,12 @@
 }
 -(void)CreatUp{
    //状态栏颜色
-    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
-    
-    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)])
-    {
-        statusBar.backgroundColor = [UIColor orangeColor];
-    }
+//    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+//    
+//    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)])
+//    {
+//        statusBar.backgroundColor = [UIColor yellowColor];
+//    }
 
     
     UIImageView * imgViewTop = [[UIImageView alloc] initWithFrame:CGRectMake(0, IPHONEHIGHT(0), ScreenWidth, ScreenWidth/3*2)];
@@ -307,14 +313,20 @@
 }
 -(void)Gamerecordlabel{
     NSDictionary * game =  dictGameCenter[GameNum];
+    NSString * name11 = game[@"gamerRecord1"][@"name"];
+    NSString * name22 =game[@"gamerRecord2"][@"name"];
+    NSString * name33 =game[@"gamerRecord3"][@"name"] ;
+    name1.text = name11.length>0?name11:@"等你创造";
+    name2.text =name22?name22:@"等你挑战";
+    name3.text = name33.length>0?name33:@"等你来战";
     
-    name1.text =  game[@"gamerRecord1"][@"name"];
-    name2.text = game[@"gamerRecord2"][@"name"];
-    name3.text = game[@"gamerRecord3"][@"name"];
-    
-    record1.text =[self timerChangeString: game[@"gamerRecord1"][@"record"]];
-    record2.text =[self timerChangeString: game[@"gamerRecord2"][@"record"]];
-    record3.text =[self timerChangeString: game[@"gamerRecord3"][@"record"]];
+    NSString * record11 =game[@"gamerRecord1"][@"record"];
+    NSString * record22 =game[@"gamerRecord2"][@"record"];
+    NSString * record33 =game[@"gamerRecord3"][@"record"];
+    NSString * record00 = @"00:00:00";
+    record1.text =[self timerChangeString:record11?record11:record00 ];
+    record2.text =[self timerChangeString:record22?record22:record00 ];
+    record3.text =[self timerChangeString: record33?record33:record00];
     
 }
 -(NSString*)timerChangeString:(NSString*)string{
@@ -331,10 +343,10 @@
 -(void)beginGame{
     
      GameViewController * gameview = [[GameViewController alloc]init];
+   
     gameview.GameNum = GameNum;
-    
     gameview.GameRecord1 = record1.text;
-    
+    gameview.record1Name = name1.text;
     
     //游戏等级
     if (!GameNum.length) {
@@ -347,13 +359,8 @@
     if(!name.text.length){
         
         [UIView pushAlertTwoActionViewWithMessage:@"还没有输入用户名，直接进入游戏，不保存游戏记录" Target:self Title:@"提示" oneAlertTitle:@"直接游戏" twoAlertTitle:@"返回" oneActionfunc:^{
-            if(!dictGameCenter[GameNum]){
-                NSMutableDictionary * gamecenter = [NSMutableDictionary dictionary];
-                [gamecenter setDictionary:dictGameCenter];
-                [gamecenter setObject:@{@"gamerRecord1":@{@"name":@"",@"record":@""}} forKey:GameNum];
-                
-                UserDefaults(gamecenter, dictGame);
-            }
+            //创建游戏记录
+            [self CreatGameRecord];
             [self.navigationController pushViewController:gameview animated:YES];
             
             
@@ -367,26 +374,10 @@
         //存在用户
         if ([yonghu containsObject:name.text]) {
 
-            
-            NSDictionary * dictname = dictChallengeCenter[@"game"][GameNum];
-            if (!dictname) {
-                
-            }
-            NSMutableDictionary * dictmu = [NSMutableDictionary dictionary];
-            [dictmu setDictionary:dictChallengeCenter[@"game"]];
-            [dictmu setObject:@"" forKey:GameNum];
-            
-            if(!dictGameCenter[GameNum]){
-                NSMutableDictionary * gamecenter = [NSMutableDictionary dictionary];
-                [gamecenter setDictionary:dictGameCenter];
-                [gamecenter setObject:@{@"gamerRecord1":@{@"name":@"",@"record":@""}} forKey:GameNum];
-                
-                UserDefaults(gamecenter, dictGame);
-            }
-            
-            UserDefaults(dictmu, dictchallenger);
+                       [self CreatGameRecord];
+//            UserDefaults(dictmu, dictchallenger);
             gameview.challengeName = name.text;
-            
+            gameview.challengeRecord =dictChallengeCenter[name.text][@"game"][GameNum];
                 //正确进入
                 [self.navigationController pushViewController:gameview animated:YES];
            
@@ -394,21 +385,12 @@
 
             //没有相应的密码 不存在是否创建
                 [UIView pushAlertTwoActionViewWithMessage:[NSString stringWithFormat:@"是否创建新用户:%@",name.text] Target:self Title:@"提示" oneAlertTitle:@"好的" twoAlertTitle:@"不" oneActionfunc:^{
+                   
+                    [self CreatGameRecord];
                     //创建用户啊
                      NSDictionary * dictname = @{@"name":name.text,@"game":@{GameNum:@""}};
-                    
-                    NSMutableDictionary * dictmu = [NSMutableDictionary dictionary];
-                    [dictmu setDictionary:dictChallengeCenter];
-                    [dictmu setObject:dictname forKey:name.text];
-                    if(!dictGameCenter[GameNum]){
-                        NSMutableDictionary * gamecenter = [NSMutableDictionary dictionary];
-                        [gamecenter setDictionary:dictGameCenter];
-                        [gamecenter setObject:@{@"gamerRecord1":@{@"name":@"",@"record":@""}} forKey:GameNum];
-                        
-                        UserDefaults(gamecenter, dictGame);
-                    }
-                  
-                    UserDefaults(dictmu, dictchallenger);
+                    [dictChallengeCenter setObject:dictname forKey:name.text];
+                    UserDefaults(dictChallengeCenter, dictchallenger);
                     gameview.challengeName = name.text;
                     [self.navigationController pushViewController:gameview animated:YES];
                     
@@ -421,7 +403,22 @@
        }
     
 }
-
+//创建 用户
+-(void)CreatUser{
+    
+    
+}
+//创建游戏记录
+-(void)CreatGameRecord{
+    
+    if(![dictGameCenter[GameNum] allKeys].count){
+        NSMutableDictionary * gamecenter = [NSMutableDictionary dictionary];
+        [gamecenter setDictionary:dictGameCenter];
+        [gamecenter setObject:@{@"gamerRecord1":@{@"name":@"",@"record":@""}} forKey:GameNum];
+        
+        UserDefaults(gamecenter, dictGame);
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
    

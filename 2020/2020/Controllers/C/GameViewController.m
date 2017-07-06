@@ -24,7 +24,7 @@
     NSInteger timernumber;//计时时间
     UIImageView * imgview;
     CGFloat cellWidth;
-    
+    int SameHandNum;
     int top,left,dowm,right;
     
 }
@@ -40,10 +40,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //自定义🌿
-    _numViewEmpty = 3;
-    _numViewEmptytype = (int)arc4random()%5;
+ 
     self.fd_interactivePopDisabled = YES;
+    //状态栏颜色
+    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+    
+    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)])
+    {
+        statusBar.backgroundColor =clearCo;
+    }
+    
+
     
     [self Creatui]; //游戏控制区域布局
     [self CreatUp];//页面中上部分显示
@@ -68,6 +75,13 @@
     cellWidth = (self.view.frame.size.width-IPHONEWIDTH(56+10))/5;
     
     
+    //自定义🌿
+    _numViewEmpty = 3;
+    _numViewEmptytype = 1;//(int)arc4random()%5;
+    
+    
+    //同一个手势 最多可以滑动的次数
+    SameHandNum = 3;
 }
 
 //完成游戏。保存记录。
@@ -142,18 +156,22 @@
         
         //个人记录对比
         
+        NSMutableDictionary * challengerRecordzong = [NSMutableDictionary dictionary];
         NSMutableDictionary * challengerRecord = [NSMutableDictionary dictionary];
-        NSMutableDictionary * dictgamer = [NSMutableDictionary dictionary];
-       
-        [dictgamer setDictionary:UserDefault(dictchallenger)];
+        NSMutableDictionary * challlengeGame = [NSMutableDictionary dictionary];
+       //个人游戏记录
+        [challengerRecordzong setDictionary:UserDefault(dictchallenger)];
+        [challengerRecord setDictionary:challengerRecordzong[_challengeName]];
+        [challlengeGame setDictionary:challengerRecord[@"game"]];
         
-        if ([(dictgamer[_challengeName][@"game"][_GameNum]) intValue]>0) {
+        
+        if ([(challlengeGame[_GameNum]) intValue]>0) {
            
-            if (timernumber < [(dictgamer[_challengeName][@"game"][_GameNum]) intValue]) {
+            if (timernumber < [challlengeGame[_GameNum] intValue]) {
                 if (!addString.length) {
                     addString = @"打破个人历史记录！";
                 }
-                [dictgamer[_challengeName][@"game"] setObject:[NSString stringWithFormat:@"%ld",timernumber] forKey:_GameNum];
+                [challlengeGame setObject:[NSString stringWithFormat:@"%ld",timernumber] forKey:_GameNum];
             }
             
         }else{
@@ -161,13 +179,16 @@
             if (!addString.length) {
                 addString = @"打破个人历史记录！";
             }
-            [dictgamer[_challengeName][@"game"] setObject:[NSString stringWithFormat:@"%ld",timernumber] forKey:_GameNum];
+            
+            [challlengeGame setObject:[NSString stringWithFormat:@"%ld",timernumber] forKey:_GameNum];
             
             
         }
         
+        [challengerRecord setObject:challlengeGame forKey:@"game"];
+        [challengerRecordzong setObject:challengerRecord forKey:_challengeName];
         
-        UserDefaults(dictgamer, dictchallenger);
+        UserDefaults(challengerRecordzong, dictchallenger);
     
     
 }
@@ -266,47 +287,47 @@
     
 }
 -(void)CreatUp{
-    NSDictionary * DictChallenge = @{};
-    if (_challengeName) {
-         DictChallenge = UserDefault(_challengeName);
-    }
-   
-    
-    UILabel  * game = [myLabel labelWithframe:CGRectMake(ScreenWidth/2-IPHONEWIDTH(130), IPHONEHIGHT(70), IPHONEWIDTH(260), IPHONEHIGHT(90)) backgroundColor:clearCo title:_GameNum font:IPHONEWIDTH(90) Alignment:NSTextAlignmentCenter textColor:[UIColor yellowColor]];
+
+    UILabel  * game = [myLabel labelWithframe:CGRectMake(ScreenWidth/2-IPHONEWIDTH(110), IPHONEHIGHT(70), IPHONEWIDTH(260), IPHONEHIGHT(90)) backgroundColor:clearCo title:_GameNum font:IPHONEWIDTH(90) Alignment:NSTextAlignmentCenter textColor:[UIColor yellowColor]];
     
     game.layer.cornerRadius = IPHONEWIDTH(10);
     game.layer.masksToBounds = YES;
     [imgview addSubview:game];
     
-    UILabel  * gameRecord = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(30), IPHONEHIGHT(90), IPHONEWIDTH(300), IPHONEHIGHT(65)) backgroundColor:clearCo title:@"" font:IPHONEWIDTH(40) Alignment:NSTextAlignmentLeft textColor:[UIColor redColor]];
+    UILabel  * gameRecord = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(5), IPHONEHIGHT(110), IPHONEWIDTH(300), IPHONEHIGHT(120)) backgroundColor:clearCo title:@"" font:IPHONEWIDTH(45) Alignment:NSTextAlignmentLeft textColor:[UIColor redColor]];
+    gameRecord.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"jinguan.jpg"]];
     if ([_GameRecord1 isEqualToString:@"00:00:00"]) {
         gameRecord.text = @"你将创造历史";
     }else{
-        gameRecord.text =  [NSString stringWithFormat:@"%@",_GameRecord1];
+        gameRecord.text =  [NSString stringWithFormat:@"%@\n%@",_record1Name,_GameRecord1];
     }
-    gameRecord.shadowColor = [UIColor grayColor];
-    gameRecord.shadowOffset = CGSizeMake(1, 2);
+    gameRecord.textAlignment = NSTextAlignmentCenter;
+    gameRecord.numberOfLines = 2;
     [imgview addSubview:gameRecord];
     
-    UILabel * challenger = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(30), IPHONEHIGHT(190+60), IPHONEWIDTH(300), IPHONEHIGHT(50)) backgroundColor:clearCo title:@"" font:IPHONEWIDTH(35) Alignment:NSTextAlignmentLeft textColor:[UIColor greenColor]];
+    //设置 空位背景
+
     if (!_challengeName) {
-        challenger.text = @"隐身战士";
+         UILabel * challenger = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(30), IPHONEHIGHT(190+60), IPHONEWIDTH(300), IPHONEHIGHT(120)) backgroundColor:clearCo title:@"" font:IPHONEWIDTH(45) Alignment:NSTextAlignmentLeft textColor:[UIColor blueColor]];
+        challenger.text = @"游客身份，游戏时间不记录在内";
+        challenger.numberOfLines = 2;
+        [imgview addSubview:challenger];
     }else{
-        
-        challenger.text= [NSString stringWithFormat:@"挑战者：%@",_challengeName];
+
+        UILabel * challengerReco = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(5), IPHONEHIGHT(260), IPHONEWIDTH(300), IPHONEHIGHT(120)) backgroundColor:clearCo title:[NSString stringWithFormat:@"%@\n%@",_challengeName,[self timerChangeString:_challengeRecord]] font:IPHONEWIDTH(45) Alignment:NSTextAlignmentLeft textColor:[UIColor greenColor]];
+        challengerReco.textAlignment = NSTextAlignmentCenter;
+        challengerReco.numberOfLines = 2;
+        if (!_challengeRecord.length) {
+            challengerReco.text = @"赶快创造纪录吧";
+            
+        }
+        challengerReco.shadowColor = [UIColor grayColor];
+        challengerReco.shadowOffset = CGSizeMake(2, 1);
+        [imgview addSubview:challengerReco];
+  
     }
-    challenger.shadowColor = [UIColor grayColor];
-    challenger.shadowOffset = CGSizeMake(2, 1);
-    [imgview addSubview:challenger];
+
     
-    UILabel * challengerReco = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(30), IPHONEHIGHT(240+60), IPHONEWIDTH(300), IPHONEHIGHT(50)) backgroundColor:clearCo title:[NSString stringWithFormat:@"挑战者记录：%@",DictChallenge[_GameNum][@"gameTime"]] font:IPHONEWIDTH(35) Alignment:NSTextAlignmentLeft textColor:[UIColor greenColor]];
-    if (!DictChallenge[_GameNum][@"gameTime"]) {
-        challengerReco.text = @"赶快创造纪录吧";
-        
-    }
-    challengerReco.shadowColor = [UIColor grayColor];
-    challengerReco.shadowOffset = CGSizeMake(2, 1);
-    [imgview addSubview:challengerReco];
     
     
 }
@@ -379,7 +400,7 @@
     
     
     //计时器
-    labelTimer = [myLabel labelWithframe:CGRectMake(ScreenWidth-IPHONEWIDTH(180), IPHONEHIGHT(90), IPHONEWIDTH(150), IPHONEHIGHT(60)) backgroundColor:[UIColor clearColor] title:@"00:00:00" font:IPHONEWIDTH(35) Alignment:NSTextAlignmentCenter textColor:[UIColor whiteColor]];
+    labelTimer = [myLabel labelWithframe:CGRectMake(ScreenWidth-IPHONEWIDTH(180+28), IPHONEHIGHT(170), IPHONEWIDTH(180), IPHONEHIGHT(60)) backgroundColor:[UIColor clearColor] title:@"00:00:00" font:IPHONEWIDTH(40) Alignment:NSTextAlignmentCenter textColor:[UIColor redColor]];
     [imgview addSubview:labelTimer];
 
     
@@ -395,10 +416,19 @@
         [self timerStar];
         frontView.userInteractionEnabled = YES;
     }else{
+        [timerss setFireDate:[NSDate distantFuture]];
         
-        [timerss invalidate];
-        timerss  = nil;
-        [self.navigationController popViewControllerAnimated:YES];
+       [UIView pushAlertTwoActionViewWithMessage:@"真的要退出本次呀？" Target:self Title:@"提示" oneAlertTitle:@"在玩一会" twoAlertTitle:@"退退退" oneActionfunc:^{
+           
+           [timerss setFireDate:[NSDate date]];
+           
+       } twoActionfunc:^{
+           
+           [timerss invalidate];
+           timerss  = nil;
+           [self.navigationController popViewControllerAnimated:YES];
+           
+       }];
         
     }
     
@@ -483,7 +513,7 @@
     
     [self huadongqingchuWithInt:1];
     
-    if (top>3) {
+    if (top>SameHandNum-1) {
         return;
     }
     top +=1;
@@ -567,7 +597,7 @@
 -(void)silidingLift{
     [self huadongqingchuWithInt:2];
     
-    if (left>3) {
+    if (left>SameHandNum-1) {
         return;
     }
     left +=1;
@@ -658,7 +688,7 @@
     
     [self huadongqingchuWithInt:3];
     
-    if (dowm>3) {
+    if (dowm>SameHandNum-1) {
         return;
     }
     dowm +=1;
@@ -747,7 +777,7 @@
     
     [self huadongqingchuWithInt:4];
     
-    if (right>3) {
+    if (right>SameHandNum-1) {
         return;
     }
     right +=1;

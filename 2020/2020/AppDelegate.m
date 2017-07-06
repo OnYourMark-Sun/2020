@@ -53,7 +53,8 @@
     //打开开发模式
     [UMessage openDebugMode:YES];
   
-    [UMessage addLaunchMessageWithWindow:self.window finishViewController:[[RecordViewController alloc]init]];
+    [UMessage addLaunchMessageWithWindow:self.window finishViewController:[[UINavigationController alloc]initWithRootViewController:[[RecordViewController alloc] init]] ];
+
     return YES;
 }
 
