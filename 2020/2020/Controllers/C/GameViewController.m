@@ -295,7 +295,7 @@
     [imgview addSubview:game];
     
     UILabel  * gameRecord = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(5), IPHONEHIGHT(110), IPHONEWIDTH(300), IPHONEHIGHT(120)) backgroundColor:clearCo title:@"" font:IPHONEWIDTH(45) Alignment:NSTextAlignmentLeft textColor:[UIColor redColor]];
-    gameRecord.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"jinguan.jpg"]];
+    gameRecord.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@""]];
     if ([_GameRecord1 isEqualToString:@"00:00:00"]) {
         gameRecord.text = @"你将创造历史";
     }else{
