@@ -1,10 +1,11 @@
 数字加法游戏，类似于2048,4096
 
-![image](https://github.com/xushiyou23/2020/blob/master/ShowImage/Simulator%20Screen%20Shot%202017%E5%B9%B47%E6%9C%884%E6%97%A5%20%E4%B8%8B%E5%8D%884.32.12.png)
-![image](https://github.com/xushiyou23/2020/blob/master/ShowImage/Simulator%20Screen%20Shot%202017%E5%B9%B47%E6%9C%884%E6%97%A5%20%E4%B8%8B%E5%8D%884.32.15.png)
-![image](https://github.com/xushiyou23/2020/blob/master/ShowImage/Simulator%20Screen%20Shot%202017%E5%B9%B47%E6%9C%883%E6%97%A5%20%E4%B8%8B%E5%8D%885.23.06.png)
-![image](https://github.com/xushiyou23/2020/blob/master/ShowImage/Simulator%20Screen%20Shot%202017%E5%B9%B47%E6%9C%884%E6%97%A5%20%E4%B8%8B%E5%8D%884.32.22.png)
-![image](https://github.com/xushiyou23/2020/blob/master/ShowImage/Simulator%20Screen%20Shot%202017%E5%B9%B47%E6%9C%884%E6%97%A5%20%E4%B8%8B%E5%8D%884.32.40.png)
+![image](https://github.com/xushiyou23/2020/blob/master/ShowImage/2020g.gif)
+![image](https://github.com/xushiyou23/2020/blob/master/ShowImage/51327852-6D58-4669-ABCB-8C8013558CFB.png)
+![image](https://github.com/xushiyou23/2020/blob/master/ShowImage/0C19694E-B9BE-4121-B7FE-77189886C187.png)
+![image](https://github.com/xushiyou23/2020/blob/master/ShowImage/6137CC9A-69B1-4225-A388-250F64BF6AA3.png)
+
+
 
 1.07
 
