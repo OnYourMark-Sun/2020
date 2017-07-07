@@ -10,7 +10,11 @@
 #import "HoleviewOfEmpty.h"
 #import "NumberViewCollectionViewCell.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"
-@interface GameViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
+#import <UMSocialCore/UMSocialCore.h>
+#import <UShareUI/UShareUI.h>
+
+@interface GameViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UMSocialShareMenuViewDelegate>
 {
     UICollectionView * collectionvieww;
     NSMutableDictionary * dictChange;//放 数值为0 的字典
@@ -27,6 +31,8 @@
     int SameHandNum,backKong;
     int top,left,dowm,right;
     
+    
+    UIImage * viewimage;
 }
 
 @end
@@ -82,6 +88,8 @@
 
 //完成游戏。保存记录。
 -(void)savegameRecord{
+    
+   
     
     NSString * addString;
     
@@ -206,7 +214,12 @@
     miao = timernumber/100%60;
     fen = timernumber/6000;
     
-    [UIView pushAlertTwoActionViewWithMessage:[NSString stringWithFormat:@"恭喜你，完成游戏\n用时：%02ld:%02ld:%02ld \n     %@",fen,miao,haomiao,addString?addString:@""] Target:self Title:@"OH耶！！！" oneAlertTitle:@"挑战时间" twoAlertTitle:@"休息一下" oneActionfunc:^{
+    
+  
+   
+    UIAlertController * alert =[UIAlertController alertControllerWithTitle:@"OH耶！！！" message:[NSString stringWithFormat:@"\n%02ld:%02ld:%02ld \n %@\n 分享给好盆有一起挑战吧",fen,miao,haomiao,addString?addString:@""] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * jixu = [UIAlertAction actionWithTitle:@"返回游戏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
         //继续
         [dictData removeAllObjects];
         [self creaDATA];
@@ -214,19 +227,48 @@
         timernumber = 0;
         [self StarGame];
         [self timerStar];
-        
-        
-    } twoActionfunc:^{
-        
-        [self.navigationController popViewControllerAnimated:YES];
-        //返回上一页
-        
     }];
-
     
+    UIAlertAction * fenxiang = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        //分享
+        [self shareImageText:[NSString stringWithFormat:@"我用时%02ld:%02ld:%02ld完成【%@】，快来2020挑战我吧",fen,miao,haomiao,_GameNum] ];
+        
+
+    }];
+  
+    [alert addAction:jixu];
+    [alert addAction:fenxiang];
+    
+    [self presentViewController:alert animated:YES completion:^{
+        
+         [self starVimage];
+    }];
     
 }
+//开始剪裁图片
+-(void)starVimage{
+    UIGraphicsBeginImageContext(self.view.bounds.size);     //currentView 当前的view  创建一个基于位图的图形上下文并指定大小为
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];//renderInContext呈现接受者及其子范围到指定的上下文
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();//返回一个基于当前图形上下文的图片
+    viewimage = image;
+//    UIGraphicsEndImageContext();//移除栈顶的基于当前位图的图形上下文
+    
 
+}
+//修改图片尺寸
+-(UIImage*) OriginImage:(UIImage *)image scaleToSize:(CGSize)size
+{
+    UIGraphicsBeginImageContext(size);  //size 为CGSize类型，即你所需要的图片尺寸
+    
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    
+    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return scaledImage;   //返回的就是已经改变的图片
+}
 //游戏开始
 -(void)StarGame{
     //筛选出 模块上可以添加数据的 位置字典。装到数组，随机分配
@@ -291,6 +333,51 @@
     
     
 }
+-(void)shareImageText:(NSString*)string{
+    
+    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)]];
+    
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+//         根据获取的platformType确定所选平台进行下一步操作
+         [self shareImageAndTextToPlatformType:platformType WithShareText:string title:@"【2020】任意等级等你挑战！" withSmallImage:nil withImage:viewimage];
+    }];
+    
+    //设置分享面板的显示和隐藏的代理回调
+    [UMSocialUIManager setShareMenuViewDelegate:self];
+    
+}
+//分享 图文
+- (void)shareImageAndTextToPlatformType:(UMSocialPlatformType)platformType WithShareText:(NSString*)textShare  title:(NSString*)title withSmallImage:(UIImage *)smallImage withImage:(UIImage *)image
+{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    
+    //设置文本
+    messageObject.text = textShare;
+    //标题
+    messageObject.title = title;
+
+    //创建图片内容对象
+    UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
+    //如果有缩略图，则设置缩略图
+//    shareObject.thumbImage = smallImage;
+    
+    [shareObject setShareImage:image];
+    
+    //分享消息对象设置分享内容对象
+    messageObject.shareObject = shareObject;
+    
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            NSLog(@"************Share fail with error %@*********",error);
+        }else{
+            NSLog(@"response data is %@",data);
+        }
+    }];
+}
+
+
 -(void)CreatUp{
 
     UILabel  * game = [myLabel labelWithframe:CGRectMake(ScreenWidth/2-IPHONEWIDTH(110), IPHONEHIGHT(70), IPHONEWIDTH(260), IPHONEHIGHT(90)) backgroundColor:clearCo title:_GameNum font:IPHONEWIDTH(90) Alignment:NSTextAlignmentCenter textColor:[UIColor yellowColor]];
@@ -484,7 +571,7 @@
     }else{
         [timerss setFireDate:[NSDate distantFuture]];
         
-       [UIView pushAlertTwoActionViewWithMessage:@"真的要退出本次呀？" Target:self Title:@"提示" oneAlertTitle:@"在玩一会" twoAlertTitle:@"退退退" oneActionfunc:^{
+       [UIView pushAlertTwoActionViewWithMessage:@"游戏暂停" Target:self Title:@"提示" oneAlertTitle:@"再🌊一会" twoAlertTitle:@"退出🎮" oneActionfunc:^{
            
            [timerss setFireDate:[NSDate date]];
            
