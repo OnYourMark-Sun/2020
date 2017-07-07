@@ -309,8 +309,7 @@
     gameRecord.textAlignment = NSTextAlignmentCenter;
     gameRecord.numberOfLines = 2;
     [imgview addSubview:gameRecord];
-    
-    //设置 空位背景
+ 
 
     if (!_challengeName) {
          UILabel * challenger = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(30), IPHONEHIGHT(190+60), IPHONEWIDTH(280), IPHONEHIGHT(120)) backgroundColor:clearCo title:@"" font:IPHONEWIDTH(40) Alignment:NSTextAlignmentLeft textColor:ColorRGB(29, 115, 235)];
@@ -332,7 +331,8 @@
   
     }
 
-    
+    /*
+     //设置 空位背景
     //空位背景图
     CGFloat widthb = IPHONEWIDTH(100);
     NSArray * arraybut = @[@"空",@"位",@"图",@"案",@"~"];
@@ -396,7 +396,7 @@
     but.titleLabel.font = [UIFont boldSystemFontOfSize:IPHONEWIDTH(40)];
     [self.view addSubview:but];
     
-    
+    */
 }
 -(NSString*)timerChangeString:(NSString*)string{
     
