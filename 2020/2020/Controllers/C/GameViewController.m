@@ -24,7 +24,7 @@
     NSInteger timernumber;//计时时间
     UIImageView * imgview;
     CGFloat cellWidth;
-    int SameHandNum;
+    int SameHandNum,backKong;
     int top,left,dowm,right;
     
 }
@@ -70,16 +70,12 @@
         
     }
     
-    //dictRecord ：   
-    
+    //dictRecord ：
     cellWidth = (self.view.frame.size.width-IPHONEWIDTH(56+10))/5;
-    
-    
-    //自定义🌿
-    _numViewEmpty = 3;
-    _numViewEmptytype = 1;//(int)arc4random()%5;
-    
-    
+    //自定义🌿_numViewEmptytype
+    backKong = 0;
+    int backkong =[[[NSUserDefaults standardUserDefaults]objectForKey:@"backKong"] intValue];
+    _numViewEmptytype = backkong>0?backkong:(int)arc4random()%5;
     //同一个手势 最多可以滑动的次数
     SameHandNum = 3;
 }
@@ -106,10 +102,14 @@
         if ( [(gamecenter[@"gamerRecord1"][@"record"]) intValue] > 0) {
             
             if  (timernumber < [(gamecenter[@"gamerRecord1"][@"record"]) intValue]) {
+               
+                UILabel * noOne = (UILabel*)[self.view viewWithTag:123];
+                noOne.text = [NSString stringWithFormat:@"%@\n%@",_record1Name,[self timerChangeString:[NSString stringWithFormat:@"%ld",timernumber]]];
                 addString = @"创造本等级历史第一！";
                 [gamecenter setValue:gamecenter[@"gamerRecord2"] forKey:@"gamerRecord3"];
                 [gamecenter setValue:gamecenter[@"gamerRecord1"] forKey:@"gamerRecord2"];
                 [gamecenter setObject:recordNew forKey:@"gamerRecord1"];
+                
             }
             
             else if ([(gamecenter[@"gamerRecord2"][@"record"]) intValue] >0){
@@ -145,9 +145,11 @@
             
             
         }else{
-            
+            UILabel * noOne = (UILabel*)[self.view viewWithTag:123];
+            noOne.text = [NSString stringWithFormat:@"%@\n%@",_record1Name,[self timerChangeString:[NSString stringWithFormat:@"%ld",timernumber]]];
             addString = @"创造本等级历史第一！";
             [gamecenter setObject:recordNew forKey:@"gamerRecord1"];
+            
         }
         [dictgame setValue:gamecenter forKey:_GameNum];
         
@@ -169,6 +171,8 @@
            
             if (timernumber < [challlengeGame[_GameNum] intValue]) {
                 if (!addString.length) {
+                    UILabel * noOne = (UILabel*)[self.view viewWithTag:125];
+                    noOne.text = [NSString stringWithFormat:@"%@\n%@",_record1Name,[self timerChangeString:[NSString stringWithFormat:@"%ld",timernumber]]];
                     addString = @"打破个人历史记录！";
                 }
                 [challlengeGame setObject:[NSString stringWithFormat:@"%ld",timernumber] forKey:_GameNum];
@@ -177,6 +181,8 @@
         }else{
             
             if (!addString.length) {
+                UILabel * noOne = (UILabel*)[self.view viewWithTag:125];
+                noOne.text = [NSString stringWithFormat:@"%@\n%@",_record1Name,[self timerChangeString:[NSString stringWithFormat:@"%ld",timernumber]]];
                 addString = @"打破个人历史记录！";
             }
             
@@ -220,6 +226,7 @@
     
     
 }
+
 //游戏开始
 -(void)StarGame{
     //筛选出 模块上可以添加数据的 位置字典。装到数组，随机分配
@@ -240,8 +247,6 @@
         [timerss invalidate];
         timerss = nil;
         [self savegameRecord];//保存游戏记录
-       
-        
        
     }
     
@@ -308,26 +313,88 @@
     //设置 空位背景
 
     if (!_challengeName) {
-         UILabel * challenger = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(30), IPHONEHIGHT(190+60), IPHONEWIDTH(300), IPHONEHIGHT(120)) backgroundColor:clearCo title:@"" font:IPHONEWIDTH(45) Alignment:NSTextAlignmentLeft textColor:[UIColor blueColor]];
-        challenger.text = @"游客身份，游戏时间不记录在内";
+         UILabel * challenger = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(30), IPHONEHIGHT(190+60), IPHONEWIDTH(280), IPHONEHIGHT(120)) backgroundColor:clearCo title:@"" font:IPHONEWIDTH(40) Alignment:NSTextAlignmentLeft textColor:ColorRGB(29, 115, 235)];
+        challenger.text = @"游客身份\n时间不记录";
+        challenger.tag = 123;
         challenger.numberOfLines = 2;
         [imgview addSubview:challenger];
     }else{
 
-        UILabel * challengerReco = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(5), IPHONEHIGHT(260), IPHONEWIDTH(300), IPHONEHIGHT(120)) backgroundColor:clearCo title:[NSString stringWithFormat:@"%@\n%@",_challengeName,[self timerChangeString:_challengeRecord]] font:IPHONEWIDTH(45) Alignment:NSTextAlignmentLeft textColor:[UIColor greenColor]];
+        UILabel * challengerReco = [myLabel labelWithframe:CGRectMake(IPHONEWIDTH(5), IPHONEHIGHT(260), IPHONEWIDTH(300), IPHONEHIGHT(120)) backgroundColor:clearCo title:[NSString stringWithFormat:@"%@\n%@",_challengeName,[self timerChangeString:_challengeRecord]] font:IPHONEWIDTH(45) Alignment:NSTextAlignmentLeft textColor:ColorRGB(29, 115, 230)];
+        challengerReco.tag = 125;
         challengerReco.textAlignment = NSTextAlignmentCenter;
         challengerReco.numberOfLines = 2;
         if (!_challengeRecord.length) {
             challengerReco.text = @"赶快创造纪录吧";
             
         }
-        challengerReco.shadowColor = [UIColor grayColor];
-        challengerReco.shadowOffset = CGSizeMake(2, 1);
         [imgview addSubview:challengerReco];
   
     }
 
     
+    //空位背景图
+    CGFloat widthb = IPHONEWIDTH(100);
+    NSArray * arraybut = @[@"空",@"位",@"图",@"案",@"~"];
+    NSArray * arrayImg = @[@"maquan.jpg",@"xuanzhuan.jpg",@"zhima.jpg",@"liangdian.jpg",@"555.jpg"];
+    for (int i=0; i<4; i++) {
+        //[UIColor colorWithPatternImage:[UIImage imageNamed:arrayImg[i]]]
+        UIImageView * imgVi = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth-IPHONEWIDTH(240)+i%2*(widthb+IPHONEWIDTH(20)), i/2*(widthb+IPHONEWIDTH(20))+IPHONEHIGHT(220), widthb, widthb)];
+        imgVi.image = [UIImage imageNamed:arrayImg[i]];
+        imgVi.layer.cornerRadius = widthb/2;
+        imgVi.layer.masksToBounds = YES;
+        [self.view addSubview:imgVi];
+        
+        
+        UIButton *but = [myButton buttonWithType:UIButtonTypeSystem frame:CGRectMake(ScreenWidth-IPHONEWIDTH(240)+i%2*(widthb+IPHONEWIDTH(20)), i/2*(widthb+IPHONEWIDTH(20))+IPHONEHIGHT(220), widthb, widthb) title:arraybut[i] andBackground:clearCo tag:i+1001 andBlock:^(myButton *button) {
+            backKong =0;
+            _numViewEmptytype =button.tag-1001;
+            
+            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d",_numViewEmptytype] forKey:@"backKong"];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d",_numViewEmpty] forKey:@"backKongkong"];
+            
+            //刷新 空图
+            [collectionvieww reloadData];
+            
+            
+        }];
+        but.layer.cornerRadius = widthb/2;
+        but.layer.masksToBounds = YES;
+        [but setTitleColor:ColorRGB(29, 115, 230) forState:UIControlStateNormal];
+        but.titleLabel.font = [UIFont boldSystemFontOfSize:IPHONEWIDTH(40)];
+        [self.view addSubview:but];
+    }
+    
+    //第五个
+    UIImageView * imgVi = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth-IPHONEWIDTH(240)+0.5*(widthb+IPHONEWIDTH(20)), 0.5*(widthb+IPHONEWIDTH(20))+IPHONEHIGHT(220), widthb, widthb)];
+    imgVi.image = [UIImage imageNamed:arrayImg[4]];
+    imgVi.layer.cornerRadius = widthb/2;
+    imgVi.layer.masksToBounds = YES;
+    [self.view addSubview:imgVi];
+    
+    
+    UIButton *but = [myButton buttonWithType:UIButtonTypeSystem frame:CGRectMake(ScreenWidth-IPHONEWIDTH(240)+0.5*(widthb+IPHONEWIDTH(20)), 0.5*(widthb+IPHONEWIDTH(20))+IPHONEHIGHT(220), widthb, widthb) title:arraybut[4] andBackground:clearCo tag:1005 andBlock:^(myButton *button) {
+        _numViewEmpty =backKong%3+2;
+        _numViewEmptytype = 4;
+        [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d",_numViewEmptytype] forKey:@"backKong"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d",_numViewEmpty] forKey:@"backKongkong"];
+        
+        //刷新 空图
+        if (!backKong) {
+            [collectionvieww removeFromSuperview];
+            [self creatCollc];
+        }else{
+            
+            [collectionvieww reloadData];
+        }
+        backKong++;
+        
+    }];
+    but.layer.cornerRadius = widthb/2;
+    but.layer.masksToBounds = YES;
+    [but setTitleColor:ColorRGB(29, 115, 230) forState:UIControlStateNormal];
+    but.titleLabel.font = [UIFont boldSystemFontOfSize:IPHONEWIDTH(40)];
+    [self.view addSubview:but];
     
     
 }
@@ -340,6 +407,17 @@
     
     return [NSString stringWithFormat:@"%02d:%02d:%02d",fen,miao,hao];
 }
+-(void)creatCollc{
+    UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc] init];
+    collectionvieww = [[UICollectionView alloc] initWithFrame:CGRectMake(IPHONEWIDTH(28), (ScreenHeight-ScreenWidth)/3*2+IPHONEHIGHT(190), ScreenWidth-IPHONEWIDTH(28*2), ScreenWidth-IPHONEWIDTH(56)) collectionViewLayout:layout];
+    collectionvieww.backgroundColor = [UIColor clearColor];
+    collectionvieww.delegate = self;
+    collectionvieww.dataSource = self;
+    collectionvieww.allowsMultipleSelection = YES;
+    [collectionvieww registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+    [collectionvieww registerClass:[NumberViewCollectionViewCell class] forCellWithReuseIdentifier:@"cellnum"];
+    [imgview addSubview:collectionvieww];
+}
 -(void)Creatui{
     
     //背景
@@ -348,19 +426,7 @@
     imgview.contentMode = UIViewContentModeScaleAspectFill;
     imgview.userInteractionEnabled = YES;
     [self.view addSubview:imgview];
-    
-    
-    UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc] init];
-    collectionvieww = [[UICollectionView alloc] initWithFrame:CGRectMake(IPHONEWIDTH(28), (ScreenHeight-ScreenWidth)/3*2+IPHONEHIGHT(140), ScreenWidth-IPHONEWIDTH(28*2), ScreenWidth-IPHONEWIDTH(56)) collectionViewLayout:layout];
-    collectionvieww.backgroundColor = [UIColor clearColor];
-    collectionvieww.delegate = self;
-    collectionvieww.dataSource = self;
-    collectionvieww.allowsMultipleSelection = YES;
-    [collectionvieww registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
-     [collectionvieww registerClass:[NumberViewCollectionViewCell class] forCellWithReuseIdentifier:@"cellnum"];
-    [imgview addSubview:collectionvieww];
-    
-    
+    [self creatCollc];
     frontView = [[UIView alloc] initWithFrame:CGRectMake(IPHONEWIDTH(28), (ScreenHeight-ScreenWidth)/2, ScreenWidth-IPHONEWIDTH(28*2), ScreenWidth-IPHONEWIDTH(56))];
     frontView.backgroundColor = [UIColor clearColor];
     frontView.userInteractionEnabled = NO;
@@ -385,7 +451,7 @@
     
     StarBut = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    StarBut.frame = CGRectMake(ScreenWidth/2-IPHONEWIDTH(80), IPHONEHIGHT(400), IPHONEWIDTH(200), IPHONEWIDTH(80));
+    StarBut.frame = CGRectMake(ScreenWidth/2-IPHONEWIDTH(80), IPHONEHIGHT(430), IPHONEWIDTH(200), IPHONEWIDTH(80));
     [StarBut addTarget:self action:@selector(button:) forControlEvents:UIControlEventTouchUpInside];
     [StarBut setTitle:@"开始" forState:UIControlStateNormal];
     [StarBut setTitle:@"🔚结束" forState:UIControlStateSelected];
@@ -400,7 +466,7 @@
     
     
     //计时器
-    labelTimer = [myLabel labelWithframe:CGRectMake(ScreenWidth-IPHONEWIDTH(180+28), IPHONEHIGHT(170), IPHONEWIDTH(180), IPHONEHIGHT(60)) backgroundColor:[UIColor clearColor] title:@"00:00:00" font:IPHONEWIDTH(40) Alignment:NSTextAlignmentCenter textColor:[UIColor redColor]];
+    labelTimer = [myLabel labelWithframe:CGRectMake(ScreenWidth-IPHONEWIDTH(180+28), IPHONEHIGHT(130), IPHONEWIDTH(180), IPHONEHIGHT(60)) backgroundColor:[UIColor clearColor] title:@"00:00:00" font:IPHONEWIDTH(40) Alignment:NSTextAlignmentCenter textColor:[UIColor redColor]];
     [imgview addSubview:labelTimer];
 
     
@@ -892,7 +958,6 @@
            if ([dictData[@(indexPath.row)] isEqualToString:@"0"] ) {
                
                UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-               
             [cell.contentView addSubview:[HoleviewOfEmpty HoleViewOfEmptyWithNumber:_numViewEmpty andView:cellWidth  typenum:_numViewEmptytype]];
                cell.contentView.layer.cornerRadius = IPHONEWIDTH(15);
                cell.contentView.layer.masksToBounds = YES;
