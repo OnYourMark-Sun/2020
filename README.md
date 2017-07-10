@@ -5,7 +5,9 @@
 ![image](https://github.com/xushiyou23/2020/blob/master/ShowImage/0C19694E-B9BE-4121-B7FE-77189886C187.png)
 ![image](https://github.com/xushiyou23/2020/blob/master/ShowImage/6137CC9A-69B1-4225-A388-250F64BF6AA3.png)
 
+1.10
 
+1、添加友盟分享，推送；2、自定义空位背景
 
 1.07
 
