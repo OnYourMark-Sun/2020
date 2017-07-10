@@ -65,7 +65,9 @@
     [self configUSharePlatforms];
     
     [self confitUShareSettings];
-
+    /* 设置QQ互联appKey */
+    NSString *qqAppID = @"100424468";
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:qqAppID  appSecret:nil redirectURL:nil];
     
     return YES;
 }
@@ -225,6 +227,8 @@
     BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
     if (!result) {
         // 其他如支付等SDK的回调
+        
+        
     }
     return result;
 }

@@ -3,7 +3,7 @@
   SocialSDK
 
   Created by yeahugo on 13-6-17.
-  Copyright (c) 2013年 Umeng. All rights reserved.
+  Copyright (c) 2013年 Xujiahui. All rights reserved.
 */
 "button_cancel" = "Cancel";
 "button_ok" = "OK";
@@ -31,7 +31,7 @@
 "shareInstagram_openFail" = "Open Instagram fail";
 "shareClient_notInstall" = "Client not installed in your device";
 
-"custom_share_title" = "UMeng share";
+"custom_share_title" = "Xujiahui share";
 
 "umsocial_shareUI_Title" = "Choose platform to share";
 "umsocial_shareUI_CancelControlText" = "Cancel";

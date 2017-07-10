@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,12 +20,47 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jinhuang1" translatesAutoresizingMaskIntoConstraints="NO" id="dEE-YR-wv5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dowmText" translatesAutoresizingMaskIntoConstraints="NO" id="923-bT-apS">
+                                <rect key="frame" x="23" y="220" width="329" height="411"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="329" id="DoH-KY-SQd"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upText" translatesAutoresizingMaskIntoConstraints="NO" id="cG6-en-PTI">
+                                <rect key="frame" x="1" y="50" width="373" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="373" id="Eck-dt-hKE"/>
+                                    <constraint firstAttribute="height" constant="150" id="mFJ-gX-uaf"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="923-bT-apS" secondAttribute="bottom" constant="36" id="6xe-iF-BQW"/>
+                            <constraint firstItem="cG6-en-PTI" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="30" id="IKr-f7-D7I"/>
+                            <constraint firstItem="dEE-YR-wv5" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="NHa-27-pEW"/>
+                            <constraint firstItem="dEE-YR-wv5" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="OHH-Ag-8M2"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="dEE-YR-wv5" secondAttribute="bottom" id="Pdy-Ql-zVn"/>
+                            <constraint firstItem="923-bT-apS" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="aaN-Uu-Hul"/>
+                            <constraint firstItem="923-bT-apS" firstAttribute="top" secondItem="cG6-en-PTI" secondAttribute="bottom" constant="20" id="dHp-YC-gN4"/>
+                            <constraint firstItem="cG6-en-PTI" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gBk-jj-LJc"/>
+                            <constraint firstAttribute="trailing" secondItem="dEE-YR-wv5" secondAttribute="trailing" id="p4Y-4z-fkn"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="dEE-YR-wv5" secondAttribute="bottom" id="sLt-c6-Xdl"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="-10.4" y="151.57421289355324"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dowmText" width="329" height="537"/>
+        <image name="jinhuang1" width="621" height="1104"/>
+        <image name="upText" width="373" height="217"/>
+    </resources>
 </document>

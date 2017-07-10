@@ -232,7 +232,7 @@
     UIAlertAction * fenxiang = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         //分享
-        [self shareImageText:[NSString stringWithFormat:@"我用时%02ld:%02ld:%02ld完成【%@】，快来2020挑战我吧",fen,miao,haomiao,_GameNum] ];
+        [self shareImageText:[NSString stringWithFormat:@"我用时%02ld:%02ld:%02ld完成【%@】，快来挑战我吧",fen,miao,haomiao,_GameNum] ];
         
 
     }];
@@ -349,31 +349,66 @@
 //分享 图文
 - (void)shareImageAndTextToPlatformType:(UMSocialPlatformType)platformType WithShareText:(NSString*)textShare  title:(NSString*)title withSmallImage:(UIImage *)smallImage withImage:(UIImage *)image
 {
+
+    //网页
     //创建分享消息对象
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
     
-    //设置文本
-    messageObject.text = textShare;
-    //标题
-    messageObject.title = title;
-
-    //创建图片内容对象
-    UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
-    //如果有缩略图，则设置缩略图
-//    shareObject.thumbImage = smallImage;
+    //创建网页内容对象
     
-    [shareObject setShareImage:image];
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:title descr:textShare thumImage:image];
+    //设置网页地址
+    shareObject.webpageUrl = @"http://m.youku.com/video/id_XMjg3ODgyMTI4OA==.html?sharefrom=iphone&from=message&source=";
     
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;
-    
+
     //调用分享接口
     [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+       
+       
         if (error) {
-            NSLog(@"************Share fail with error %@*********",error);
+            [UIView pushAlertTwoActionViewWithMessage:@"分享失败，是否继续游戏" Target:self Title:@"提示" oneAlertTitle:@"返回游戏" twoAlertTitle:@"返回首页" oneActionfunc:^{
+                //继续
+                [dictData removeAllObjects];
+                [self creaDATA];
+                [collectionvieww reloadData];
+                timernumber = 0;
+                [self StarGame];
+                [self timerStar];
+                
+                
+            } twoActionfunc:^{
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                //返回上一页
+                
+            }];
+   
+            
         }else{
-            NSLog(@"response data is %@",data);
+            
+            [UIView pushAlertTwoActionViewWithMessage:@"分享成功，再挑战一下记录吧" Target:self Title:@"提示" oneAlertTitle:@"好的" twoAlertTitle:@"返回首页" oneActionfunc:^{
+                //继续
+                [dictData removeAllObjects];
+                [self creaDATA];
+                [collectionvieww reloadData];
+                timernumber = 0;
+                [self StarGame];
+                [self timerStar];
+                
+                
+            } twoActionfunc:^{
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                
+                //返回上一页
+                
+            }];
+            
         }
+        
+      
     }];
 }
 
