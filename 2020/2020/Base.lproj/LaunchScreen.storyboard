@@ -24,13 +24,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jinhuang1" translatesAutoresizingMaskIntoConstraints="NO" id="dEE-YR-wv5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dowmText" translatesAutoresizingMaskIntoConstraints="NO" id="923-bT-apS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dowmTex" translatesAutoresizingMaskIntoConstraints="NO" id="923-bT-apS">
                                 <rect key="frame" x="23" y="220" width="329" height="411"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="329" id="DoH-KY-SQd"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upText" translatesAutoresizingMaskIntoConstraints="NO" id="cG6-en-PTI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upTex" translatesAutoresizingMaskIntoConstraints="NO" id="cG6-en-PTI">
                                 <rect key="frame" x="1" y="50" width="373" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="373" id="Eck-dt-hKE"/>
@@ -59,8 +59,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dowmText" width="329" height="537"/>
+        <image name="dowmTex" width="16" height="16"/>
         <image name="jinhuang1" width="621" height="1104"/>
-        <image name="upText" width="373" height="217"/>
+        <image name="upTex" width="16" height="16"/>
     </resources>
 </document>

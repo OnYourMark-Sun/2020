@@ -29,9 +29,7 @@
     self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[[RecordViewController alloc] init]];
 
     [self.window makeKeyWindow];
-    
- 
-    
+
     [UMessage startWithAppkey:APPKeyYouMeng launchOptions:launchOptions httpsEnable:YES];
 //    [UMessage startWithAppkey:APPKeyYouMeng launchOptions:launchOptions];
     [UMessage registerForRemoteNotifications];
@@ -56,8 +54,6 @@
   
     [UMessage addLaunchMessageWithWindow:self.window finishViewController:[[UINavigationController alloc]initWithRootViewController:[[RecordViewController alloc] init]] ];
 
-    
-    
     //youmeng分享
     [[UMSocialManager defaultManager] openLog:YES];//打开日志
     //
@@ -66,7 +62,7 @@
     
     [self confitUShareSettings];
     /* 设置QQ互联appKey */
-    NSString *qqAppID = @"100424468";
+    NSString *qqAppID = @"1106202425";
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:qqAppID  appSecret:nil redirectURL:nil];
     
     return YES;

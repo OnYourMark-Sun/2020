@@ -12,7 +12,7 @@
 #define gamerRecord @"gamerRecord"
 #define dictGame  @"dictGameCenter"
 #define dictchallenger  @"dictChallengeCenter"
-#define APPKeyYouMeng @"595c3e47677baa47ac000abb"  // icwsgtu6tt8txj1deas8smv7atyxkwxw
+#define APPKeyYouMeng @"596349f707fe652a92000cd9"  
 
 #define UserDefaults(object,key) [[NSUserDefaults standardUserDefaults]setObject:object forKey:key]
 #define UserDefault(key) [[NSUserDefaults standardUserDefaults] objectForKey:key]

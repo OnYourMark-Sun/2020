@@ -500,31 +500,50 @@
     
     //弹出数字键盘
     
-    UIAlertController * shenum = [UIAlertController alertControllerWithTitle:@"关卡设置" message:@"请输入任意四位关卡数" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController * shenum = [UIAlertController alertControllerWithTitle:@"关卡设置" message:@"关卡数值M=2的N次方" preferredStyle:UIAlertControllerStyleAlert];
     [shenum addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder =@"输入各位为偶数的数值";
+        textField.placeholder =@"请输入整数N（3--14）";
         textField.keyboardType = UIKeyboardTypeNumberPad;
     }];
     
     UIAlertAction * haode = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         UITextField * shuzhi = shenum.textFields.firstObject;
-        if (![self isNum:shuzhi.text] || [shuzhi.text isEqualToString:@"0"] || !shuzhi.text || shuzhi.text.length>4) {
+        NSString * shuzhitext = shuzhi.text;
+        if (3>shuzhitext.intValue || shuzhitext.intValue>14 || !([shuzhitext rangeOfString:@"."].location == NSNotFound) ) {
             
-            [UIView pushAlertViewWithMessage:@"输入数值不符合要求，请重新输入" Target:self Title:@"提示" AlertTitle:@"好的"];
+            [UIView pushAlertViewWithMessage:@"关卡级别N为3--14，请正确输入" Target:self Title:@"提示" AlertTitle:@"好的"];
+            
         }else{
             //判断是不是2的n次方   n为整数
-            float a,b;
-            
-            a= log2([shuzhi.text intValue]);
-            b= (int)a;
-            if (a != b) {
-                [UIView pushAlertViewWithMessage:@"输入数值不符合要求，请重新输入" Target:self Title:@"提示" AlertTitle:@"好的"];
+            int a=2;
+           
+            for (int i =1; i<shuzhitext.intValue; i++) {
                 
-                return ;
+                a = a*2;
+
             }
-            [self SetGuanButWith:shuzhi.text];
+            
+            [self SetGuanButWith:[NSString stringWithFormat:@"%d",a]];
         }
+
+//        if (![self isNum:shuzhi.text] || [shuzhi.text isEqualToString:@"0"] || !shuzhi.text || shuzhi.text.length>4 ) {
+//            
+//            [UIView pushAlertViewWithMessage:@"输入数值不符合要求，请重新输入" Target:self Title:@"提示" AlertTitle:@"好的"];
+//            
+//        }else{
+//            //判断是不是2的n次方   n为整数
+//            float a,b;
+//            
+//            a= log2([shuzhi.text intValue]);
+//            b= (int)a;
+//            if (a != b) {
+//                [UIView pushAlertViewWithMessage:@"输入数值不符合要求，请重新输入" Target:self Title:@"提示" AlertTitle:@"好的"];
+//                
+//                return ;
+//            }
+//            [self SetGuanButWith:shuzhi.text];
+//        }
         
     }];
     

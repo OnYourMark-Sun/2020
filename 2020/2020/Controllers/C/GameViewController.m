@@ -153,12 +153,14 @@
             
             
         }else{
+          
             UILabel * noOne = (UILabel*)[self.view viewWithTag:123];
             noOne.text = [NSString stringWithFormat:@"%@\n%@",_record1Name,[self timerChangeString:[NSString stringWithFormat:@"%ld",timernumber]]];
             addString = @"创造本等级历史第一！";
             [gamecenter setObject:recordNew forKey:@"gamerRecord1"];
             
         }
+        
         [dictgame setValue:gamecenter forKey:_GameNum];
         
         UserDefaults(dictgame, dictGame);
@@ -213,10 +215,7 @@
     haomiao = timernumber%100;
     miao = timernumber/100%60;
     fen = timernumber/6000;
-    
-    
-  
-   
+
     UIAlertController * alert =[UIAlertController alertControllerWithTitle:@"OH耶！！！" message:[NSString stringWithFormat:@"\n%02ld:%02ld:%02ld \n %@\n 分享给好盆有一起挑战吧",fen,miao,haomiao,addString?addString:@""] preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction * jixu = [UIAlertAction actionWithTitle:@"返回游戏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
@@ -232,7 +231,7 @@
     UIAlertAction * fenxiang = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         //分享
-        [self shareImageText:[NSString stringWithFormat:@"我用时%02ld:%02ld:%02ld完成【%@】，快来挑战我吧",fen,miao,haomiao,_GameNum] ];
+        [self shareImageText:[NSString stringWithFormat:@"【%@】%02ld:%02ld:%02ld完成【%@】,快来挑战吧",_challengeName,fen,miao,haomiao,_GameNum] ];
         
 
     }];
@@ -241,10 +240,8 @@
     [alert addAction:fenxiang];
     
     [self presentViewController:alert animated:YES completion:^{
-        
-         [self starVimage];
     }];
-    
+     [self starVimage];
 }
 //开始剪裁图片
 -(void)starVimage{
@@ -335,11 +332,11 @@
 }
 -(void)shareImageText:(NSString*)string{
     
-    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)]];
+    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_WechatTimeLine),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Qzone),@(UMSocialPlatformType_Sina)]];
     
     [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
 //         根据获取的platformType确定所选平台进行下一步操作
-         [self shareImageAndTextToPlatformType:platformType WithShareText:string title:@"【2020】任意等级等你挑战！" withSmallImage:nil withImage:viewimage];
+         [self shareImageAndTextToPlatformType:platformType WithShareText:string title:@"【2020】任意等级来挑战！" withSmallImage:nil withImage:viewimage];
     }];
     
     //设置分享面板的显示和隐藏的代理回调
