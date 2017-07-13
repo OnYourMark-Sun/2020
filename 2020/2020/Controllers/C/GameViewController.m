@@ -217,7 +217,7 @@
     fen = timernumber/6000;
 
     UIAlertController * alert =[UIAlertController alertControllerWithTitle:@"OH耶！！！" message:[NSString stringWithFormat:@"\n%02ld:%02ld:%02ld \n %@\n 分享给好盆有一起挑战吧",fen,miao,haomiao,addString?addString:@""] preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction * jixu = [UIAlertAction actionWithTitle:@"返回游戏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction * jixu = [UIAlertAction actionWithTitle:@"再来一局" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         //继续
         [dictData removeAllObjects];
@@ -365,7 +365,7 @@
        
        
         if (error) {
-            [UIView pushAlertTwoActionViewWithMessage:@"分享失败，是否继续游戏" Target:self Title:@"提示" oneAlertTitle:@"返回游戏" twoAlertTitle:@"返回首页" oneActionfunc:^{
+            [UIView pushAlertTwoActionViewWithMessage:@"分享失败，是否继续游戏" Target:self Title:@"提示" oneAlertTitle:@"再来一局" twoAlertTitle:@"返回首页" oneActionfunc:^{
                 //继续
                 [dictData removeAllObjects];
                 [self creaDATA];
@@ -603,7 +603,7 @@
     }else{
         [timerss setFireDate:[NSDate distantFuture]];
         
-       [UIView pushAlertTwoActionViewWithMessage:@"游戏暂停" Target:self Title:@"提示" oneAlertTitle:@"再🌊一会" twoAlertTitle:@"退出🎮" oneActionfunc:^{
+       [UIView pushAlertTwoActionViewWithMessage:@"游戏暂停\n点击继续／退出" Target:self Title:@"提示" oneAlertTitle:@"继续🎮" twoAlertTitle:@"退出🎮" oneActionfunc:^{
            
            [timerss setFireDate:[NSDate date]];
            
