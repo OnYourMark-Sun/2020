@@ -1,9 +1,10 @@
 数字加法游戏，类似于2048,4096
 
 ![image](https://github.com/xushiyou23/2020/blob/master/ShowImage/2020g.gif)
-![image](https://github.com/xushiyou23/2020/blob/master/ShowImage/51327852-6D58-4669-ABCB-8C8013558CFB.png)
-![image](https://github.com/xushiyou23/2020/blob/master/ShowImage/0C19694E-B9BE-4121-B7FE-77189886C187.png)
-![image](https://github.com/xushiyou23/2020/blob/master/ShowImage/6137CC9A-69B1-4225-A388-250F64BF6AA3.png)
+![image](http://images2015.cnblogs.com/blog/922169/201707/922169-20170717142316785-214933910.jpg)
+![image](http://images2015.cnblogs.com/blog/922169/201707/922169-20170717142322019-610101217.png)
+![image](http://images2015.cnblogs.com/blog/922169/201707/922169-20170717142327972-1299716802.png)
+![image](http://images2015.cnblogs.com/blog/922169/201707/922169-20170717142332503-1269419090.png)
 
 1.10
 
