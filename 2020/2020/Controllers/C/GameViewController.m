@@ -365,50 +365,22 @@
        
        
         if (error) {
-            [UIView pushAlertTwoActionViewWithMessage:@"分享失败，是否继续游戏" Target:self Title:@"提示" oneAlertTitle:@"再来一局" twoAlertTitle:@"返回首页" oneActionfunc:^{
-                //继续
-                [dictData removeAllObjects];
-                [self creaDATA];
-                [collectionvieww reloadData];
-                timernumber = 0;
-                [self StarGame];
-                [self timerStar];
-                
-                
-            } twoActionfunc:^{
-                
-                [self.navigationController popViewControllerAnimated:YES];
-                //返回上一页
-                
-            }];
-   
+              [MBProgressHUD showText:@"分享失败了，我里个去😯" HUDAddedTo:self.view animated:YES afterDelay:1];
             
         }else{
             
-            [UIView pushAlertTwoActionViewWithMessage:@"分享成功，再挑战一下记录吧" Target:self Title:@"提示" oneAlertTitle:@"好的" twoAlertTitle:@"返回首页" oneActionfunc:^{
-                //继续
-                [dictData removeAllObjects];
-                [self creaDATA];
-                [collectionvieww reloadData];
-                timernumber = 0;
-                [self StarGame];
-                [self timerStar];
-                
-                
-            } twoActionfunc:^{
-                
-                [self.navigationController popViewControllerAnimated:YES];
-                
-                //返回上一页
-                
-            }];
             
-        }
-        
+            [MBProgressHUD showText:@"分享成功，再挑战一下记录吧" HUDAddedTo:self.view animated:YES afterDelay:1];
+                   }
+      
       
     }];
+    
+    [self performSelector:@selector(fanhuizhu) withObject:nil afterDelay:1.5];
 }
-
+-(void)fanhuizhu{
+     [self.navigationController popViewControllerAnimated:YES];
+}
 
 -(void)CreatUp{
 
