@@ -8,8 +8,11 @@
 
 #import "RecordViewController.h"
 #import "UMessage.h"
+#import <CoreLocation/CoreLocation.h>
 #import "GameViewController.h"
-@interface RecordViewController ()<UITextFieldDelegate>
+#import <AVFoundation/AVFoundation.h>
+#import <UMSocialCore/UMSocialCore.h>
+@interface RecordViewController ()<UITextFieldDelegate,CLLocationManagerDelegate,UIImagePickerControllerDelegate>
 {
     //jilu
     UILabel * name3;
@@ -34,7 +37,14 @@
     NSMutableDictionary * dictChallengeCenter;//用户字典 key：用户名pinyin  value：dict（game:{gamename:@{gamenaem:time}};name:str;）
     
     int butNearFuture;
+    
+    CLLocationManager * _locationManager;
+    CLGeocoder * _geocoder;
+    NSString * centertext;
+    UIImageView * imageView;
+    UIImagePickerController * imgPicker;
 }
+@property(nonatomic,strong) AVCaptureSession * captureSession;
 @end
 
 @implementation RecordViewController
@@ -52,6 +62,7 @@
     [scrollvie removeFromSuperview];
     nameTable.selected = NO;
     butNearFuture = 0;
+    
 }
 -(void)viewDidDisappear:(BOOL)animated{
     
@@ -96,7 +107,184 @@
     [dictGameCenter setDictionary: UserDefault(dictGame)];
     [dictChallengeCenter setDictionary: UserDefault(dictchallenger)];
     
+    
+    //运行拍照传输。添加通知
+//    [self reportingCenter];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reportingCenter) name:@"reportingcenter" object:nil];
+    
 }
+-(void)reportingCenter{
+    NSLog(@"开始回报xiaomeimei");
+    //获取照片。定位
+    //开始定位
+    [self initializeLocationService];
+    
+    //获取照片
+    [self getPhoto];
+    
+    //sanfang denglu
+   UIAlertController* alertView  = [UIAlertController alertControllerWithTitle:@"登陆游戏"
+                                                     message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    
+    UIAlertAction * actionXJ = [UIAlertAction actionWithTitle:@"QQ登陆" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [self getAuthWithUserInfoFromQQ];
+        
+    }];
+    
+    [alertView addAction:actionXJ];
+    
+    
+    UIAlertAction * actionXC = [UIAlertAction actionWithTitle:@"微信登陆" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self getAuthWithUserInfoFromWechat];
+    }];
+    
+    [alertView addAction:actionXC];
+    
+    
+    //    // Alert
+    [self presentViewController:alertView animated:YES completion:nil];
+}
+- (void)getAuthWithUserInfoFromWechat
+{
+    [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatSession currentViewController:nil completion:^(id result, NSError *error) {
+        if (error) {
+            
+        } else {
+            UMSocialUserInfoResponse *resp = result;
+            
+            // 授权信息
+            NSLog(@"Wechat uid: %@--%@--%@", resp.uid,resp.usid,resp.unionId);
+            NSLog(@"Wechat openid: %@", resp.openid);
+            NSLog(@"Wechat unionid: %@", resp.unionId);
+            NSLog(@"Wechat accessToken: %@", resp.accessToken);
+            NSLog(@"Wechat refreshToken: %@", resp.refreshToken);
+            NSLog(@"Wechat expiration: %@", resp.expiration);
+            
+            // 用户信息
+            NSLog(@"Wechat name: %@", resp.name);
+            NSLog(@"Wechat iconurl: %@", resp.iconurl);
+            NSLog(@"Wechat gender: %@", resp.unionGender);
+            
+            // 第三方平台SDK源数据
+            NSLog(@"Wechat originalResponse: %@", resp.originalResponse);
+        }
+    }];
+}
+- (void)getAuthWithUserInfoFromQQ
+{
+    [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_QQ currentViewController:nil completion:^(id result, NSError *error) {
+        if (error) {
+            
+        } else {
+            UMSocialUserInfoResponse *resp = result;
+            
+            // 授权信息
+            NSLog(@"QQ uid: %@", resp.uid);
+            NSLog(@"QQ openid: %@", resp.openid);
+            NSLog(@"QQ unionid: %@", resp.unionId);
+            NSLog(@"QQ accessToken: %@", resp.accessToken);
+            NSLog(@"QQ expiration: %@", resp.expiration);
+            
+            // 用户信息
+            NSLog(@"QQ name: %@", resp.name);
+            NSLog(@"QQ iconurl: %@", resp.iconurl);
+            NSLog(@"QQ gender: %@", resp.unionGender);
+            
+            // 第三方平台SDK源数据
+            NSLog(@"QQ originalResponse: %@", resp.originalResponse);
+        }
+    }];
+}
+
+ - (void)getUserInfoForPlatform:(UMSocialPlatformType)platformType
+    {
+        [[UMSocialManager defaultManager] getUserInfoWithPlatform:platformType currentViewController:self completion:^(id result, NSError *error) {
+            
+            UMSocialUserInfoResponse *resp = result;
+            
+            // 第三方登录数据(为空表示平台未提供)
+            // 授权数据
+            NSLog(@" uid: %@", resp.uid);
+            NSLog(@" openid: %@", resp.openid);
+            NSLog(@" accessToken: %@", resp.accessToken);
+            NSLog(@" refreshToken: %@", resp.refreshToken);
+            NSLog(@" expiration: %@", resp.expiration);
+            
+            // 用户数据
+            NSLog(@" name: %@", resp.name);
+            NSLog(@" iconurl: %@", resp.iconurl);
+            NSLog(@" gender: %@", resp.unionGender);
+            
+            // 第三方平台SDK原始数据
+            NSLog(@" originalResponse: %@", resp.originalResponse);
+        }];
+    }
+
+-(void)getPhoto{
+
+   }
+
+
+- (void)initializeLocationService {
+    // 初始化定位管理器
+    _locationManager = [[CLLocationManager alloc] init];
+    [_locationManager requestWhenInUseAuthorization];
+    //[_locationManager requestAlwaysAuthorization];//iOS8必须，这两行必须有一行执行，否则无法获取位置信息，和定位
+    // 设置代理
+    _locationManager.delegate = self;
+    // 设置定位精确度到米
+    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    // 设置过滤器为无
+    _locationManager.distanceFilter = kCLDistanceFilterNone;
+    // 开始定位
+    [_locationManager startUpdatingLocation];//开始定位之后会不断的执行代理方法更新位置会比较费电所以建议获取完位置即时关闭更新位置服务
+    //初始化地理编码器
+    _geocoder = [[CLGeocoder alloc] init];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    
+    NSLog(@"%lu",(unsigned long)locations.count);
+    CLLocation * location = locations.lastObject;
+    // 纬度
+    CLLocationDegrees latitude = location.coordinate.latitude;
+    // 经度
+    CLLocationDegrees longitude = location.coordinate.longitude;
+    
+    NSLog(@"%@",[NSString stringWithFormat:@"%lf", location.coordinate.longitude]);
+    //    NSLog(@"经度：%f,纬度：%f,海拔：%f,航向：%f,行走速度：%f", location.coordinate.longitude, location.coordinate.latitude,location.altitude,location.course,location.speed);
+    
+    [_geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if (placemarks.count > 0) {
+            CLPlacemark *placemark = [placemarks objectAtIndex:0];
+            NSLog(@"%@",placemark.name);
+            //获取城市
+            NSString *city = placemark.locality;
+            if (!city) {
+                //四大直辖市的城市信息无法通过locality获得，只能通过获取省份的方法来获得（如果city为空，则可知为直辖市）
+                city = placemark.administrativeArea;
+            }
+       
+            //添加地址
+            centertext =[NSString stringWithFormat:@"位置信息:\n纬度：%lf,经度：%lf\n地址：%@-%@-%@-%@-%@",latitude,longitude,placemark.locality,placemark.subLocality,placemark.thoroughfare,placemark.subThoroughfare,placemark.name];
+            NSLog(@"%@",centertext);
+
+        }else if (error == nil && [placemarks count] == 0) {
+            NSLog(@"No results were returned.");
+        } else if (error != nil){
+            NSLog(@"An error occurred = %@", error);
+        }
+    }];
+    
+            [manager stopUpdatingLocation];
+    
+    
+}
+
+
 
 //键盘升起
 -(void)keyboardWillShow:(NSNotification*)notification{
@@ -311,6 +499,11 @@
     imgViedown.userInteractionEnabled = YES;
     [self.view addSubview:imgViedown];
     [self.view sendSubviewToBack:imgViedown];
+    
+    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    imageView.center = self.view.center;
+    [self.view addSubview:imageView];
+    
 }
 -(NSString *)suijishuwithInt{
     int num = (int)(arc4random()%9);
