@@ -2,8 +2,8 @@
 //  myButton.h
 //  02-button的封装-block
 //
-//  Created by 碧海 on 16/6/16.
-//  Copyright © 2016年 碧海. All rights reserved.
+//  Created by xsy on 16/6/16.
+//  Copyright © 2016年 xsy2020. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

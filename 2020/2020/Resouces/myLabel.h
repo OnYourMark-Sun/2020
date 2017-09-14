@@ -3,7 +3,7 @@
 //  单行透明度的变化,下拉变大,上拉显示tab
 //
 //  Created by 徐士友 on 16/8/26.
-//  Copyright © 2016年 xujiahui. All rights reserved.
+//  Copyright © 2016年 xujiahui2020. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -2,8 +2,8 @@
 //  UIView+PopAlert.h
 //  SouthDream
 //
-//  Created by zj on 16/10/9.
-//  Copyright © 2016年 zj. All rights reserved.
+//  Created by xsy2020 on 16/10/9.
+//  Copyright © 2016年 xushiyou-xsy-2020. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

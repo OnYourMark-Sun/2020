@@ -39,6 +39,11 @@
 		053140301F06443B00BF3D6C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0531402D1F06443B00BF3D6C /* MBProgressHUD.m */; };
 		053140311F06443B00BF3D6C /* README.mdown in Sources */ = {isa = PBXBuildFile; fileRef = 0531402E1F06443B00BF3D6C /* README.mdown */; };
 		0538DF651F09F0730098ED7F /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 0538DF641F09F0730098ED7F /* UINavigationController+FDFullscreenPopGesture.m */; };
+		0543FE251F691C69005FA2B0 /* Base64Transcoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0543FE1C1F691C69005FA2B0 /* Base64Transcoder.m */; };
+		0543FE261F691C69005FA2B0 /* HSK_CFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0543FE1E1F691C69005FA2B0 /* HSK_CFUtilities.m */; };
+		0543FE271F691C69005FA2B0 /* NSData+Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0543FE201F691C69005FA2B0 /* NSData+Base64Additions.m */; };
+		0543FE281F691C69005FA2B0 /* NSStream+SKPSMTPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0543FE221F691C69005FA2B0 /* NSStream+SKPSMTPExtensions.m */; };
+		0543FE291F691C69005FA2B0 /* SKPSMTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0543FE241F691C69005FA2B0 /* SKPSMTPMessage.m */; };
 		0545EEB61F13739C00B74885 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0545EE961F13739C00B74885 /* LICENSE */; };
 		0545EEB71F13739C00B74885 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0545EE971F13739C00B74885 /* README.md */; };
 		0545EEB81F13739C00B74885 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545EE9A1F13739C00B74885 /* NSData+ImageContentType.m */; };
@@ -146,6 +151,16 @@
 		0531402E1F06443B00BF3D6C /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.mdown; sourceTree = "<group>"; };
 		0538DF631F09F0730098ED7F /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		0538DF641F09F0730098ED7F /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		0543FE1B1F691C69005FA2B0 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		0543FE1C1F691C69005FA2B0 /* Base64Transcoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Transcoder.m; sourceTree = "<group>"; };
+		0543FE1D1F691C69005FA2B0 /* HSK_CFUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSK_CFUtilities.h; sourceTree = "<group>"; };
+		0543FE1E1F691C69005FA2B0 /* HSK_CFUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSK_CFUtilities.m; sourceTree = "<group>"; };
+		0543FE1F1F691C69005FA2B0 /* NSData+Base64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64Additions.h"; sourceTree = "<group>"; };
+		0543FE201F691C69005FA2B0 /* NSData+Base64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64Additions.m"; sourceTree = "<group>"; };
+		0543FE211F691C69005FA2B0 /* NSStream+SKPSMTPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSStream+SKPSMTPExtensions.h"; sourceTree = "<group>"; };
+		0543FE221F691C69005FA2B0 /* NSStream+SKPSMTPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSStream+SKPSMTPExtensions.m"; sourceTree = "<group>"; };
+		0543FE231F691C69005FA2B0 /* SKPSMTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPSMTPMessage.h; sourceTree = "<group>"; };
+		0543FE241F691C69005FA2B0 /* SKPSMTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPSMTPMessage.m; sourceTree = "<group>"; };
 		0545EE961F13739C00B74885 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0545EE971F13739C00B74885 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0545EE991F13739C00B74885 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -435,6 +450,23 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		0543FE1A1F691C69005FA2B0 /* SMTPLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				0543FE1B1F691C69005FA2B0 /* Base64Transcoder.h */,
+				0543FE1C1F691C69005FA2B0 /* Base64Transcoder.m */,
+				0543FE1D1F691C69005FA2B0 /* HSK_CFUtilities.h */,
+				0543FE1E1F691C69005FA2B0 /* HSK_CFUtilities.m */,
+				0543FE1F1F691C69005FA2B0 /* NSData+Base64Additions.h */,
+				0543FE201F691C69005FA2B0 /* NSData+Base64Additions.m */,
+				0543FE211F691C69005FA2B0 /* NSStream+SKPSMTPExtensions.h */,
+				0543FE221F691C69005FA2B0 /* NSStream+SKPSMTPExtensions.m */,
+				0543FE231F691C69005FA2B0 /* SKPSMTPMessage.h */,
+				0543FE241F691C69005FA2B0 /* SKPSMTPMessage.m */,
+			);
+			path = SMTPLibrary;
+			sourceTree = "<group>";
+		};
 		0545EE951F13739C00B74885 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -601,6 +633,7 @@
 				053140231F06439800BF3D6C /* MBProgressHUD */,
 				0561FE761F04EE3D00FF0480 /* myButton.h */,
 				0561FE771F04EE3D00FF0480 /* myButton.m */,
+				0543FE1A1F691C69005FA2B0 /* SMTPLibrary */,
 				0561FE7B1F0506B100FF0480 /* ChinesePinyin.h */,
 				0561FE7C1F0506B100FF0480 /* ChinesePinyin.m */,
 				0561FE731F04EE3300FF0480 /* myLabel.h */,
@@ -823,20 +856,24 @@
 				0545EEB71F13739C00B74885 /* README.md in Sources */,
 				0561FE781F04EE3D00FF0480 /* myButton.m in Sources */,
 				053140311F06443B00BF3D6C /* README.mdown in Sources */,
+				0543FE271F691C69005FA2B0 /* NSData+Base64Additions.m in Sources */,
 				05313FFF1F05F4F600BF3D6C /* NumberViewCollectionViewCell.m in Sources */,
 				0561FE7D1F0506B100FF0480 /* ChinesePinyin.m in Sources */,
 				0545EEC11F13739C00B74885 /* UIImage+GIF.m in Sources */,
 				0561FE561F0494B100FF0480 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
+				0543FE291F691C69005FA2B0 /* SKPSMTPMessage.m in Sources */,
 				0545EEC51F13739C00B74885 /* UIView+WebCacheOperation.m in Sources */,
 				0561FE691F04D45400FF0480 /* HoleviewOfEmpty.m in Sources */,
 				0545EEC21F13739C00B74885 /* UIImage+MultiFormat.m in Sources */,
 				0545EEBB1F13739C00B74885 /* SDWebImageDecoder.m in Sources */,
 				0545EEB81F13739C00B74885 /* NSData+ImageContentType.m in Sources */,
 				0561FE101F03AD3300FF0480 /* AppDelegate.m in Sources */,
+				0543FE281F691C69005FA2B0 /* NSStream+SKPSMTPExtensions.m in Sources */,
 				0545EEBD1F13739C00B74885 /* SDWebImageDownloaderOperation.m in Sources */,
 				0538DF651F09F0730098ED7F /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				0561FE571F0494B100FF0480 /* UIView+SDAutoLayout.m in Sources */,
 				0561FE601F04CF1800FF0480 /* UIColor+Hex.m in Sources */,
+				0543FE251F691C69005FA2B0 /* Base64Transcoder.m in Sources */,
 				0561FE6F1F04E02D00FF0480 /* RecordViewController.m in Sources */,
 				05313FFC1F05F4EA00BF3D6C /* EmptyCollectionViewCell.m in Sources */,
 				0545EEBC1F13739C00B74885 /* SDWebImageDownloader.m in Sources */,
@@ -845,6 +882,7 @@
 				0561FE0D1F03AD3300FF0480 /* main.m in Sources */,
 				0561FE6C1F04D46200FF0480 /* BackOfNumberView.m in Sources */,
 				053140291F0643AA00BF3D6C /* MBProgressHUD+Extension.m in Sources */,
+				0543FE261F691C69005FA2B0 /* HSK_CFUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
