@@ -355,7 +355,8 @@
     
     UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:title descr:textShare thumImage:image];
     //设置网页地址
-    shareObject.webpageUrl = @"http://m.youku.com/video/id_XMjg3ODgyMTI4OA==.html?sharefrom=iphone&from=message&source=";
+    shareObject.webpageUrl =@"https://mp.weixin.qq.com/s?__biz=MzUxMjE4NDAxNg==&mid=2247486092&idx=1&sn=709c55d5a9114b9804b09680c0b2d448&chksm=f9691133ce1e98259122ba60ad817f5604cd957e3782145a67cc86ecc3aff593d962aa08451c&mpshare=1&scene=1&srcid=09158idmjCMi3G6HYPmX8iyH&key=2b90ec7443e03053de48c360d0f1e1c97388e84d74dcfb4011234d18de49a665c08365ac2d9d03de0574e47264b677944c1cdb08dda6413291697701522e927e67a76663ef214460c12029a64c82a56e&ascene=0&uin=MTYzNDMzNDQ0MQ%3D%3D&devicetype=iMac+Macmini7%2C1+OSX+OSX+10.12.1+build(16B2657)&version=12020810&nettype=WIFI&fontScale=100&pass_ticket=%2BonKGGVZNln9yRB1%2FcBvBjJw4HMaXw0FksAAupfQDMNtmTXNv3w9wWVGpgDsN6rb";
+//    @"http://m.youku.com/video/id_XMjg3ODgyMTI4OA==.html?sharefrom=iphone&from=message&source=";
     
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;

