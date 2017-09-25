@@ -189,6 +189,9 @@
         } else {
             UMSocialUserInfoResponse *resp = result;
             
+            //更改获取名字
+            name.text = resp.name;
+            
             // 授权信息
             NSLog(@"Wechat uid: %@--%@--%@", resp.uid,resp.usid,resp.unionId);
             NSLog(@"Wechat openid: %@", resp.openid);
@@ -220,6 +223,8 @@
         } else {
             UMSocialUserInfoResponse *resp = result;
             
+            
+            name.text = resp.name;
             // 授权信息
             NSLog(@"QQ uid: %@", resp.uid);
             NSLog(@"QQ openid: %@", resp.openid);
@@ -461,6 +466,10 @@
     
 }
 
+static void extracted(RecordViewController *object) {
+    [object beginGame];
+}
+
 -(void)CreatDown{
     
     name = [[UITextField alloc] initWithFrame:CGRectMake(IPHONEWIDTH(50), ScreenWidth+IPHONEHIGHT(160), ScreenWidth-IPHONEWIDTH(200+80), IPHONEHIGHT(100))];
@@ -469,6 +478,7 @@
     name.textColor = [UIColor orangeColor];
     name.font = [UIFont boldSystemFontOfSize:IPHONEWIDTH(40)];
     name.alpha = 0.7;
+    name.userInteractionEnabled = NO;
     name.delegate = self;
     name.keyboardType = UIReturnKeyDone;
     [self.view addSubview:name];
@@ -531,7 +541,7 @@
     //开始游戏按钮
     butBegin = [myButton buttonWithType:UIButtonTypeSystem frame:CGRectMake(IPHONEWIDTH(150), ScreenWidth+IPHONEHIGHT(160+190)   , ScreenWidth-IPHONEWIDTH(300), IPHONEHIGHT(120))  title:@"开始游戏" andBackground:[UIColor orangeColor] tag:111000 andBlock:^(myButton *button) {
         
-        [self beginGame];
+        extracted(self);
         
     }];
    butBegin.titleLabel.font = [UIFont boldSystemFontOfSize:IPHONEWIDTH(55)];
@@ -618,11 +628,11 @@
         }];
         
     }else{
-        if (name.text.length>4) {
-            
-            [UIView pushAlertViewWithMessage:@"名字长度超过4个字符了" Target:self Title:@"提示" AlertTitle:@"知道啦"];
-            return;
-        }
+//        if (name.text.length>4) {
+//
+//            [UIView pushAlertViewWithMessage:@"名字长度超过4个字符了" Target:self Title:@"提示" AlertTitle:@"知道啦"];
+//            return;
+//        }
         
         NSArray * yonghu = [dictChallengeCenter allKeys];
         //存在用户
