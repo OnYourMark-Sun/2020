@@ -726,7 +726,7 @@
 				TargetAttributes = {
 					0561FE071F03AD3300FF0480 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 6SYF7XHQWP;
+						DevelopmentTeam = 32N9KU6JM2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -988,7 +988,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = 2020/2020.entitlements;
-				DEVELOPMENT_TEAM = 6SYF7XHQWP;
+				DEVELOPMENT_TEAM = 32N9KU6JM2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/2020/Resouces/YouMeng/UMSocial/SocialLibraries/QQ/QQSDK",
@@ -1013,7 +1013,7 @@
 					"$(PROJECT_DIR)/2020/Resouces/YouMeng/UMSocial/UMSocialSDKPlugin",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-020";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xujiahui.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1023,7 +1023,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = 2020/2020.entitlements;
-				DEVELOPMENT_TEAM = 6SYF7XHQWP;
+				DEVELOPMENT_TEAM = 32N9KU6JM2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/2020/Resouces/YouMeng/UMSocial/SocialLibraries/QQ/QQSDK",
@@ -1048,7 +1048,7 @@
 					"$(PROJECT_DIR)/2020/Resouces/YouMeng/UMSocial/UMSocialSDKPlugin",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-020";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xujiahui.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
