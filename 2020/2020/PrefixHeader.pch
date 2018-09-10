@@ -9,6 +9,9 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+
+//-----------------URL
+#define shareURl @"vhttps://www.cnblogs.com/xujiahui/p/7094810.html"
 /////////////////      字段
 #define gamerRecord @"gamerRecord"
 #define dictGame  @"dictGameCenter"
