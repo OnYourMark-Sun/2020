@@ -39,7 +39,6 @@
 		053140301F06443B00BF3D6C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0531402D1F06443B00BF3D6C /* MBProgressHUD.m */; };
 		053140311F06443B00BF3D6C /* README.mdown in Sources */ = {isa = PBXBuildFile; fileRef = 0531402E1F06443B00BF3D6C /* README.mdown */; };
 		0538DF651F09F0730098ED7F /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 0538DF641F09F0730098ED7F /* UINavigationController+FDFullscreenPopGesture.m */; };
-		0545EEB61F13739C00B74885 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0545EE961F13739C00B74885 /* LICENSE */; };
 		0545EEB71F13739C00B74885 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0545EE971F13739C00B74885 /* README.md */; };
 		0545EEB81F13739C00B74885 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545EE9A1F13739C00B74885 /* NSData+ImageContentType.m */; };
 		0545EEB91F13739C00B74885 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545EE9C1F13739C00B74885 /* SDImageCache.m */; };
@@ -146,7 +145,6 @@
 		0531402E1F06443B00BF3D6C /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.mdown; sourceTree = "<group>"; };
 		0538DF631F09F0730098ED7F /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		0538DF641F09F0730098ED7F /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
-		0545EE961F13739C00B74885 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0545EE971F13739C00B74885 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0545EE991F13739C00B74885 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
 		0545EE9A1F13739C00B74885 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+ImageContentType.m"; sourceTree = "<group>"; };
@@ -438,7 +436,6 @@
 		0545EE951F13739C00B74885 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
-				0545EE961F13739C00B74885 /* LICENSE */,
 				0545EE971F13739C00B74885 /* README.md */,
 				0545EE981F13739C00B74885 /* SDWebImage */,
 			);
@@ -775,7 +772,6 @@
 				0531402F1F06443B00BF3D6C /* LICENSE in Resources */,
 				0561FE181F03AD3300FF0480 /* Assets.xcassets in Resources */,
 				0545EEC71F13741B00B74885 /* 2020g.gif in Resources */,
-				0545EEB61F13739C00B74885 /* LICENSE in Resources */,
 				051E18B21F0F71160017FFE4 /* UMSocialSDKPromptResources.bundle in Resources */,
 				051E18B41F0F71160017FFE4 /* UMSocialSDKResources.bundle in Resources */,
 			);
