@@ -551,7 +551,6 @@
 			isa = PBXGroup;
 			children = (
 				0561FE421F03AD8E00FF0480 /* C */,
-				0561FE431F03AD8E00FF0480 /* M */,
 				0561FE441F03AD8E00FF0480 /* V */,
 			);
 			path = Controllers;
@@ -566,13 +565,6 @@
 				0561FE481F03B1FE00FF0480 /* GameViewController.m */,
 			);
 			path = C;
-			sourceTree = "<group>";
-		};
-		0561FE431F03AD8E00FF0480 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
 			sourceTree = "<group>";
 		};
 		0561FE441F03AD8E00FF0480 /* V */ = {
