@@ -1,0 +1,117 @@
+//
+//  PrefixHeader.pch
+//  2020
+//
+//  Created by yurong on 2017/6/28.
+//  Copyright © 2017年 yurong. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+//-----------------URL
+#define shareURl @"vhttps://www.cnblogs.com/xujiahui/p/7094810.html"
+/////////////////      字段
+#define gamerRecord @"gamerRecord"
+#define dictGame  @"dictGameCenter"
+#define dictchallenger  @"dictChallengeCenter"
+#define APPKeyYouMeng @"596349f707fe652a92000cd9"  
+
+
+/////////////////    头文件
+#import "UIColor+Hex.h"
+#import "UIView+PopAlert.h"
+#import "UIView+SDAutoLayout.h"
+#import "BwjMyLabel.h"
+#import "VejMyButton.h"
+#import "FjChinesePinyin.h"
+#import "ComponentsD+Extension.h"
+
+
+/////////////////    属性方法
+                 ///////////////// UseerDefaults
+#define UserDefaults(object,key) [[NSUserDefaults standardUserDefaults]setObject:object forKey:key]
+#define UserDefault(key) [[NSUserDefaults standardUserDefaults] objectForKey:key]
+#define UserDefauleRemove(key) [[NSUserDefaults standardUserDefaults]removeObjectForKey:key]
+
+                  ///////////////// 通知
+#define NotificationAdd(action,name) [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(action:) name:name object:nil]
+#define NotificationPost(name,dict) [[NSNotificationCenter defaultCenter]postNotificationName:name object:nil userInfo:dict]
+#define NotificationRemove(name) [[NSNotificationCenter defaultCenter]removeObserver:self name:name object:nil]
+
+                 /////////////////  颜色
+#define ColorRGB(r,g,b) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:1]
+#define ColorString(string) [UIColor colorWithHexString:string]
+
+#define clearCo [UIColor clearColor]
+#define whiteCo [UIColor whiteColor]
+#define blackCo [UIColor blackColor]
+#define redkCo [UIColor redColor]
+
+
+                /////////////////图片相关
+//读取本地图片
+
+#define LoadImage(file,ext) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:file ofType:ext]]
+
+//定义UIImage对象
+
+#define ImageNamed(_pointer) [UIImage imageNamed:_pointer]
+
+//可拉伸的图片
+
+#define ResizableImage(name,top,left,bottom,right) [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(top,left,bottom,right)]
+
+#define ResizableImageWithMode(name,top,left,bottom,right,mode) [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(top,left,bottom,right) resizingMode:mode]
+
+
+
+
+///////////////// 系统设备相关
+              /////////////////    尺寸大小
+#define IPHONEHIGHT(b) [UIScreen mainScreen].bounds.size.height*((b)/1334.0)
+#define IPHONEWIDTH(a) [UIScreen mainScreen].bounds.size.width*((a)/750.0)
+#define ScreenWidth CGRectGetWidth([UIScreen mainScreen].bounds)
+#define ScreenHeight CGRectGetHeight([UIScreen mainScreen].bounds)
+
+                  //////////////获取系统版本
+
+#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+#define CurrentSystemVersion [[UIDevice currentDevice] systemVersion]
+#define isIOS4 ([[[UIDevice currentDevice] systemVersion] intValue]==4)
+#define isIOS5 ([[[UIDevice currentDevice] systemVersion] intValue]==5)
+#define isIOS6 ([[[UIDevice currentDevice] systemVersion] intValue]==6)
+#define isIOS7 ([[[UIDevice currentDevice] systemVersion] intValue]==7)
+#define isIOS8 ([[[UIDevice currentDevice] systemVersion] intValue]==8)
+#define isIOS9 ([[[UIDevice currentDevice] systemVersion] intValue]==9)
+#define isIOS10 ([[[UIDevice currentDevice] systemVersion] intValue]==10)
+#define isIOS11 ([[[UIDevice currentDevice] systemVersion] intValue]==11)
+
+
+              /////////////////    获取当前语言
+#define CurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
+
+
+              /////////////////    判断是否 Retina屏、设备是否%fhone 5、是否是iPad
+#define isRetina ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
+
+              /////////////////    判断是真机还是模拟器
+/*#if TARGET_OS_IPHONE
+
+//iPhone Device
+
+#endif
+
+#if TARGET_IPHONE_SIMULATOR
+
+//iPhone Simulator
+
+#endif    */
+
+#endif /* PrefixHeader_pch */

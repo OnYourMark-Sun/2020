@@ -1,0 +1,1414 @@
+使用须知:
+1.本工具不会收集和上传任何的代码信息
+2.对于使用本工具混淆的工程不负担任何风险和责任
+3.混淆之后可能会出现少数的报错,需要人工修改
+4.对于充值的金额,不作任何退款申请
+5.工具每次运行混淆都会进行网络验证,请保持网络畅通
+6.使用本工具前必须安装Xcode
+7.本工具暂时仅支持OC代码
+8.请务必备份源码!请务必备份源码!请务必备份源码!
+
+[公告] 马甲小助手正式版本已发布,请及时更新,有问题请加群417349932反馈
+INFO: [版本] 1.0(5)(Release)
+INFO: 当前为预览版,默认混淆30%代码,70%代码随机生成前后缀字母
+INFO: 当前为预览版,默认混淆30%代码,70%代码随机生成前后缀字母
+INFO: 当前使用的混淆模式->选项卡配置
+INFO: 正在分析工程文件,该过程比较耗资源,请耐心等待.......
+WARN: 无法解析的库文件 /usr/lib/system/libsystem_kernel.dylib
+WARN: 无法解析的库文件 /usr/lib/system/libsystem_platform.dylib
+WARN: 无法解析的库文件 /usr/lib/system/libsystem_pthread.dylib
+WARN: 无法解析的库文件 /usr/lib/system/libsystem_platform.dylib
+WARN: 无法解析的库文件 /usr/lib/system/libsystem_platform.dylib
+WARN: 无法解析的库文件 /usr/lib/system/libsystem_platform.dylib
+INFO: 目标MachO文件: 2020
+INFO: 解析库 ImageIO.framework
+INFO: 解析库 QuartzCore.framework
+INFO: 解析库 CoreGraphics.framework
+INFO: 解析库 CoreLocation.framework
+INFO: 解析库 Foundation.framework
+INFO: 解析库 CoreFoundation.framework
+INFO: 解析库 UserNotifications.framework
+INFO: 解析库 CoreTelephony.framework
+INFO: 解析库 CFNetwork.framework
+INFO: 解析库 SystemConfiguration.framework
+INFO: 解析库 UIKit.framework
+INFO: 解析库 AdSupport.framework
+INFO: 解析库 StoreKit.framework
+INFO: 解析库 Security.framework
+WARN: 无法解析的库文件 /usr/lib/system/libsystem_kernel.dylib
+WARN: 无法解析的库文件 /usr/lib/system/libsystem_platform.dylib
+WARN: 无法解析的库文件 /usr/lib/system/libsystem_pthread.dylib
+WARN: 无法解析的库文件 /usr/lib/system/libsystem_platform.dylib
+WARN: 无法解析的库文件 /usr/lib/system/libsystem_platform.dylib
+INFO: 分类GIF在内部黑名单中,已过滤
+INFO: 分类Hex在内部黑名单中,已过滤
+INFO: 分类Utilities在内部黑名单中,已过滤
+INFO: 类名UMSocialUniqueIdHandler在内部黑名单中,已过滤
+INFO: 类名UMSocialOfficialQQHandler在内部黑名单中,已过滤
+INFO: 类名TCWebViewKit在内部黑名单中,已过滤
+INFO: 类名QQApiObject在内部黑名单中,已过滤
+INFO: 类名QQApiTextObject在内部黑名单中,已过滤
+INFO: 类名QQApiExtendObject在内部黑名单中,已过滤
+INFO: 类名QQApiImageObject在内部黑名单中,已过滤
+INFO: 类名QQApiImageArrayForQZoneObject在内部黑名单中,已过滤
+INFO: 类名QQApiVideoForQZoneObject在内部黑名单中,已过滤
+INFO: 类名QQApiResultObject在内部黑名单中,已过滤
+INFO: 类名QQApiURLObject在内部黑名单中,已过滤
+INFO: 类名QQApiAudioObject在内部黑名单中,已过滤
+INFO: 类名QQApiVideoObject在内部黑名单中,已过滤
+INFO: 类名QQApiNewsObject在内部黑名单中,已过滤
+INFO: 类名QQPluginMetadata在内部黑名单中,已过滤
+INFO: 类名UMSocialComFMDatabase在内部黑名单中,已过滤
+INFO: 类名UMSocialHttpManager在内部黑名单中,已过滤
+INFO: 类名UMSocialOfficialSinaHandler在内部黑名单中,已过滤
+INFO: 类名WBAuthorizeRequest在内部黑名单中,已过滤
+INFO: 类名WBAuthorizeResponse在内部黑名单中,已过滤
+INFO: 类名WBBaseMediaObject在内部黑名单中,已过滤
+INFO: 类名WBSDKFMDatabase在内部黑名单中,已过滤
+INFO: 类名WBMessageObject在内部黑名单中,已过滤
+INFO: 类名WBSendMessageToWeiboRequest在内部黑名单中,已过滤
+INFO: 类名WBSendMessageToWeiboResponse在内部黑名单中,已过滤
+INFO: 类名WBWebpageObject在内部黑名单中,已过滤
+INFO: 类名WeiboSDK在内部黑名单中,已过滤
+INFO: 类名WBSDKJKArray在内部黑名单中,已过滤
+INFO: 类名WBSDKJKDictionary在内部黑名单中,已过滤
+INFO: 类名UMSocialOfficialWechatHandler在内部黑名单中,已过滤
+INFO: 类名UMSocialLogManager在内部黑名单中,已过滤
+INFO: 解析完成!
+INFO: 正在进行二次认证.....
+INFO: 开始
+
+INFO: 试用版
+
+INFO: 验证通过
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/2020Tests
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/BoxConfigurationTests
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/2020
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/Resouces
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/MBProgressHUD
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/ImmediatederivedLogicD
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/ImmediatederivedLogicD/MBProgressHUD
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/ImmediatederivedLogicD/ImmediatederivedLogicD
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/SDAutoLayout
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/ExitCreateLayout
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/SDWebImage
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage/SDWebImage
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage/HttpImage
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/YouMeng
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/UMSocial
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/UMSocialUI
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/InitializeDeviceI
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/InitializeDeviceI/UMSocialSDKResources.bundle
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/InitializeDeviceI/GcCallbackResourcesbundle
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/InitializeDeviceI/GcCallbackResourcesbundle/UMSocialWaterMark
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/InitializeDeviceI/GcCallbackResourcesbundle/ParseMark
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/InitializeDeviceI/GcCallbackResourcesbundle/Buttons
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/InitializeDeviceI/GcCallbackResourcesbundle/AngleButtons
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/InitializeDeviceI/GcCallbackResourcesbundle/UMSocialPlatformTheme
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/InitializeDeviceI/GcCallbackResourcesbundle/DictionaryTheme
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/InitializeDeviceI/GcCallbackResourcesbundle/DictionaryTheme/default
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/InitializeDeviceI/GcCallbackResourcesbundle/DictionaryTheme/Primarytabledefault
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/UMSocialSDK
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/VariableBackupK
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/VariableBackupK/UMSocialSDKPromptResources.bundle
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/VariableBackupK/SymbolResourcesbundle
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/SocialLibraries
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/UniqueId
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/RoleFontId
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/AlipayShare
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/CompilerExportShare
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/WeChat
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/DispatchSAXChat
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/DispatchSAXChat/WechatSDK
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/DispatchSAXChat/VariablePrinterK
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/Sina
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/GlobalSina
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/GlobalSina/SinaSDK
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/GlobalSina/SplitterComponentK
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/GlobalSina/SplitterComponentK/WeiboSDK.bundle
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/GlobalSina/SplitterComponentK/TcpKbundle
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/GlobalSina/SplitterComponentK/TcpKbundle/images
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/GlobalSina/SplitterComponentK/TcpKbundle/Mouseimages
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/GlobalSina/SplitterComponentK/TcpKbundle/others
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/GlobalSina/SplitterComponentK/TcpKbundle/Digestothers
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/QQ
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/ArrowPrefixQ
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/ArrowPrefixQ/QQSDK
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/ArrowPrefixQ/DerivationK
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/ArrowPrefixQ/DerivationK/TencentOpenApi_IOS_Bundle.bundle
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/ConnectionLibraries/ArrowPrefixQ/DerivationK/BackgroundBundlebundle
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/UMSocialSDKPlugin
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/ClipboardLogSocial/RulesPlugin
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/UMessage_Sdk_1.5.0a
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/Methoda
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/NotificationContent
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/EqualsContent
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/UMessage_Sdk_All_1.5.0a
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/Clonea
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/Clonea/UMessage_Sdk_Api_Reference
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/DeviceMeng/Clonea/ProtocolOverflowReference
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/Controllers
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/C
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/AbortTable
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/V
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate
+
+INFO: 文件夹:/Users/mac/Documents/2020/2020/2020UITests
+
+INFO: 重命名为:/Users/mac/Documents/2020/2020/PaletteTests
+
+INFO: 修改的类名总个数为:26
+
+INFO: [1/26]---修改类名
+
+INFO: 原类名:_FDFullscreenPopGestureRecognizerDelegate    新类名:VideoCLSDelegate
+
+INFO: [2/26]---修改类名
+
+INFO: 原类名:NumberViewCollectionViewCell    新类名:KgyNumberViewCollectionViewCell
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate/NumberViewCollectionViewCell.h
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate/KgyNumberViewCollectionViewCell.h
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate/NumberViewCollectionViewCell.m
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate/KgyNumberViewCollectionViewCell.m
+
+INFO: [3/26]---修改类名
+
+INFO: 原类名:SDWebImageCombinedOperation    新类名:HbSDWebImageCombinedOperation
+
+INFO: [4/26]---修改类名
+
+INFO: 原类名:MBProgressHUDRoundedButton    新类名:LrwMBProgressHUDRoundedButton
+
+INFO: [5/26]---修改类名
+
+INFO: 原类名:SDUIViewCategoryManager    新类名:ZmxSDUIViewCategoryManager
+
+INFO: [6/26]---修改类名
+
+INFO: 原类名:SDCellAutoHeightManager    新类名:NpSDCellAutoHeightManager
+
+INFO: [7/26]---修改类名
+
+INFO: 原类名:EmptyCollectionViewCell    新类名:SerializationCursorCell
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate/EmptyCollectionViewCell.h
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate/SerializationCursorCell.h
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate/EmptyCollectionViewCell.m
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate/SerializationCursorCell.m
+
+INFO: [8/26]---修改类名
+
+INFO: 原类名:SDAutoLayoutModelItem    新类名:SjSDAutoLayoutModelItem
+
+INFO: [9/26]---修改类名
+
+INFO: 原类名:SDWebImageDownloader    新类名:DxjSDWebImageDownloader
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage/HttpImage/SDWebImageDownloaderOperation.h
+
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage/HttpImage/SDWebImageDownloader.h
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage/HttpImage/DxjSDWebImageDownloader.h
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage/HttpImage/SDWebImageDownloader.m
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage/HttpImage/DxjSDWebImageDownloader.m
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage/HttpImage/SDWebImageDownloaderOperation.m
+
+
+INFO: [10/26]---修改类名
+
+INFO: 原类名:SDWebImagePrefetcher    新类名:FpjSDWebImagePrefetcher
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage/HttpImage/SDWebImagePrefetcher.h
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage/HttpImage/FpjSDWebImagePrefetcher.h
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage/HttpImage/SDWebImagePrefetcher.m
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage/HttpImage/FpjSDWebImagePrefetcher.m
+
+INFO: [11/26]---修改类名
+
+INFO: 原类名:RecordViewController    新类名:MjRecordViewController
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/AbortTable/RecordViewController.h
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/AbortTable/MjRecordViewController.h
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/AbortTable/RecordViewController.m
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/AbortTable/MjRecordViewController.m
+
+INFO: [12/26]---修改类名
+
+INFO: 原类名:MBRoundProgressView    新类名:MewMBRoundProgressView
+
+INFO: [13/26]---修改类名
+
+INFO: 原类名:RootViewController    新类名:TlRootViewController
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/RootViewController.h
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/TlRootViewController.h
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/RootViewController.m
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/TlRootViewController.m
+
+INFO: [14/26]---修改类名
+
+INFO: 原类名:GameViewController    新类名:RmGameViewController
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/AbortTable/GameViewController.h
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/AbortTable/RmGameViewController.h
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/AbortTable/GameViewController.m
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/AbortTable/RmGameViewController.m
+
+INFO: [15/26]---修改类名
+
+INFO: 原类名:MBBarProgressView    新类名:SpjMBBarProgressView
+
+INFO: [16/26]---修改类名
+
+INFO: 原类名:SDAutoLayoutModel    新类名:TypePrecedenceModel
+
+INFO: [17/26]---修改类名
+
+INFO: 原类名:SDWebImageManager    新类名:WkSDWebImageManager
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage/HttpImage/SDWebImageManager.h
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage/HttpImage/WkSDWebImageManager.h
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage/HttpImage/SDWebImageManager.m
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/HttpImage/HttpImage/WkSDWebImageManager.m
+
+INFO: [18/26]---修改类名
+
+INFO: 原类名:MBBackgroundView    新类名:MegMBBackgroundView
+
+INFO: [19/26]---修改类名
+
+INFO: 原类名:BackOfNumberView    新类名:IoBackOfNumberView
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate/BackOfNumberView.h
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate/IoBackOfNumberView.h
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate/BackOfNumberView.m
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate/IoBackOfNumberView.m
+
+INFO: [20/26]---修改类名
+
+INFO: 原类名:HoleviewOfEmpty    新类名:AlignEmpty
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate/HoleviewOfEmpty.h
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate/AlignEmpty.h
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate/HoleviewOfEmpty.m
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/IlRecursiveControllers/Iterate/AlignEmpty.m
+
+INFO: [21/26]---修改类名
+
+INFO: 原类名:AutoPurgeCache    新类名:DkAutoPurgeCache
+
+INFO: [22/26]---修改类名
+
+INFO: 原类名:ChinesePinyin    新类名:FjChinesePinyin
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/ChinesePinyin.h
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/FjChinesePinyin.h
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/ChinesePinyin.m
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/FjChinesePinyin.m
+
+INFO: [23/26]---修改类名
+
+INFO: 原类名:MBProgressHUD    新类名:ComponentsD
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/ImmediatederivedLogicD/ImmediatederivedLogicD/MBProgressHUD.h
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/ImmediatederivedLogicD/ImmediatederivedLogicD/ComponentsD.h
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/ImmediatederivedLogicD/MBProgressHUD+Extension.h
+
+
+INFO: 分类修改后的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/ImmediatederivedLogicD/ComponentsD+Extension.h
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/ImmediatederivedLogicD/ImmediatederivedLogicD/MBProgressHUD.m
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/ImmediatederivedLogicD/ImmediatederivedLogicD/ComponentsD.m
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/ImmediatederivedLogicD/MBProgressHUD+Extension.m
+
+
+INFO: 分类修改后的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/ImmediatederivedLogicD/ComponentsD+Extension.m
+
+INFO: [24/26]---修改类名
+
+INFO: 原类名:AppDelegate    新类名:OwAppDelegate
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/AppDelegate.h
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/OwAppDelegate.h
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/AppDelegate.m
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/OwAppDelegate.m
+
+INFO: [25/26]---修改类名
+
+INFO: 原类名:myButton    新类名:VejMyButton
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/myButton.h
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/VejMyButton.h
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/myButton.m
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/VejMyButton.m
+
+INFO: [26/26]---修改类名
+
+INFO: 原类名:myLabel    新类名:BwjMyLabel
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/myLabel.h
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/BwjMyLabel.h
+
+INFO: 要修改的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/myLabel.m
+
+
+INFO: 修改后的路径:/Users/mac/Documents/2020/2020/Instance/DirectoryResouces/BwjMyLabel.m
+
+INFO: 修改的方法名总个数为:112
+
+INFO: [1/112] 修改方法名
+
+INFO: 原方法名:shareImageAndTextToPlatformType:WithShareText:title:withSmallImage:withImage:    新方法名:wfpshareImageAndTextToPlatformTypewsn:explicitappend:uetitlethk:bindingclient:destroybox:
+
+INFO: [2/112] 修改方法名
+
+INFO: 原方法名:labelWithframe:backgroundColor:title:font:Alignment:textColor:    新方法名:interfaceformMessage:assignmentObject:uetitlethk:deferlookuptable:mxAlignmentok:initializemessage:
+
+INFO: [3/112] 修改方法名
+
+INFO: 原方法名:showAnimated:whileExecutingBlock:onQueue:completionBlock:    新方法名:ziwshowAnimatedbh:parameterindex:vectorbackground:containmentresolution:
+
+INFO: [4/112] 修改方法名
+
+INFO: 原方法名:addProgressCallback:completedBlock:forURL:createCallback:    新方法名:concurrencyformathyperlink:updatecontext:sideloosecoupling:invokeconnection:
+
+INFO: [5/112] 修改方法名
+
+INFO: 原方法名:showAnimated:whileExecutingBlock:completionBlock:    新方法名:ziwshowAnimatedbh:parameterindex:containmentresolution:
+
+INFO: [6/112] 修改方法名
+
+INFO: 原方法名:insertNewDataAtTheBeginingOfSection:newDataCount:    新方法名:overrideDNAbinary:objectmember:
+
+INFO: [7/112] 修改方法名
+
+INFO: 原方法名:showWhileExecuting:onTarget:withObject:animated:    新方法名:poolingoverloadstandardtemplatelibrary:unqualifiedword:checkproject:gwkanimatedbd:
+
+INFO: [8/112] 修改方法名
+
+INFO: 原方法名:downloadImageWithURL:options:progress:completed:    新方法名:memoryqualityConstrained:calendricalcascading:areaflush:kocompletedcq:
+
+INFO: [9/112] 修改方法名
+
+INFO: 原方法名:cellHeightForIndexPath:model:keyPath:cellClass:    新方法名:inheritancecollectionprogrammer:buttonsCover:exceptiondelegate:tracepostfix:
+
+INFO: [10/112] 修改方法名
+
+INFO: 原方法名:downloadWithURL:options:progress:completed:    新方法名:eddownloadWithURLejz:calendricalcascading:areaflush:kocompletedcq:
+
+INFO: [11/112] 修改方法名
+
+INFO: 原方法名:buttonWithType:frame:title:tag:andDelegate:    新方法名:czbuttonWithTypeuy:connectedreflection:uetitlethk:loadbalancingscalable:gclog:
+
+INFO: [12/112] 修改方法名
+
+INFO: 原方法名:HoleViewOfEmptyWithNumber:andView:typenum:    新方法名:bugcommunicationrank:qualitydriver:patterniterate:
+
+INFO: [13/112] 修改方法名
+
+INFO: 原方法名:showAnimated:whileExecutingBlock:onQueue:    新方法名:ziwshowAnimatedbh:parameterindex:vectorbackground:
+
+INFO: [14/112] 修改方法名
+
+INFO: 原方法名:cellHeightForIndexPath:model:keyPath:    新方法名:inheritancecollectionprogrammer:buttonsCover:exceptiondelegate:
+
+INFO: [15/112] 修改方法名
+
+INFO: 原方法名:updateForCurrentOrientationAnimated:    新方法名:spaceiterationsequential:
+
+INFO: [16/112] 修改方法名
+
+INFO: 原方法名:setSubviewFrameCache:WithIndexPath:    新方法名:typefetchaggregation:coverconnection:
+
+INFO: [17/112] 修改方法名
+
+INFO: 原方法名:cachedImageExistsForURL:completion:    新方法名:componentpalettemessagebased:variablespecification:
+
+INFO: [18/112] 修改方法名
+
+INFO: 原方法名:showAnimated:whileExecutingBlock:    新方法名:ziwshowAnimatedbh:parameterindex:
+
+INFO: [19/112] 修改方法名
+
+INFO: 原方法名:diskImageExistsForURL:completion:    新方法名:interfacedigestclient:variablespecification:
+
+INFO: [20/112] 修改方法名
+
+INFO: 原方法名:setNSProgressDisplayLinkEnabled:    新方法名:frsetNSProgressDisplayLinkEnableduf:
+
+INFO: [21/112] 修改方法名
+
+INFO: 原方法名:updateProgressFromProgressObject    新方法名:linearprogrammingbackgroundsession
+
+INFO: [22/112] 修改方法名
+
+INFO: 原方法名:subviewFrameCachesWithIndexPath:    新方法名:vendorfactoryStructured:
+
+INFO: [23/112] 修改方法名
+
+INFO: 原方法名:prefetchURLs:progress:completed:    新方法名:kxprefetchURLsjy:areaflush:kocompletedcq:
+
+INFO: [24/112] 修改方法名
+
+INFO: 原方法名:managerWithCellClass:tableView:    新方法名:modelingencapsulationcontrol:refactoringqualified:
+
+INFO: [25/112] 修改方法名
+
+INFO: 原方法名:animateIn:withType:completion:    新方法名:xaanimateInkvs:httpfirewall:variablespecification:
+
+INFO: [26/112] 修改方法名
+
+INFO: 原方法名:areDefaultMotionEffectsEnabled    新方法名:dataimplicitcontext
+
+INFO: [27/112] 修改方法名
+
+INFO: 原方法名:statusBarOrientationDidChange:    新方法名:vustatusBarOrientationDidChangeoz:
+
+INFO: [28/112] 修改方法名
+
+INFO: 原方法名:marginEqualToViewBlockWithKey:    新方法名:deletequalifiedline:
+
+INFO: [29/112] 修改方法名
+
+INFO: 原方法名:initWithCellClasses:tableView:    新方法名:initHierarchyimplementactivate:refactoringqualified:
+
+INFO: [30/112] 修改方法名
+
+INFO: 原方法名:clearHeightCacheOfIndexPaths:    新方法名:linearprogramminginstantiationiteration:
+
+INFO: [31/112] 修改方法名
+
+INFO: 原方法名:getAuthWithUserInfoFromWechat    新方法名:macroexplicitbinary
+
+INFO: [32/112] 修改方法名
+
+INFO: 原方法名:applyPriority:toConstraints:    新方法名:namecollectionsyntax:unqualifiedasynchronous:
+
+INFO: [33/112] 修改方法名
+
+INFO: 原方法名:initWithCellClass:tableView:    新方法名:initDefaultinformationasynchronous:refactoringqualified:
+
+INFO: [34/112] 修改方法名
+
+INFO: 原方法名:unregisterFromNotifications    新方法名:gkeunregisterFromNotificationshy
+
+INFO: [35/112] 修改方法名
+
+INFO: 原方法名:limitingWidthHeightWithKey:    新方法名:tzlimitingWidthHeightWithKeyna:
+
+INFO: [36/112] 修改方法名
+
+INFO: 原方法名:deleteThenResetHeightCache:    新方法名:overflowapplicationTCP:
+
+INFO: [37/112] 修改方法名
+
+INFO: 原方法名:insertNewDataAtIndexPaths:    新方法名:nwinsertNewDataAtIndexPathshi:
+
+INFO: [38/112] 修改方法名
+
+INFO: 原方法名:registerCellWithCellClass:    新方法名:robustnesscharactersfunction:
+
+INFO: [39/112] 修改方法名
+
+INFO: 原方法名:marginToViewblockWithKey:    新方法名:fkmarginToViewblockWithKeyejs:
+
+INFO: [40/112] 修改方法名
+
+INFO: 原方法名:initWithCache:downloader:    新方法名:initBugcontainerprocess:callbackcompile:
+
+INFO: [41/112] 修改方法名
+
+INFO: 原方法名:getAuthWithUserInfoFromQQ    新方法名:dugetAuthWithUserInfoFromQQlw
+
+INFO: [42/112] 修改方法名
+
+INFO: 原方法名:initializeLocationService    新方法名:initPrimarytableconstructdefault
+
+INFO: [43/112] 修改方法名
+
+INFO: 原方法名:hideAnimated:afterDelay:    新方法名:processarchivehandle:objectcall:
+
+INFO: [44/112] 修改方法名
+
+INFO: 原方法名:showHUDAddedTo:animated:    新方法名:defaultCalendricalbug:gwkanimatedbd:
+
+INFO: [45/112] 修改方法名
+
+INFO: 原方法名:updateBezelMotionEffects    新方法名:classHostupdate
+
+INFO: [46/112] 修改方法名
+
+INFO: 原方法名:updatePaddingConstraints    新方法名:finalizationdeletebackground
+
+INFO: [47/112] 修改方法名
+
+INFO: 原方法名:updateForBackgroundStyle    新方法名:rowdeletenestedtable
+
+INFO: [48/112] 修改方法名
+
+INFO: 原方法名:heightCacheForIndexPath:    新方法名:patternloadbalancingdeploy:
+
+INFO: [49/112] 修改方法名
+
+INFO: 原方法名:cachedImageExistsForURL:    新方法名:componentpalettemessagebased:
+
+INFO: [50/112] 修改方法名
+
+INFO: 原方法名:saveImageToCache:forURL:    新方法名:multablemodelingicon:sideloosecoupling:
+
+INFO: [51/112] 修改方法名
+
+INFO: 原方法名:startPrefetchingAtIndex:    新方法名:iqstartPrefetchingAtIndexflr:
+
+INFO: [52/112] 修改方法名
+
+INFO: 原方法名:OriginImage:scaleToSize:    新方法名:entitybackwardcompatiblewizard:searchrefactoring:
+
+INFO: [53/112] 修改方法名
+
+INFO: 原方法名:toText:hide:afterDelay:    新方法名:pipelinethrowdelegate:scjhideno:objectcall:
+
+INFO: [54/112] 修改方法名
+
+INFO: 原方法名:getUserInfoForPlatform:    新方法名:throwconstraintsource:
+
+INFO: [55/112] 修改方法名
+
+INFO: 原方法名:sd_isClosingAutoLayout    新方法名:packingaggregationarchitecture
+
+INFO: [56/112] 修改方法名
+
+INFO: 原方法名:diskImageExistsForURL:    新方法名:interfacedigestclient:
+
+INFO: [57/112] 修改方法名
+
+INFO: 原方法名:huadongqingchuWithInt:    新方法名:spaceprocessmaintain:
+
+INFO: [58/112] 修改方法名
+
+INFO: 原方法名:cacheKeyForIndexPath:    新方法名:backwardcompatibleuserarchive:
+
+INFO: [59/112] 修改方法名
+
+INFO: 原方法名:sharedImagePrefetcher    新方法名:ocmsharedImagePrefetchermx
+
+INFO: [60/112] 修改方法名
+
+INFO: 原方法名:configUSharePlatforms    新方法名:maintainresolutionremote
+
+INFO: [61/112] 修改方法名
+
+INFO: 原方法名:updateViewsForColor:    新方法名:recordmacropooling:
+
+INFO: [62/112] 修改方法名
+
+INFO: 原方法名:confitUShareSettings    新方法名:primarytablesavesupport
+
+INFO: [63/112] 修改方法名
+
+INFO: 原方法名:handleMinShowTimer:    新方法名:specificationmanifestiterative:
+
+INFO: [64/112] 修改方法名
+
+INFO: 原方法名:hideUsingAnimation:    新方法名:tzahideUsingAnimationipw:
+
+INFO: [65/112] 修改方法名
+
+INFO: 原方法名:showUsingAnimation:    新方法名:constraintheapprogrammer:
+
+INFO: [66/112] 修改方法名
+
+INFO: 原方法名:marginBlockWithKey:    新方法名:dispatchcreationmemory:
+
+INFO: [67/112] 修改方法名
+
+INFO: 原方法名:operationWithTask:    新方法名:saverecursiveraw:
+
+INFO: [68/112] 修改方法名
+
+INFO: 原方法名:timerChangeString:    新方法名:messagebasedinstancebracket:
+
+INFO: [69/112] 修改方法名
+
+INFO: 原方法名:handleGraceTimer:    新方法名:coverassignscalable:
+
+INFO: [70/112] 修改方法名
+
+INFO: 原方法名:cancelPrefetching    新方法名:integrateupdateSearching
+
+INFO: [71/112] 修改方法名
+
+INFO: 原方法名:handleHideTimer:    新方法名:binaryinstantiatedcover:
+
+INFO: [72/112] 修改方法名
+
+INFO: 原方法名:hide:afterDelay:    新方法名:scjhideno:objectcall:
+
+INFO: [73/112] 修改方法名
+
+INFO: 原方法名:updateIndicators    新方法名:hxsupdateIndicatorsqrx
+
+INFO: [74/112] 修改方法名
+
+INFO: 原方法名:clearHeightCache    新方法名:associatedbugarchitecture
+
+INFO: [75/112] 修改方法名
+
+INFO: 原方法名:cacheKeyForURL:    新方法名:actualobjectorientedCalculations:
+
+INFO: [76/112] 修改方法名
+
+INFO: 原方法名:CreatGameRecord    新方法名:kqCreatGameRecordwb
+
+INFO: [77/112] 修改方法名
+
+INFO: 原方法名:Gamerecordlabel    新方法名:characterprimarytablecheck
+
+INFO: [78/112] 修改方法名
+
+INFO: 原方法名:SetGuanButWith:    新方法名:compilerCLSevent:
+
+INFO: [79/112] 修改方法名
+
+INFO: 原方法名:reportingCenter    新方法名:arrayengineassignment
+
+INFO: [80/112] 修改方法名
+
+INFO: 原方法名:suijishuwithInt    新方法名:exitclipboarddecay
+
+INFO: [81/112] 修改方法名
+
+INFO: 原方法名:shareImageText:    新方法名:instantiatedgroupdelete:
+
+INFO: [82/112] 修改方法名
+
+INFO: 原方法名:buttonClicked:    新方法名:schedulersequentialcommit:
+
+INFO: [83/112] 修改方法名
+
+INFO: 原方法名:sendEmailtoxsy    新方法名:revokespecializationsURL
+
+INFO: [84/112] 修改方法名
+
+INFO: 原方法名:savegameRecord    新方法名:routinetargetschema
+
+INFO: [85/112] 修改方法名
+
+INFO: 原方法名:showAnimated:    新方法名:ziwshowAnimatedbh:
+
+INFO: [86/112] 修改方法名
+
+INFO: 原方法名:prefetchURLs:    新方法名:kxprefetchURLsjy:
+
+INFO: [87/112] 修改方法名
+
+INFO: 原方法名:silidingRight    新方法名:instanceobjecthyperlink
+
+INFO: [88/112] 修改方法名
+
+INFO: 原方法名:reportStatus    新方法名:splitterlinkagecommunication
+
+INFO: [89/112] 修改方法名
+
+INFO: 原方法名:silidingDown    新方法名:advancedreferscalable
+
+INFO: [90/112] 修改方法名
+
+INFO: 原方法名:silidingLift    新方法名:zusilidingLiftmt
+
+INFO: [91/112] 修改方法名
+
+INFO: 原方法名:silidingTop    新方法名:dialogCalculationsMatching
+
+INFO: [92/112] 修改方法名
+
+INFO: 原方法名:butAction:    新方法名:routineDefinitionTransformation:
+
+INFO: [93/112] 修改方法名
+
+INFO: 原方法名:creatCollc    新方法名:lhcreatCollcaeg
+
+INFO: [94/112] 修改方法名
+
+INFO: 原方法名:starVimage    新方法名:placeholdersourcespecification
+
+INFO: [95/112] 修改方法名
+
+INFO: 原方法名:isAnnular    新方法名:trbisAnnularvl
+
+INFO: [96/112] 修改方法名
+
+INFO: 原方法名:CreatDown    新方法名:xhCreatDownzmb
+
+INFO: [97/112] 修改方法名
+
+INFO: 原方法名:CreatUser    新方法名:compilemessagestring
+
+INFO: [98/112] 修改方法名
+
+INFO: 原方法名:beginGame    新方法名:connectionglobalargument
+
+INFO: [99/112] 修改方法名
+
+INFO: 原方法名:creatData    新方法名:rollbacktypeparser
+
+INFO: [100/112] 修改方法名
+
+INFO: 原方法名:fanhuizhu    新方法名:combouserdefinition
+
+INFO: [101/112] 修改方法名
+
+INFO: 原方法名:timerStar    新方法名:fetchbracedeadlock
+
+INFO: [102/112] 修改方法名
+
+INFO: 原方法名:getPhoto    新方法名:flagdeferparse
+
+INFO: [103/112] 修改方法名
+
+INFO: 原方法名:StarGame    新方法名:createdriverlevel
+
+INFO: [104/112] 修改方法名
+
+INFO: 原方法名:creaDATA    新方法名:covercommentGC
+
+INFO: [105/112] 修改方法名
+
+INFO: 原方法名:CreatUp    新方法名:loaderprocessentity
+
+INFO: [106/112] 修改方法名
+
+INFO: 原方法名:Creatui    新方法名:writeonlyadapterinvariants
+
+INFO: [107/112] 修改方法名
+
+INFO: 原方法名:button:    新方法名:effectpersistencereturn:
+
+INFO: [108/112] 修改方法名
+
+INFO: 原方法名:right2:    新方法名:maintainDNAeventdriven:
+
+INFO: [109/112] 修改方法名
+
+INFO: 原方法名:isNum:    新方法名:hsisNumkbz:
+
+INFO: [110/112] 修改方法名
+
+INFO: 原方法名:Down2:    新方法名:projectsetrecursive:
+
+INFO: [111/112] 修改方法名
+
+INFO: 原方法名:Lift2:    新方法名:bindingresolveUnconstrained:
+
+INFO: [112/112] 修改方法名
+
+INFO: 原方法名:top2:    新方法名:arrayheapconstant:
+
+INFO: 修改的属性总个数为:112
+
+INFO: [1/112] 修改属性
+
+INFO: 属性名:shouldKeepHeightCacheWhenReloadingData 新属性名:lhShouldKeepHeightCacheWhenReloadingData
+
+INFO: [2/112] 修改属性
+
+INFO: 属性名:shouldReadjustFrameBeforeStoreCache 新属性名:iuyShouldReadjustFrameBeforeStoreCache
+
+INFO: [3/112] 修改属性
+
+INFO: 属性名:defaultMotionEffectsEnabled 新属性名:cleanupEnabled
+
+INFO: [4/112] 修改属性
+
+INFO: 属性名:shouldShowAsAutoMarginViews 新属性名:kgnShouldShowAsAutoMarginViews
+
+INFO: [5/112] 修改属性
+
+INFO: 属性名:progressObjectDisplayLink 新属性名:throwLink
+
+INFO: [6/112] 修改属性
+
+INFO: 属性名:removeFromSuperViewOnHide 新属性名:callbackRobustnessHide
+
+INFO: [7/112] 修改属性
+
+INFO: 属性名:progressRemainingColor 新属性名:hkyProgressRemainingColor
+
+INFO: [8/112] 修改属性
+
+INFO: 属性名:shouldDecompressImages 新属性名:vcShouldDecompressImages
+
+INFO: [9/112] 修改属性
+
+INFO: 属性名:subviewFrameCacheDict 新属性名:containerQualifierDict
+
+INFO: [10/112] 修改属性
+
+INFO: 属性名:hasSetFrameWithCache 新属性名:kwpHasSetFrameWithCache
+
+INFO: [11/112] 修改属性
+
+INFO: 属性名:rightViewRightMargin 新属性名:xuRightViewRightMargin
+
+INFO: [12/112] 修改属性
+
+INFO: 属性名:needsAutoResizeView 新属性名:gebNeedsAutoResizeView
+
+INFO: [13/112] 修改属性
+
+INFO: 属性名:horizontalEdgeInset 新属性名:okeHorizontalEdgeInset
+
+INFO: [14/112] 修改属性
+
+INFO: 属性名:paddingConstraints 新属性名:fhkPaddingConstraints
+
+INFO: [15/112] 修改属性
+
+INFO: 属性名:centerXEqualToView 新属性名:clCenterXEqualToView
+
+INFO: [16/112] 修改属性
+
+INFO: 属性名:centerYEqualToView 新属性名:tfCenterYEqualToView
+
+INFO: [17/112] 修改属性
+
+INFO: 属性名:heightEqualToWidth 新属性名:kjHeightEqualToWidth
+
+INFO: [18/112] 修改属性
+
+INFO: 属性名:widthEqualToHeight 新属性名:splitterHeight
+
+INFO: [19/112] 修改属性
+
+INFO: 属性名:sd_closeAutoLayout 新属性名:itSd_closeAutoLayout
+
+INFO: [20/112] 修改属性
+
+INFO: 属性名:lastAddedOperation 新属性名:rdaLastAddedOperation
+
+INFO: [21/112] 修改属性
+
+INFO: 属性名:bottomEqualToView 新属性名:handleView
+
+INFO: [22/112] 修改属性
+
+INFO: 属性名:bottomSpaceToView 新属性名:modemCharactersView
+
+INFO: [23/112] 修改属性
+
+INFO: 属性名:heightRatioToView 新属性名:buttonsQueryView
+
+INFO: [24/112] 修改属性
+
+INFO: 属性名:verticalEdgeInset 新属性名:stringmatchingIterativeInset
+
+INFO: [25/112] 修改属性
+
+INFO: 属性名:runningOperations 新属性名:dkRunningOperations
+
+INFO: [26/112] 修改属性
+
+INFO: 属性名:bezelConstraints 新属性名:pmhBezelConstraints
+
+INFO: [27/112] 修改属性
+
+INFO: 属性名:heightEqualWidth 新属性名:ejHeightEqualWidth
+
+INFO: [28/112] 修改属性
+
+INFO: 属性名:rightEqualToView 新属性名:assertPackagingView
+
+INFO: [29/112] 修改属性
+
+INFO: 属性名:rightSpaceToView 新属性名:kmRightSpaceToView
+
+INFO: [30/112] 修改属性
+
+INFO: 属性名:spaceToSuperView 新属性名:clauseFormView
+
+INFO: [31/112] 修改属性
+
+INFO: 属性名:widthEqualHeight 新属性名:mhWidthEqualHeight
+
+INFO: [32/112] 修改属性
+
+INFO: 属性名:widthRatioToView 新属性名:dzrWidthRatioToView
+
+INFO: [33/112] 修改属性
+
+INFO: 属性名:perRowItemsCount 新属性名:paPerRowItemsCount
+
+INFO: [34/112] 修改属性
+
+INFO: 属性名:contentViewWidth 新属性名:drContentViewWidth
+
+INFO: [35/112] 修改属性
+INFO: 属性名:numViewEmptytype 新属性名:jmaNumViewEmptytype
+INFO: [36/112] 修改属性
+INFO: 属性名:autoHeightRatio 新属性名:nvAutoHeightRatio
+INFO: [37/112] 修改属性
+INFO: 属性名:leftEqualToView 新属性名:chainView
+
+INFO: [38/112] 修改属性
+
+INFO: 属性名:leftSpaceToView 新属性名:cgLeftSpaceToView
+
+INFO: [39/112] 修改属性
+
+INFO: 属性名:rightViewsArray 新属性名:chainBackwardcompatibleArray
+
+INFO: [40/112] 修改属性
+
+INFO: 属性名:cellDataSetting 新属性名:cpCellDataSetting
+
+INFO: [41/112] 修改属性
+
+INFO: 属性名:imageDownloader 新属性名:assignmentSchedulerDownloader
+
+INFO: [42/112] 修改属性
+
+INFO: 属性名:downloadTimeout 新属性名:oanDownloadTimeout
+
+INFO: [43/112] 修改属性
+
+INFO: 属性名:prefetcherQueue 新属性名:controlSearchQueue
+
+INFO: [44/112] 修改属性
+
+INFO: 属性名:challengeRecord 新属性名:mibChallengeRecord
+
+INFO: [45/112] 修改属性
+
+INFO: 属性名:hideDelayTimer 新属性名:pivHideDelayTimer
+
+INFO: [46/112] 修改属性
+
+INFO: 属性名:progressObject 新属性名:lekProgressObject
+
+INFO: [47/112] 修改属性
+
+INFO: 属性名:taskInProgress 新属性名:imageProgress
+
+INFO: [48/112] 修改属性
+
+INFO: 属性名:autoWidthRatio 新属性名:viAutoWidthRatio
+
+INFO: [49/112] 修改属性
+
+INFO: 属性名:topEqualToView 新属性名:rfTopEqualToView
+
+INFO: [50/112] 修改属性
+
+INFO: 属性名:topSpaceToView 新属性名:prfTopSpaceToView
+
+INFO: [51/112] 修改属性
+
+INFO: 属性名:modelTableview 新属性名:archiveTableview
+
+INFO: [52/112] 修改属性
+
+INFO: 属性名:cacheKeyFilter 新属性名:trCacheKeyFilter
+
+INFO: [53/112] 修改属性
+
+INFO: 属性名:cacheOperation 新属性名:commitOperation
+
+INFO: [54/112] 修改属性
+
+INFO: 属性名:executionOrder 新属性名:linkageOrder
+
+INFO: [55/112] 修改属性
+
+INFO: 属性名:requestedCount 新属性名:wiuRequestedCount
+
+INFO: [56/112] 修改属性
+
+INFO: 属性名:lastModelItem 新属性名:gsLastModelItem
+
+INFO: [57/112] 修改属性
+
+INFO: 属性名:refViewsArray 新属性名:wnRefViewsArray
+
+INFO: [58/112] 修改属性
+
+INFO: 属性名:flowItemWidth 新属性名:klfFlowItemWidth
+
+INFO: [59/112] 修改属性
+
+INFO: 属性名:headersFilter 新属性名:invokeDelegationFilter
+
+INFO: [60/112] 修改属性
+
+INFO: 属性名:urlCredential 新属性名:ethUrlCredential
+
+INFO: [61/112] 修改属性
+
+INFO: 属性名:finishedCount 新属性名:vwhFinishedCount
+
+INFO: [62/112] 修改属性
+
+INFO: 属性名:challengeName 新属性名:ueChallengeName
+
+INFO: [63/112] 修改属性
+
+INFO: 属性名:bottomSpacer 新属性名:vwnBottomSpacer
+
+INFO: [64/112] 修改属性
+
+INFO: 属性名:minShowTimer 新属性名:glMinShowTimer
+
+INFO: [65/112] 修改属性
+
+INFO: 属性名:useAnimation 新属性名:protocolAnimation
+
+INFO: [66/112] 修改属性
+
+INFO: 属性名:equalCenterX 新属性名:vkEqualCenterX
+
+INFO: [67/112] 修改属性
+
+INFO: 属性名:equalCenterY 新属性名:srEqualCenterY
+
+INFO: [68/112] 修改属性
+
+INFO: 属性名:ratio_bottom 新属性名:ovRatio_bottom
+
+INFO: [69/112] 修改属性
+
+INFO: 属性名:ratio_height 新属性名:uwlRatio_height
+
+INFO: [70/112] 修改属性
+
+INFO: 属性名:sd_indexPath 新属性名:returnPath
+
+INFO: [71/112] 修改属性
+
+INFO: 属性名:sd_tableView 新属性名:jfSd_tableView
+
+INFO: [72/112] 修改属性
+
+INFO: 属性名:URLCallbacks 新属性名:threadRefactoringCallbacks
+
+INFO: [73/112] 修改属性
+
+INFO: 属性名:barrierQueue 新属性名:dataPatternQueue
+
+INFO: [74/112] 修改属性
+
+INFO: 属性名:prefetchURLs 新属性名:fetchTransformationLs
+
+INFO: [75/112] 修改属性
+
+INFO: 属性名:skippedCount 新属性名:rfSkippedCount
+
+INFO: [76/112] 修改属性
+
+INFO: 属性名:numViewEmpty 新属性名:operationEmpty
+
+INFO: [77/112] 修改属性
+
+INFO: 属性名:minShowTime 新属性名:gymMinShowTime
+
+INFO: [78/112] 修改属性
+
+INFO: 属性名:showStarted 新属性名:bkShowStarted
+
+INFO: [79/112] 修改属性
+
+INFO: 属性名:equalBottom 新属性名:optimizationBackupBottom
+
+INFO: [80/112] 修改属性
+
+INFO: 属性名:maxHeightIs 新属性名:opnMaxHeightIs
+
+INFO: [81/112] 修改属性
+
+INFO: 属性名:minHeightIs 新属性名:yvqMinHeightIs
+
+INFO: [82/112] 修改属性
+
+INFO: 属性名:ratio_right 新属性名:vqtRatio_right
+
+INFO: [83/112] 修改属性
+
+INFO: 属性名:ratio_width 新属性名:vfwRatio_width
+
+INFO: [84/112] 修改属性
+
+INFO: 属性名:startedTime 新属性名:iqfStartedTime
+
+INFO: [85/112] 修改属性
+
+INFO: 属性名:GameRecord1 新属性名:bydGameRecord1
+
+INFO: [86/112] 修改属性
+
+INFO: 属性名:record1Name 新属性名:ojRecord1Name
+
+INFO: [87/112] 修改属性
+
+INFO: 属性名:graceTimer 新属性名:gtGraceTimer
+
+INFO: [88/112] 修改属性
+
+INFO: 属性名:equalRight 新属性名:iqEqualRight
+
+INFO: [89/112] 修改属性
+
+INFO: 属性名:maxWidthIs 新属性名:icuMaxWidthIs
+
+INFO: [90/112] 修改属性
+
+INFO: 属性名:minWidthIs 新属性名:dqMinWidthIs
+
+INFO: [91/112] 修改属性
+
+INFO: 属性名:ratio_left 新属性名:symbolLeft
+
+INFO: [92/112] 修改属性
+
+INFO: 属性名:cellHeight 新属性名:gwCellHeight
+
+INFO: [93/112] 修改属性
+
+INFO: 属性名:failedURLs 新属性名:sdFailedURLs
+
+INFO: [94/112] 修改属性
+
+INFO: 属性名:bezelView 新属性名:conceptSyntaxView
+
+INFO: [95/112] 修改属性
+
+INFO: 属性名:graceTime 新属性名:applicationConcreteTime
+
+INFO: [96/112] 修改属性
+
+INFO: 属性名:topSpacer 新属性名:cteTopSpacer
+
+INFO: [97/112] 修改属性
+
+INFO: 属性名:centerXIs 新属性名:linearprogrammingIs
+
+INFO: [98/112] 修改属性
+
+INFO: 属性名:centerYIs 新属性名:eiCenterYIs
+
+INFO: [99/112] 修改属性
+
+INFO: 属性名:equalLeft 新属性名:gqzEqualLeft
+
+INFO: [100/112] 修改属性
+
+INFO: 属性名:ratio_top 新属性名:xksRatio_top
+
+INFO: [101/112] 修改属性
+
+INFO: 属性名:flowItems 新属性名:gdkFlowItems
+
+INFO: [102/112] 修改属性
+
+INFO: 属性名:lastWidth 新属性名:stubWidth
+
+INFO: [103/112] 修改属性
+
+INFO: 属性名:modelCell 新属性名:aoiModelCell
+
+INFO: [104/112] 修改属性
+
+INFO: 属性名:equalTop 新属性名:vhEqualTop
+
+INFO: [105/112] 修改属性
+
+INFO: 属性名:heightIs 新属性名:nzHeightIs
+
+INFO: [106/112] 修改属性
+
+INFO: 属性名:annular 新属性名:mkAnnular
+
+INFO: [107/112] 修改属性
+
+INFO: 属性名:widthIs 新属性名:matchingIs
+
+INFO: [108/112] 修改属性
+
+INFO: 属性名:refView 新属性名:hierarchyView
+
+INFO: [109/112] 修改属性
+
+INFO: 属性名:GameNum 新属性名:spaceTCPNum
+
+INFO: [110/112] 修改属性
+
+INFO: 属性名:square 新属性名:muSquare
+
+INFO: [111/112] 修改属性
+
+INFO: 属性名:xIs 新属性名:auXIs
+
+INFO: [112/112] 修改属性
+
+INFO: 属性名:yIs 新属性名:kvYIs
+
+INFO: ~~~~~~~~~~混淆结束~~~~~~~
+
+INFO: [任务完成]
